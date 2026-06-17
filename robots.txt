@@ -1,12 +1,5 @@
-# Sitenin Site Haritasını (Sitemap) arama motorlarına bildiriyoruz
-Sitemap: https://yavuztaspinar.github.io/yavuzrulman/sitemap.xml
-
-# Tüm arama motoru botları için kurallar
 User-agent: *
-
-# Botların sitenizin tamamını taramasına izin veriyoruz
 Allow: /
 
-# Eğer ileride kullanırsanız, yönetim veya sistem klasörlerini engellemek için (İsteğe bağlı)
-# Disallow: /admin/
-# Disallow: /private/
+# Site Haritası Yolunu Arama Motorlarına Bildir
+Sitemap: https://yavuztaspinar.github.io/yavuzrulman/sitemap.xml
