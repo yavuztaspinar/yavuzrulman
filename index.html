@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yavuz Rulman'a Hoş Geldiniz</title>
+    
+    <!-- --- KRİTİK SEO ETİKETLERİ --- -->
+    <title>Yavuz Rulman | Endüstriyel Rulman ve Yedek Parça Çözümleri</title>
+    <meta name="description" content="Yavuz Rulman resmi web sitesine hoş geldiniz. Yüksek kaliteli endüstriyel rulman çeşitleri, bilyalar ve teknik çözümler için sanal mağazamızı inceleyin.">
+    <meta name="keywords" content="yavuz rulman, rulman çeşitleri, endüstriyel rulman, bilya, lineer rulman, rulman mağazası">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Sosyal Medya Paylaşımları İçin) -->
+    <meta property="og:title" content="Yavuz Rulman | Endüstriyel Rulman Çözümleri">
+    <meta property="og:description" content="Yüksek kaliteli endüstriyel rulman çeşitleri ve teknik çözümler için sanal mağazamızı inceleyin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/">
+    
     <style>
         * {
             margin: 0;
@@ -37,6 +49,16 @@
             max-width: 80%;
             pointer-events: none;
         }
+        
+        /* SEO için h1 etiketini bu sınıfa bağladık */
+        .seo-heading {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
         .letter {
             color: #ffffff;
             font-size: 4rem;
@@ -91,6 +113,17 @@
             z-index: 1;
             pointer-events: none;
         }
+
+        /* Ekran küçükse (Mobil cihazlar için) yazı boyutunu optimize etme */
+        @media (max-width: 768px) {
+            .letter {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            .space {
+                width: 1rem;
+            }
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -101,15 +134,19 @@
     <div id="canvas-container"></div>
     
     <div id="text-container">
-        </div>
+        <!-- Google'ın anahtar kelimenizi görebilmesi için h1 eklendi, görsel yapı bozulmadı -->
+        <h1 class="seo-heading" id="dynamic-heading"></h1>
+    </div>
 
     <div id="button-container">
-        <a href="index2.html" class="enter-btn">Sanal Mağazayı İncele</a>
+        <!-- title niteliği botlar ve kullanıcılar için netleştirildi -->
+        <a href="index2.html" class="enter-btn" title="Yavuz Rulman Sanal Mağazasına Giriş Yapın">Sanal Mağazayı İncele</a>
     </div>
 
     <script>
         const container = document.getElementById('canvas-container');
-        const textContainer = document.getElementById('text-container');
+        // Harflerin ekleneceği yer h1 elementi olarak güncellendi
+        const textContainer = document.getElementById('dynamic-heading');
         const welcomePhrase = "YAVUZ RULMANA HOŞ GELDİNİZ";
 
         welcomePhrase.split('').forEach(char => {
@@ -246,12 +283,12 @@
             1.6
         );
 
-        // 4. BUTONUN YAVAŞÇA BELİRMESİ (Yazı tamamlanırken netleşir)
+        // 4. BUTONUN YAVAŞÇA BELİRMESİ
         tl.to("#button-container", {
-            autoAlpha: 1, // Hem opacity'yi 1 yapar hem de görünür (visibility: visible) kılar.
+            autoAlpha: 1, 
             duration: 1,
             ease: "power1.inOut"
-        }, 3.0); // Çarpışmadan 1.5 saniye sonra yazı ve buton dengelenir.
+        }, 3.0);
 
 
         // --- RENDER DÖNGÜSÜ ---
