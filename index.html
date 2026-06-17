@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yavuz Rulman'a Hoş Geldiniz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #050505;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        #text-container {
+            position: absolute;
+            top: 40%; /* Butona yer açmak için biraz yukarı kaydırıldı */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 80%;
+            pointer-events: none;
+        }
+        .letter {
+            color: #ffffff;
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(0, 150, 255, 0.8), 0 0 40px rgba(0, 150, 255, 0.4);
+            opacity: 0;
+            display: inline-block;
+            transform: scale(0) translate3d(0, 0, 0);
+        }
+        .space {
+            width: 2rem;
+        }
+        
+        /* --- YENİ EKLENEN BUTON STİLLERİ --- */
+        #button-container {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            opacity: 0; /* Başlangıçta gizli */
+            visibility: hidden;
+        }
+        .enter-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: transparent;
+            border: 2px solid #0066ff;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(0, 102, 254, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .enter-btn:hover {
+            background: #0066ff;
+            box-shadow: 0 0 30px rgba(0, 102, 254, 0.8);
+            transform: scale(1.05);
+        }
+
+        .glow-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,102,204,0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div class="glow-overlay"></div>
+    <div id="canvas-container"></div>
+    
+    <div id="text-container">
+        </div>
+
+    <div id="button-container">
+        <a href="index2.html" class="enter-btn">Sanal Mağazayı İncele</a>
+    </div>
+
+    <script>
+        const container = document.getElementById('canvas-container');
+        const textContainer = document.getElementById('text-container');
+        const welcomePhrase = "YAVUZ RULMANA HOŞ GELDİNİZ";
+
+        welcomePhrase.split('').forEach(char => {
+            if(char === ' ') {
+                const space = document.createElement('span');
+                space.className = 'space';
+                textContainer.appendChild(space);
+            } else {
+                const span = document.createElement('span');
+                span.className = 'letter';
+                span.innerText = char;
+                textContainer.appendChild(span);
+            }
+        });
+
+        // --- THREE.JS AYARLARI ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const blueLight = new THREE.PointLight(0x0066ff, 2, 50);
+        blueLight.position.set(0, 0, 10);
+        scene.add(blueLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 5, 5);
+        scene.add(dirLight);
+
+        camera.position.z = 15;
+
+        // --- METALİK RULMANLAR ---
+        const metalMaterial = new THREE.MeshStandardMaterial({
+            color: 0xcccccc,
+            metalness: 0.9,
+            roughness: 0.1
+        });
+
+        function createBearing(direction) {
+            const bearingGroup = new THREE.Group();
+
+            const outerRingGeo = new THREE.CylinderGeometry(4, 4, 1, 32, 1, true);
+            const outerRing = new THREE.Mesh(outerRingGeo, metalMaterial);
+            outerRing.rotation.x = Math.PI / 2;
+            bearingGroup.add(outerRing);
+
+            const innerRingGeo = new THREE.CylinderGeometry(2, 2, 1, 32, 1, true);
+            const innerRing = new THREE.Mesh(innerRingGeo, metalMaterial);
+            innerRing.rotation.x = Math.PI / 2;
+            bearingGroup.add(innerRing);
+
+            const ballGeo = new THREE.SphereGeometry(0.4, 16, 16);
+            const balls = [];
+            const ballCount = 10;
+
+            for (let i = 0; i < ballCount; i++) {
+                const angle = (i / ballCount) * Math.PI * 2;
+                const ball = new THREE.Mesh(ballGeo, metalMaterial);
+                ball.position.x = Math.cos(angle) * 3;
+                ball.position.y = Math.sin(angle) * 3;
+                bearingGroup.add(ball);
+                balls.push(ball);
+            }
+
+            bearingGroup.position.x = direction * 25;
+            bearingGroup.position.y = (Math.random() - 0.5) * 4;
+            scene.add(bearingGroup);
+
+            return { group: bearingGroup, balls: balls, outer: outerRing, inner: innerRing };
+        }
+
+        const bearingLeft = createBearing(-1);
+        const bearingRight = createBearing(1);
+
+        // --- ANIMASYON (GSAP) ---
+        const tl = gsap.timeline();
+
+        // 1. Geliş ve Dönüş
+        tl.to(bearingLeft.group.position, { x: -0.5, y: 0, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingLeft.group.rotation, { z: Math.PI * 6, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingRight.group.position, { x: 0.5, y: 0, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingRight.group.rotation, { z: -Math.PI * 6, duration: 1.5, ease: "power2.in" }, 0);
+
+        // 2. Çarpışma ve Patlama
+        tl.to({}, {
+            duration: 0.1,
+            onComplete: () => {
+                blueLight.intensity = 10;
+                gsap.to(blueLight, { intensity: 2, duration: 0.5 });
+
+                gsap.to(bearingLeft.outer.position, { x: -5, y: 5, z: -5, duration: 1, ease: "power3.out" });
+                gsap.to(bearingLeft.inner.position, { x: -3, y: -4, z: 5, duration: 1, ease: "power3.out" });
+                gsap.to(bearingRight.outer.position, { x: 5, y: -5, z: -5, duration: 1, ease: "power3.out" });
+                gsap.to(bearingRight.inner.position, { x: 3, y: 4, z: 5, duration: 1, ease: "power3.out" });
+
+                explodeBalls(bearingLeft.balls, -1);
+                explodeBalls(bearingRight.balls, 1);
+            }
+        }, 1.5);
+
+        function explodeBalls(ballsArray, dir) {
+            ballsArray.forEach((ball) => {
+                const globalPos = new THREE.Vector3();
+                ball.getWorldPosition(globalPos);
+                scene.attach(ball);
+                gsap.to(ball.position, {
+                    x: globalPos.x + (Math.random() - 0.3) * 15 * dir,
+                    y: globalPos.y + (Math.random() - 0.5) * 15,
+                    z: globalPos.z + (Math.random() - 0.2) * 15,
+                    duration: 2,
+                    ease: "power2.out"
+                });
+                gsap.to(ball.scale, { x: 0, y: 0, z: 0, duration: 2, ease: "power2.out" });
+            });
+        }
+
+        // 3. Harflerin Oluşması
+        tl.fromTo(".letter", 
+            { 
+                opacity: 0, scale: 0,
+                x: () => (Math.random() - 0.5) * window.innerWidth * 1.5,
+                y: () => (Math.random() - 0.5) * window.innerHeight * 1.5,
+                z: () => (Math.random() - 0.5) * 1000,
+                rotation: () => (Math.random() - 0.5) * 720
+            },
+            {
+                opacity: 1, scale: 1, x: 0, y: 0, z: 0, rotation: 0,
+                duration: 2, stagger: 0.04, ease: "back.out(1.2)"
+            }, 
+            1.6
+        );
+
+        // 4. BUTONUN YAVAŞÇA BELİRMESİ (Yazı tamamlanırken netleşir)
+        tl.to("#button-container", {
+            autoAlpha: 1, // Hem opacity'yi 1 yapar hem de görünür (visibility: visible) kılar.
+            duration: 1,
+            ease: "power1.inOut"
+        }, 3.0); // Çarpışmadan 1.5 saniye sonra yazı ve buton dengelenir.
+
+
+        // --- RENDER DÖNGÜSÜ ---
+        function animate() {
+            requestAnimationFrame(animate);
+            if(bearingLeft.group.position.x < -0.6) {
+                bearingLeft.group.rotation.x += 0.05;
+                bearingRight.group.rotation.x -= 0.05;
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
