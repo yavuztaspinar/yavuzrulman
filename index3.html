@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-       <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <meta name="yandex-verification" content="ea2a4c6890182478" />
-    <title>Yavuz Rulman - Profesyonel Ürün Kataloğu</title>
+    <meta name="yandex-verification" content="ea2a4c6890182478" />
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama Ekranı</title>
+    <meta name="description" content="Yavuz Rulman güncel stok listesi. Kayışlar, bilyalı rulmanlar ve endüstriyel parça gruplarını iç çap, dış çap ve genişlik ölçülerine göre anlık sorgulayın.">
+    <meta name="keywords" content="yavuz rulman stok, rulman sorgulama, rulman ölçüleri, kayış çeşitleri, endüstriyel rulman, rulman fiyat listesi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yavuztaspinar.github.io/yavuzrulman/index3.html">
+
+    <!-- Open Graph (Sosyal Medya Kartları) -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama">
+    <meta property="og:description" content="Kataloğumuzdaki tüm rulman ve kayış çeşitlerini ölçülerine göre anında filtreleyin, güncel stok durumunu inceleyin.">
+    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/index3.html">
+    <meta property="og:site_name" content="Yavuz Rulman">
+    <meta property="og:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Google Kurumsal Arama Şeması (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      "name": "Yavuz Rulman Canlı Stok Listesi",
+      "description": "Rulman ve endüstriyel parça ölçülerine göre dinamik stok arama ve katalog ekranı.",
+      "url": "https://yavuztaspinar.github.io/yavuzrulman/index3.html",
+      "mainEntity": {
+        "@type": "OfferCatalog",
+        "name": "Yavuz Rulman Stok Ürünleri",
+        "itemListElement": []
+      }
+    }
+    </script>
+
     <style>
         :root {
             --primary: #1e40af;
@@ -387,9 +421,6 @@
             }
         }
 
-        /* =======================================================
-           YAVUZ RULMAN - BAĞIMSIZ UYARI PENCERESİ CSS (GÖMÜLDÜ)
-           ======================================================= */
         #welcomeModal.modal-overlay {
             position: fixed !important;
             top: 0 !important;
@@ -581,7 +612,6 @@
         let secilenIcCaplar = new Set();
 
         async function sistemiBaslat() {
-            // MODAL ÇALIŞTIRMA MANTIĞI: Sayfa açıldıktan 800ms sonra modalı göster
             const modal = document.getElementById("welcomeModal");
             const closeBtn = document.getElementById("closeModalBtn");
             
@@ -599,7 +629,6 @@
             }
 
             try {
-                // Not: Bilgisayarınızda test ederken urunler.json dosyasının aynı klasörde olması gerekir.
                 const cevap = await fetch('urunler.json');
                 if (!cevap.ok) {
                     throw new Error('JSON yüklenemedi! Durum: ' + cevap.status);
@@ -687,7 +716,7 @@
         function kategoriFiltrele(cb) {
             if (cb.checked) secilenKategoriler.add(cb.value);
             else secilenKategoriler.delete(cb.value);
-            filterleriUygula();
+            filtreleriUygula();
         }
 
         function icCapFiltrele(cb) {
