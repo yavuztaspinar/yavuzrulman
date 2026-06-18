@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Site Haritası Yolunu Arama Motorlarına Bildir
 Sitemap: https://yavuztaspinar.github.io/yavuzrulman/sitemap.xml
