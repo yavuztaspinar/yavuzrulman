@@ -689,7 +689,7 @@
                         <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">${urun.genislik || '-'} mm</div></div>
                     </div>
                     <div class="product-footer">
-                       <div class="product-price">${Number(urun.fiyat).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} EUR</div>
+                       <div class="product-price">${Number(urun.fiyat).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} TL</div>
                         <div class="stock-badge ${urun.stok > 0 ? 'stock-in' : 'stock-out'}">
                             ${urun.stok > 0 ? `Stok: ${urun.stok}` : 'Tükendi'}
                         </div>
