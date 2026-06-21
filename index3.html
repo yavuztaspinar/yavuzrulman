@@ -1,761 +1,719 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="yandex-verification" content="ea2a4c6890182478" />
-    
-    <title>Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama Ekranı</title>
-    <meta name="description" content="Yavuz Rulman güncel stok listesi. Kayışlar, bilyalı rulmanlar ve endüstriyel parça gruplarını iç çap, dış çap ve genişlik ölçülerine göre anlık sorgulayın.">
-    <meta name="keywords" content="yavuz rulman stok, rulman sorgulama, rulman ölçüleri, kayış çeşitleri, endüstriyel rulman, rulman fiyat listesi">
-    <meta name="robots" content="index, follow">
+<!DOCTYPE html><html lang="tr"><head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="yandex-verification" content="ea2a4c6890182478" />        
+    <title>Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama Ekranı</title>    
+    <meta name="description" content="Yavuz Rulman güncel stok listesi. Kayışlar, bilyalı rulmanlar ve endüstriyel parça gruplarını iç çap, dış çap ve genişlik ölçülerine göre anlık sorgulayın.">    
+    <meta name="robots" content="index, follow">    
     <link rel="canonical" href="https://yavuztaspinar.github.io/yavuzrulman/index3.html">
-
-    <meta property="og:locale" content="tr_TR">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama">
-    <meta property="og:description" content="Kataloğumuzdaki tüm rulman ve kayış çeşitlerini ölçülerine göre anında filtreleyin, güncel stok durumunu inceleyin.">
-    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/index3.html">
-    <meta property="og:site_name" content="Yavuz Rulman">
-    <meta property="og:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">
-    <meta property="og:image:width" content="1200">
+    <meta property="og:locale" content="tr_TR">    
+    <meta property="og:type" content="website">    
+    <meta property="og:title" content="Yavuz Rulman | Canlı Stok Listesi ve Rulman Sorgulama">    
+    <meta property="og:description" content="Kataloğumuzdaki tüm rulman ve kayış çeşitlerini ölçülerine göre anında filtreleyin, güncel stok durumunu inceleyin.">    
+    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/index3.html">    
+    <meta property="og:site_name" content="Yavuz Rulman">    
+    <meta property="og:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">    
+    <meta property="og:image:width" content="1200">    
     <meta property="og:image:height" content="630">
-
-    <script type="application/ld+json">
+    <!-- Başlangıç Şeması (Dinamik şema JS tarafında desteklenecektir) -->
+    <script type="application/ld+json" id="schema-graph">
     {
       "@context": "https://schema.org",
-      "@type": "ItemPage",
-      "name": "Yavuz Rulman Canlı Stok Listesi",
-      "description": "Rulman ve endüstriyel parça ölçülerine göre dinamik stok arama ve katalog ekranı.",
-      "url": "https://yavuztaspinar.github.io/yavuzrulman/index3.html",
-      "mainEntity": {
-        "@type": "OfferCatalog",
-        "name": "Yavuz Rulman Stok Ürünleri",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Rulman Grubu"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Kayış Grubu"
-          }
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://yavuztaspinar.github.io/yavuzrulman/#website",
+          "url": "https://yavuztaspinar.github.io/yavuzrulman/index3.html",
+          "name": "Yavuz Rulman"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://yavuztaspinar.github.io/yavuzrulman/#webpage",
+          "url": "https://yavuztaspinar.github.io/yavuzrulman/index3.html",
+          "name": "Yavuz Rulman Canlı Stok Listesi",
+          "description": "Rulman ve endüstriyel parça ölçülerine göre dinamik stok arama ve katalog ekranı."
+        }
+      ]
     }
     </script>
-
-    <style>
-        :root {
-            --primary: #1e40af;
-            --primary-light: #3b82f6;
-            --dark-blue: #0f172a;
-            --bg-main: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #334155;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --radius-md: 10px;
-            --radius-lg: 16px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+    <style>        
+        :root {            
+            --primary: #1e40af;            
+            --primary-light: #3b82f6;            
+            --dark-blue: #0f172a;            
+            --bg-main: #f8fafc;            
+            --card-bg: #ffffff;            
+            --text-dark: #334155;            
+            --text-muted: #64748b;            
+            --border: #e2e8f0;            
+            --radius-md: 10px;            
+            --radius-lg: 16px;            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);            
+            --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.05);            
+            --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);        
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            -webkit-font-smoothing: antialiased;
+        * {            
+            box-sizing: border-box;            
+            margin: 0;            
+            padding: 0;            
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;            
+            -webkit-font-smoothing: antialiased;        
         }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        body {            
+            background-color: var(--bg-main);            
+            color: var(--text-dark);            
+            display: flex;            
+            flex-direction: column;            
+            min-height: 100vh;        
         }
-
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
+        header {            
+            background-color: var(--card-bg);            
+            border-bottom: 1px solid var(--border);            
+            padding: 1rem 2rem;            
+            position: sticky;            
+            top: 0;            
+            z-index: 1000;            
+            box-shadow: var(--shadow-sm);        
         }
-
-        .header-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
+        .header-container {            
+            max-width: 1440px;            
+            margin: 0 auto;            
+            display: flex;            
+            justify-content: space-between;            
+            align-items: center;            
+            gap: 2rem;        
         }
-
-        .brand-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+        .brand-wrapper {            
+            display: flex;            
+            align-items: center;            
+            gap: 1.5rem;        
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
+        .logo {            
+            display: flex;            
+            align-items: center;            
+            gap: 1rem;            
+            text-decoration: none;        
         }
-
-        .logo svg {
-            width: 46px;
-            height: 46px;
-            transition: transform 0.5s ease;
+        .logo svg {            
+            width: 46px;            
+            height: 46px;            
+            transition: transform 0.5s ease;        
         }
-
-        .logo:hover svg {
-            transform: rotate(180deg);
+        .logo:hover svg {            
+            transform: rotate(180deg);        
         }
-
-        .logo h1 {
-            color: var(--dark-blue);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1;
+        .logo h1 {            
+            color: var(--dark-blue);            
+            font-size: 1.5rem;            
+            font-weight: 800;            
+            letter-spacing: -0.04em;            
+            line-height: 1;        
+        }                
+        .logo h1 span {            
+            color: var(--primary);            
+            font-weight: 400;        
         }
-        
-        .logo h1 span {
-            color: var(--primary);
-            font-weight: 400;
+        .header-phone {            
+            display: flex;            
+            align-items: center;            
+            gap: 0.5rem;            
+            text-decoration: none;            
+            color: var(--text-dark);            
+            font-weight: 700;            
+            font-size: 1rem;            
+            background-color: #f1f5f9;            
+            padding: 0.5rem 1rem;            
+            border-radius: var(--radius-md);            
+            transition: all 0.2s ease;            
+            white-space: nowrap;        
         }
-
-        .header-phone {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 1rem;
-            background-color: #f1f5f9;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            transition: all 0.2s ease;
-            white-space: nowrap;
+        .header-phone:hover {            
+            background-color: #e2e8f0;            
+            color: var(--primary);        
         }
-
-        .header-phone:hover {
-            background-color: #e2e8f0;
-            color: var(--primary);
+        .header-phone svg {            
+            width: 18px;            
+            height: 18px;            
+            fill: var(--primary);        
         }
-
-        .header-phone svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--primary);
+        .search-box {            
+            flex: 1;            
+            max-width: 550px;            
+            position: relative;        
         }
-
-        .search-box {
-            flex: 1;
-            max-width: 550px;
-            position: relative;
+        .search-box input {            
+            width: 100%;            
+            padding: 0.85rem 1.5rem;            
+            border: 1px solid var(--border);            
+            border-radius: var(--radius-md);            
+            font-size: 0.95rem;            
+            color: var(--dark-blue);            
+            background-color: #f1f5f9;            
+            outline: none;            
+            transition: all 0.3s ease;        
         }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.85rem 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 0.95rem;
-            color: var(--dark-blue);
-            background-color: #f1f5f9;
-            outline: none;
-            transition: all 0.3s ease;
+        .search-box input:focus {            
+            background-color: var(--card-bg);            
+            border-color: var(--primary);            
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);        
         }
-
-        .search-box input:focus {
-            background-color: var(--card-bg);
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        .main-container {            
+            max-width: 1440px;            
+            margin: 2rem auto;            
+            padding: 0 2rem;            
+            display: grid;            
+            grid-template-columns: 280px 1fr;            
+            gap: 2.5rem;            
+            width: 100%;            
+            flex: 1;        
         }
-
-        .main-container {
-            max-width: 1440px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2.5rem;
-            width: 100%;
-            flex: 1;
+        .sidebar {            
+            background-color: var(--card-bg);            
+            border: 1px solid var(--border);            
+            border-radius: var(--radius-lg);            
+            padding: 1.75rem;            
+            height: fit-content;            
+            position: sticky;            
+            top: 110px;            
+            box-shadow: var(--shadow-sm);        
         }
-
-        .sidebar {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            height: fit-content;
-            position: sticky;
-            top: 110px;
-            box-shadow: var(--shadow-sm);
+        .filter-section {            
+            margin-bottom: 2rem;        
         }
-
-        .filter-section {
-            margin-bottom: 2rem;
+        .filter-section:last-child {            
+            margin-bottom: 0;        
         }
-
-        .filter-section:last-child {
-            margin-bottom: 0;
+        .filter-section h3 {            
+            font-size: 1rem;            
+            color: var(--dark-blue);            
+            font-weight: 700;            
+            margin-bottom: 1rem;            
+            text-transform: uppercase;            
+            letter-spacing: 0.05em;        
         }
-
-        .filter-section h3 {
-            font-size: 1rem;
-            color: var(--dark-blue);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .filter-list {            
+            list-style: none;            
+            display: flex;            
+            flex-direction: column;            
+            gap: 0.6rem;            
+            max-height: 200px;            
+            overflow-y: auto;            
+            padding-right: 5px;        
         }
-
-        .filter-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            max-height: 200px; /* Mobil uyum gözetilerek hafif daraltıldı */
-            overflow-y: auto;
-            padding-right: 5px;
+        .filter-list::-webkit-scrollbar {            
+            width: 5px;        
+        }        
+        .filter-list::-webkit-scrollbar-thumb {            
+            background: var(--border);            
+            border-radius: 10px;        
         }
-
-        .filter-list::-webkit-scrollbar {
-            width: 5px;
+        .filter-item {            
+            display: flex;            
+            align-items: center;            
+            gap: 0.75rem;            
+            cursor: pointer;            
+            padding: 0.45rem 0.6rem;            
+            border-radius: var(--radius-md);            
+            font-size: 0.92rem;            
+            color: var(--text-dark);            
+            transition: all 0.2s ease;        
         }
-        .filter-list::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 10px;
+        .filter-item:hover {            
+            background-color: #f1f5f9;            
+            color: var(--primary);        
         }
-
-        .filter-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            padding: 0.45rem 0.6rem;
-            border-radius: var(--radius-md);
-            font-size: 0.92rem;
-            color: var(--text-dark);
-            transition: all 0.2s ease;
+        .filter-item input {            
+            accent-color: var(--primary);            
+            width: 16px;            
+            height: 16px;            
+            cursor: pointer;        
         }
-
-        .filter-item:hover {
-            background-color: #f1f5f9;
-            color: var(--primary);
+        .products-grid {            
+            display: grid;            
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));            
+            gap: 1.75rem;            
+            align-content: start;        
         }
-
-        .filter-item input {
-            accent-color: var(--primary);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
+        .product-card {            
+            background-color: var(--card-bg);            
+            border: 1px solid var(--border);            
+            border-radius: var(--radius-lg);            
+            padding: 1.5rem;            
+            display: flex;            
+            flex-direction: column;            
+            gap: 1rem;            
+            box-shadow: var(--shadow-sm);            
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);        
         }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 1.75rem;
-            align-content: start;
+        .product-card:hover {            
+            transform: translateY(-5px);            
+            box-shadow: var(--shadow-lg);            
+            border-color: rgba(59, 130, 246, 0.3);        
         }
-
-        .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .product-category {            
+            font-size: 0.75rem;            
+            text-transform: uppercase;            
+            letter-spacing: 0.08em;            
+            color: var(--primary-light);            
+            font-weight: 700;            
+            background: rgba(59, 130, 246, 0.08);            
+            padding: 0.25rem 0.6rem;            
+            border-radius: 50px;            
+            width: fit-content;        
         }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(59, 130, 246, 0.3);
+        .product-title {            
+            font-size: 1.25rem;            
+            font-weight: 700;            
+            color: var(--dark-blue);            
+            line-height: 1.3;        
         }
-
-        .product-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--primary-light);
-            font-weight: 700;
-            background: rgba(59, 130, 246, 0.08);
-            padding: 0.25rem 0.6rem;
-            border-radius: 50px;
-            width: fit-content;
+        .product-specs {            
+            background-color: #f8fafc;            
+            padding: 0.85rem;            
+            border-radius: var(--radius-md);            
+            display: grid;            
+            grid-template-columns: repeat(3, 1fr);            
+            gap: 0.5rem;            
+            border: 1px solid #f1f5f9;        
         }
-
-        .product-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            line-height: 1.3;
+        .spec-item {            
+            text-align: center;        
         }
-
-        .product-specs {
-            background-color: #f8fafc;
-            padding: 0.85rem;
-            border-radius: var(--radius-md);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            border: 1px solid #f1f5f9;
+        .spec-label {            
+            color: var(--text-muted);            
+            font-size: 0.7rem;            
+            text-transform: uppercase;            
+            font-weight: 600;            
+            margin-bottom: 0.15rem;        
         }
-
-        .spec-item {
-            text-align: center;
+        .spec-value {            
+            font-weight: 700;            
+            color: var(--dark-blue);            
+            font-size: 0.88rem;        
         }
-
-        .spec-label {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 0.15rem;
+        .product-footer {            
+            margin-top: auto;            
+            display: flex;            
+            justify-content: space-between;            
+            align-items: center;            
+            padding-top: 1rem;            
+            border-top: 1px solid #f1f5f9;        
         }
-
-        .spec-value {
-            font-weight: 700;
-            color: var(--dark-blue);
-            font-size: 0.88rem;
+        .product-price {            
+            font-size: 1.4rem;            
+            font-weight: 800;            
+            color: var(--dark-blue);        
         }
-
-        .product-footer {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .product-price {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--dark-blue);
-        }
-
-        .stock-badge {
-            font-size: 0.78rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .stock-in { background-color: #dcfce7; color: #15803d; }
+        .stock-badge {            
+            font-size: 0.78rem;            
+            padding: 0.35rem 0.75rem;            
+            border-radius: 6px;            
+            font-weight: 700;        }
+        .stock-in { background-color: #dcfce7; color: #15803d; }        
         .stock-out { background-color: #fee2e2; color: #b91c1c; }
-
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 5rem 2rem;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
+        .no-results {            
+            grid-column: 1 / -1;            
+            text-align: center;            
+            padding: 5rem 2rem;            
+            color: var(--text-muted);            
+            font-size: 1.1rem;            
+            background: var(--card-bg);            
+            border-radius: var(--radius-lg);            
+            border: 1px solid var(--border);        
         }
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            padding: 14px 24px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            font-size: 15px;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-            z-index: 9999;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .whatsapp-btn {            
+            position: fixed;            
+            bottom: 30px;            
+            right: 30px;            
+            background-color: #25D366;            
+            color: #ffffff !important;            
+            text-decoration: none !important;            
+            padding: 14px 24px;            
+            border-radius: 50px;            
+            display: flex;            
+            align-items: center;            
+            font-size: 15px;            
+            font-weight: 700;            
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);            
+            z-index: 9999;            
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);        
         }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            background-color: #20ba5a;
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        .whatsapp-btn:hover {            
+            transform: scale(1.05) translateY(-2px);            
+            background-color: #20ba5a;            
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);        
         }
-
-        .whatsapp-btn svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
-            fill: #ffffff;
+        .whatsapp-btn svg {            
+            width: 24px;            
+            height: 24px;            
+            margin-right: 12px;            
+            fill: #ffffff;        
         }
-
-        @media (max-width: 1024px) {
-            .main-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .sidebar {
-                position: relative;
-                top: 0;
-                max-height: 300px;
-                overflow-y: auto;
-            }
-            .header-container {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 1rem;
-            }
-            .brand-wrapper {
-                justify-content: space-between;
-            }
-            .logo {
-                justify-content: flex-start;
-            }
-            .search-box {
-                max-width: 100%;
-            }
+        @media (max-width: 1024px) {            
+            .main-container {                
+                grid-template-columns: 1fr;                
+                gap: 1.5rem;            
+            }            
+            .sidebar {                
+                position: relative;                
+                top: 0;                
+                max-height: 300px;                
+                overflow-y: auto;            
+            }            
+            .header-container {                
+                flex-direction: column;                
+                align-items: stretch;                
+                gap: 1rem;            
+            }            
+            .brand-wrapper {                
+                justify-content: space-between;            
+            }            
+            .logo {                
+                justify-content: flex-start;            
+            }            
+            .search-box {                
+                max-width: 100%;            
+            }        
         }
-
-        #welcomeModal.modal-overlay {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            background-color: rgba(15, 23, 42, 0.6) !important;
-            backdrop-filter: blur(4px) !important;
-            -webkit-backdrop-filter: blur(4px) !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            z-index: 999999 !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-            transition: opacity 0.3s ease !important;
-            box-sizing: border-box !important;
+        #welcomeModal.modal-overlay {            
+            position: fixed !important;            
+            top: 0 !important;            
+            left: 0 !important;            
+            width: 100% !important;            
+            height: 100% !important;            
+            background-color: rgba(15, 23, 42, 0.6) !important;            
+            backdrop-filter: blur(4px) !important;            
+            -webkit-backdrop-filter: blur(4px) !important;            
+            display: flex !important;            
+            justify-content: center !important;            
+            align-items: center !important;            
+            z-index: 999999 !important;            
+            opacity: 0 !important;            
+            pointer-events: none !important;            
+            transition: opacity 0.3s ease !important;            
+            box-sizing: border-box !important;        
         }
-
-        #welcomeModal.modal-overlay.active {
-            opacity: 1 !important;
-            pointer-events: auto !important;
+        #welcomeModal.modal-overlay.active {            
+            opacity: 1 !important;            
+            pointer-events: auto !important;        
         }
-
-        #welcomeModal .modal-box {
-            background-color: #ffffff !important;
-            padding: 2.5rem 2rem !important;
-            border-radius: 16px !important;
-            max-width: 500px !important;
-            width: 90% !important;
-            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15) !important;
-            border: 1px solid #e2e8f0 !important;
-            text-align: center !important;
-            transform: scale(0.9) !important;
-            transition: transform 0.3s ease !important;
-            position: relative !important;
-            margin: 0 !important;
-            box-sizing: border-box !important;
+        #welcomeModal .modal-box {            
+            background-color: #ffffff !important;            
+            padding: 2.5rem 2rem !important;            
+            border-radius: 16px !important;            
+            max-width: 500px !important;            
+            width: 90% !important;            
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15) !important;            
+            border: 1px solid #e2e8f0 !important;            
+            text-align: center !important;            
+            transform: scale(0.9) !important;            
+            transition: transform 0.3s ease !important;            
+            position: relative !important;            
+            margin: 0 !important;            
+            box-sizing: border-box !important;        
         }
-
-        #welcomeModal.modal-overlay.active .modal-box {
-            transform: scale(1) !important;
+        #welcomeModal.modal-overlay.active .modal-box {            
+            transform: scale(1) !important;        
         }
-
-        #welcomeModal .modal-icon {
-            width: 60px !important;
-            height: 60px !important;
-            background-color: rgba(59, 130, 246, 0.1) !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            margin: 0 auto 1.5rem auto !important;
-            box-sizing: border-box !important;
+        #welcomeModal .modal-icon {            
+            width: 60px !important;            
+            height: 60px !important;            
+            background-color: rgba(59, 130, 246, 0.1) !important;            
+            border-radius: 50% !important;            
+            display: flex !important;            
+            align-items: center !important;            
+            justify-content: center !important;            
+            margin: 0 auto 1.5rem auto !important;            
+            box-sizing: border-box !important;        
         }
-
-        #welcomeModal .modal-icon svg {
-            width: 32px !important;
-            height: 32px !important;
-            fill: #1e40af !important;
-            display: block !important;
-            margin: 0 !important;
+        #welcomeModal .modal-icon svg {            
+            width: 32px !important;            
+            height: 32px !important;            
+            fill: #1e40af !important;            
+            display: block !important;            
+            margin: 0 !important;        
         }
-
-        #welcomeModal .modal-title {
-            font-size: 1.5rem !important;
-            font-weight: 800 !important;
-            color: #0f172a !important;
-            margin-top: 0 !important;
-            margin-bottom: 1rem !important;
-            letter-spacing: -0.02em !important;
-            line-height: 1.2 !important;
-            text-transform: none !important;
+        #welcomeModal .modal-title {            
+            font-size: 1.5rem !important;            
+            font-weight: 800 !important;            
+            color: #0f172a !important;            
+            margin-top: 0 !important;            
+            margin-bottom: 1rem !important;            
+            letter-spacing: -0.02em !important;            
+            line-height: 1.2 !important;            
+            text-transform: none !important;        
         }
-
-        #welcomeModal .modal-text {
-            color: #334155 !important;
-            font-size: 1.05rem !important;
-            line-height: 1.6 !important;
-            margin-top: 0 !important;
-            margin-bottom: 2rem !important;
-            text-align: center !important;
+        #welcomeModal .modal-text {            
+            color: #334155 !important;            
+            font-size: 1.05rem !important;            
+            line-height: 1.6 !important;            
+            margin-top: 0 !important;            
+            margin-bottom: 2rem !important;            
+            text-align: center !important;        
         }
-
-        #welcomeModal .modal-text strong {
-            color: #1e40af !important;
-            font-weight: 700 !important;
+        #welcomeModal .modal-text strong {            
+            color: #1e40af !important;            
+            font-weight: 700 !important;        
         }
-
-        #welcomeModal .modal-btn {
-            background-color: #1e40af !important;
-            color: #ffffff !important;
-            border: none !important;
-            padding: 0.85rem 2rem !important;
-            font-size: 1rem !important;
-            font-weight: 700 !important;
-            border-radius: 10px !important;
-            cursor: pointer !important;
-            width: 100% !important;
-            display: block !important;
-            outline: none !important;
-            text-decoration: none !important;
-            transition: background-color 0.2s ease, transform 0.1s ease !important;
-            box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.2) !important;
-            box-sizing: border-box !important;
-            margin: 0 !important;
+        #welcomeModal .modal-btn {            
+            background-color: #1e40af !important;            
+            color: #ffffff !important;            
+            border: none !important;            
+            padding: 0.85rem 2rem !important;            
+            font-size: 1rem !important;            
+            font-weight: 700 !important;            
+            border-radius: 10px !important;            
+            cursor: pointer !important;            
+            width: 100% !important;            
+            display: block !important;            
+            outline: none !important;            
+            text-decoration: none !important;            
+            transition: background-color 0.2s ease, transform 0.1s ease !important;            
+            box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.2) !important;            
+            box-sizing: border-box !important;            
+            margin: 0 !important;        
         }
-
-        #welcomeModal .modal-btn:hover {
-            background-color: #1d4ed8 !important;
+        #welcomeModal .modal-btn:hover {            
+            background-color: #1d4ed8 !important;        
         }
-
-        #welcomeModal .modal-btn:active {
-            transform: scale(0.98) !important;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="header-container">
-            <div class="brand-wrapper">
-                <a href="#" class="logo">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="42" fill="none" stroke="#3b82f6" stroke-width="7" />
-                        <circle cx="50" cy="50" r="24" fill="none" stroke="#0f172a" stroke-width="6" />
-                        <circle cx="50" cy="50" r="14" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" />
-                        <circle cx="50" cy="11" r="5.5" fill="#3b82f6" />
-                        <circle cx="77.5" cy="22.5" r="5.5" fill="#3b82f6" />
-                        <circle cx="89" cy="50" r="5.5" fill="#3b82f6" />
-                        <circle cx="77.5" cy="77.5" r="5.5" fill="#3b82f6" />
-                        <circle cx="50" cy="89" r="5.5" fill="#3b82f6" />
-                        <circle cx="22.5" cy="77.5" r="5.5" fill="#3b82f6" />
-                        <circle cx="11" cy="50" r="5.5" fill="#3b82f6" />
-                        <circle cx="22.5" cy="22.5" r="5.5" fill="#3b82f6" />
-                    </svg>
-                    <h1>YAVUZ <span>RULMAN</span></h1>
-                </a>
-                
-                <a href="tel:05327600509" class="header-phone" title="Tıkla ve Ara">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.59c0-.55-.45-1-1-1z"/>
-                    </svg>
-                    <span>0532 760 05 09</span>
-                </a>
+        #welcomeModal .modal-btn:active {            
+            transform: scale(0.98) !important;        
+        }    
+    </style></head><body>
+    <header>        
+        <div class="header-container">            
+            <div class="brand-wrapper">                
+                <a href="#" class="logo">                    
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                        
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#3b82f6" stroke-width="7" />                        
+                        <circle cx="50" cy="50" r="24" fill="none" stroke="#0f172a" stroke-width="6" />                        
+                        <circle cx="50" cy="50" r="14" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" />                        
+                        <circle cx="50" cy="11" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="77.5" cy="22.5" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="89" cy="50" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="77.5" cy="77.5" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="50" cy="89" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="22.5" cy="77.5" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="11" cy="50" r="5.5" fill="#3b82f6" />                        
+                        <circle cx="22.5" cy="22.5" r="5.5" fill="#3b82f6" />                    
+                    </svg>                    
+                    <h1>YAVUZ <span>RULMAN</span></h1>                
+                </a>                                
+                <a href="tel:05327600509" class="header-phone" title="Tıkla ve Ara">                    
+                    <svg viewBox="0 0 24 24">                        
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.59c0-.55-.45-1-1-1z"/>                    
+                    </svg>                    
+                    <span>0532 760 05 09</span>                
+                </a>            
             </div>
-
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Rulman kodu, ölçü veya kategori ara...">
-            </div>
-        </div>
+            <div class="search-box">                
+                <input type="text" id="searchInput" placeholder="Rulman kodu, ölçü veya kategori ara...">            
+            </div>        
+        </div>    
     </header>
-
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="filter-section">
-                <h3>Kategoriler</h3>
-                <ul class="filter-list" id="categoryFilters"></ul>
-            </div>
-            <div class="filter-section">
-                <h3>İç Çap (mm)</h3>
-                <ul class="filter-list" id="icCapFilters"></ul>
-            </div>
+    <div class="main-container">        
+        <aside class="sidebar">            
+            <div class="filter-section">                
+                <h3>Kategoriler</h3>                
+                <ul class="filter-list" id="categoryFilters"></ul>            
+            </div>            
+            <div class="filter-section">                
+                <h3>İç Çap (mm)</h3>                
+                <ul class="filter-list" id="icCapFilters"></ul>            
+            </div>        
         </aside>
-
-        <main class="products-grid" id="productsGrid">
-            <div class="no-results">Yükleniyor...</div>
-        </main>
-    </div>
-
-    <div id="welcomeModal" class="modal-overlay">
-        <div class="modal-box">
-            <div class="modal-icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm11.5-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm2.3-5H17V9h2.5l1.8 2.5z"/>
-                </svg>
+        <!-- SEO İÇİN KRİTİK GELİŞTİRME: Sayfa ilk açıldığında botların boş sayfa görmemesi için örnek ürünler yerleştirildi -->
+        <main class="products-grid" id="productsGrid">            
+            <div class="product-card">
+                <div class="product-category">Rulman Grubu</div>
+                <h2 class="product-title">6204 bilyalı rulman</h2>
+                <div class="product-specs">
+                    <div class="spec-item"><div class="spec-label">İç Çap</div><div class="spec-value">20 mm</div></div>
+                    <div class="spec-item"><div class="spec-label">Dış Çap</div><div class="spec-value">47 mm</div></div>
+                    <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">14 mm</div></div>
+                </div>
+                <div class="product-footer">
+                   <div class="product-price">0,00 EUR</div>
+                    <div class="stock-badge stock-in">Stokta Var</div>
+                </div>
             </div>
-            <h2 class="modal-title">Bilgilendirme</h2>
-            <p class="modal-text">
-                Değerli müşterilerimiz, <strong>Yavuz Rulman</strong> kataloğumuza hoş geldiniz! Güncel stok ve fiyat bilgileri için bizimle doğrudan iletişime geçebilirsiniz.
-            </p>
-            <button id="closeModalBtn" class="modal-btn">Alışverişe Başla</button>
-        </div>
+            <div class="product-card">
+                <div class="product-category">Kayış Grubu</div>
+                <h2 class="product-title">A-32 Endüstriyel V Kayışı</h2>
+                <div class="product-specs">
+                    <div class="spec-item"><div class="spec-label">İç Çap</div><div class="spec-value">-</div></div>
+                    <div class="spec-item"><div class="spec-label">Dış Çap</div><div class="spec-value">-</div></div>
+                    <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">13 mm</div></div>
+                </div>
+                <div class="product-footer">
+                   <div class="product-price">0,00 EUR</div>
+                    <div class="stock-badge stock-in">Stokta Var</div>
+                </div>
+            </div>
+        </main>    
     </div>
-
-    <script>
-        let tumUrunler = [];
-        let secilenKategoriler = new Set();
+    <div id="welcomeModal" class="modal-overlay">        
+        <div class="modal-box">            
+            <div class="modal-icon">                
+                <svg viewBox="0 0 24 24">                    
+                    <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm11.5-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm2.3-5H17V9h2.5l1.8 2.5z"/>                
+                </svg>            
+            </div>            
+            <span class="modal-title" style="display:block; font-size:1.5rem; font-weight:800; color:#0f172a; margin-bottom:1rem;">Bilgilendirme</span>            
+            <p class="modal-text">                
+                Değerli müşterilerimiz, <strong>Yavuz Rulman</strong> kataloğumuza hoş geldiniz! Güncel stok ve fiyat bilgileri için bizimle doğrudan iletişime geçebilirsiniz.            
+            </p>            
+            <button id="closeModalBtn" class="modal-btn">Alışverişe Başla</button>        
+        </div>    
+    </div>
+    <script>        
+        let tumUrunler = [];        
+        let secilenKategoriler = new Set();        
         let secilenIcCaplar = new Set();
-
-        async function sistemiBaslat() {
-            const modal = document.getElementById("welcomeModal");
-            const closeBtn = document.getElementById("closeModalBtn");
-            
-            setTimeout(() => {
-                if(modal) modal.classList.add("active");
+        async function sistemiBaslat() {            
+            const modal = document.getElementById("welcomeModal");            
+            const closeBtn = document.getElementById("closeModalBtn");                        
+            setTimeout(() => {                
+                if(modal) modal.classList.add("active");            
             }, 800);
-
-            if(closeBtn) {
-                closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+            if(closeBtn) {                
+                closeBtn.addEventListener("click", () => modal.classList.remove("active"));            
+            }            
+            if(modal) {                
+                modal.addEventListener("click", (e) => {                    
+                    if (e.target === modal) modal.classList.remove("active");                
+                });            
             }
-            if(modal) {
-                modal.addEventListener("click", (e) => {
-                    if (e.target === modal) modal.classList.remove("active");
-                });
-            }
-
-            try {
-                const cevap = await fetch('urunler.json');
-                if (!cevap.ok) {
-                    throw new Error('JSON yüklenemedi! Durum: ' + cevap.status);
-                }
-                tumUrunler = await cevap.json();
-                filtreleriOlustur();
-                filtreleriUygula(); // Doğrudan güvenli listelemeyi tetikle
-            } catch (error) {
-                console.error('Sistem Hatası:', error);
-                document.getElementById('productsGrid').innerHTML = `
-                    <div class="no-results">
-                        Veriler yüklenirken bir hata oluştu.<br>
-                        <small style="color:#ef4444; font-weight:bold;">${error.message}</small>
-                    </div>`;
-            }
+            try {                
+                const cevap = await fetch('urunler.json');                
+                if (!cevap.ok) {                    
+                    throw new Error('JSON yüklenemedi! Durum: ' + cevap.status);                
+                }                
+                tumUrunler = await cevap.json();                
+                filtreleriOlustur();                
+                filtreleriUygula();            
+            } catch (error) {                
+                console.error('Sistem Hatası:', error);                
+                document.getElementById('productsGrid').innerHTML = `                    
+                    <div class="no-results">                        
+                        Veriler yüklenirken bir hata oluştu.<br>                        
+                        <small style="color:#ef4444; font-weight:bold;">${error.message}</small>                    
+                    </div>`;            
+            }        
         }
-
-        function filtreleriOlustur() {
-            let digerKategoriler = [...new Set(tumUrunler.map(u => u.kategori).filter(k => k && k !== "Kayışlar"))].sort();
-            let kategoriler = ["Kayışlar", ...digerKategoriler];
+        function filtreleriOlustur() {            
+            let digerKategoriler = [...new Set(tumUrunler.map(u => u.kategori).filter(k => k && k !== "Kayışlar"))].sort();            
+            let kategoriler = ["Kayışlar", ...digerKategoriler];            
             const icCaplar = [...new Set(tumUrunler.map(u => Number(u.ic_cap)).filter(n => !isNaN(n) && n > 0))].sort((a, b) => a - b);
-
-            const catContainer = document.getElementById('categoryFilters');
-            catContainer.innerHTML = kategoriler.map(kat => `
-                <label class="filter-item">
-                    <input type="checkbox" value="${kat}" onchange="kategoriFiltrele(this)">
-                    <span>${kat}</span>
-                </label>
-            `).join('');
-
-            const icContainer = document.getElementById('icCapFilters');
-            if(icCaplar.length > 0) {
-                icContainer.innerHTML = icCaplar.map(cap => `
-                    <label class="filter-item">
-                        <input type="checkbox" value="${cap}" onchange="icCapFiltrele(this)">
-                        <span>${cap} mm</span>
-                    </label>
-                `).join('');
-            } else {
-                document.getElementById('icCapFilters').parentNode.style.display = 'none';
-            }
+            const catContainer = document.getElementById('categoryFilters');            
+            catContainer.innerHTML = kategoriler.map(kat => `                
+                <label class="filter-item">                    
+                    <input type="checkbox" value="${kat}" onchange="kategoriFiltrele(this)">                    
+                    <span>${kat}</span>                
+                </label>            `).join('');
+            const icContainer = document.getElementById('icCapFilters');            
+            if(icCaplar.length > 0) {                
+                icContainer.innerHTML = icCaplar.map(cap => `                    
+                    <label class="filter-item">                        
+                        <input type="checkbox" value="${cap}" onchange="icCapFiltrele(this)">                        
+                        <span>${cap} mm</span>                    
+                    </label>                `).join('');            
+            } else {                
+                document.getElementById('icCapFilters').parentNode.style.display = 'none';            
+            }        
         }
-
-        function urunleriListele(urunListesi) {
-            const grid = document.getElementById('productsGrid');
-            if (urunListesi.length === 0) {
-                grid.innerHTML = '<div class="no-results">Aradığınız kriterlere veya ölçülere uygun ürün bulunamadı.</div>';
-                return;
+        function urunleriListele(urunListesi) {            
+            const grid = document.getElementById('productsGrid');            
+            if (urunListesi.length === 0) {                
+                grid.innerHTML = '<div class="no-results">Aradığınız kriterlere veya ölçülere uygun ürün bulunamadı.</div>';                
+                return;            
             }
-
-            grid.innerHTML = urunListesi.map(urun => {
-                // Fiyat çökme koruması
-                const hamFiyat = Number(urun.fiyat || 0);
-                const formatliFiyat = isNaN(hamFiyat) ? "0,00" : hamFiyat.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            // SEO Geliştirmesi: Dinamik Google Product Schema injection yapısı
+            dinamikSchemaGuncelle(urunListesi.slice(0, 15));
+            grid.innerHTML = urunListesi.map(urun => {                
+                const hamFiyat = Number(urun.fiyat || 0);                
+                const formatliFiyat = isNaN(hamFiyat) ? "0,00" : hamFiyat.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });                
                 const stokMiktari = Number(urun.stok || 0);
-
-                return `
-                    <div class="product-card">
-                        <div class="product-category">${urun.kategori || 'Genel'}</div>
-                        <div class="product-title">${urun.ad || 'İsimsiz Ürün'}</div>
-                        <div class="product-specs">
-                            <div class="spec-item"><div class="spec-label">İç Çap</div><div class="spec-value">${urun.ic_cap === '-' ? '-' : (urun.ic_cap || '-') + ' mm'}</div></div>
-                            <div class="spec-item"><div class="spec-label">Dış Çap</div><div class="spec-value">${urun.dis_cap === '-' ? '-' : (urun.dis_cap || '-') + ' mm'}</div></div>
-                            <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">${urun.genislik || '-'} mm</div></div>
-                        </div>
-                        <div class="product-footer">
-                           <div class="product-price">${formatliFiyat} EUR</div>
-                            <div class="stock-badge ${stokMiktari > 0 ? 'stock-in' : 'stock-out'}">
-                                ${stokMiktari > 0 ? `Stok: ${stokMiktari}` : 'Tükendi'}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+                return `                    
+                    <div class="product-card">                        
+                        <div class="product-category">${urun.kategori || 'Genel'}</div>                        
+                        <h2 class="product-title">${urun.ad || 'İsimsiz Ürün'}</h2>                        
+                        <div class="product-specs">                            
+                            <div class="spec-item"><div class="spec-label">İç Çap</div><div class="spec-value">${urun.ic_cap === '-' ? '-' : (urun.ic_cap || '-') + ' mm'}</div></div>                            
+                            <div class="spec-item"><div class="spec-label">Dış Çap</div><div class="spec-value">${urun.dis_cap === '-' ? '-' : (urun.dis_cap || '-') + ' mm'}</div></div>                            
+                            <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">${urun.genislik || '-'} mm</div></div>                        
+                        </div>                        
+                        <div class="product-footer">                           
+                           <div class="product-price">${formatliFiyat} EUR</div>                            
+                            <div class="stock-badge ${stokMiktari > 0 ? 'stock-in' : 'stock-out'}">                                
+                                ${stokMiktari > 0 ? `Stok: ${stokMiktari}` : 'Tükendi'}                            
+                            </div>                        
+                        </div>                    
+                    </div>                `;            }).join('');        
         }
-
-        function filtreleriUygula() {
-            const aramaKelimesi = document.getElementById('searchInput').value.toLowerCase().trim();
-            const filtrelenmis = tumUrunler.filter(urun => {
-                const urunAd = urun.ad ? urun.ad.toLowerCase() : '';
-                const urunKat = urun.kategori ? urun.kategori.toLowerCase() : '';
-                const adEslesti = urunAd.includes(aramaKelimesi);
-                const katEslesti = urunKat.includes(aramaKelimesi);
-                const aramaSonuc = adEslesti || katEslesti;
-                const kategoriSonuc = secilenKategoriler.size === 0 || secilenKategoriler.has(urun.kategori);
-                const icCapSonuc = secilenIcCaplar.size === 0 || secilenIcCaplar.has(Number(urun.ic_cap));
-                return aramaSonuc && kategoriSonuc && icCapSonuc;
+        // SEO Geliştirmesi: Listelenen ürünleri Google botlarının zengin sonuçlarda tanıması için şema ekleyen fonksiyon
+        function dinamikSchemaGuncelle(limitliUrunler) {
+            const schemaScript = document.getElementById('schema-graph');
+            if(!schemaScript) return;
+            
+            let anaYapı = {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://yavuztaspinar.github.io/yavuzrulman/#website",
+                  "url": "https://yavuztaspinar.github.io/yavuzrulman/index3.html",
+                  "name": "Yavuz Rulman"
+                }
+              ]
+            };
+            limitliUrunler.forEach((urun, index) => {
+                anaYapı["@graph"].push({
+                    "@type": "Product",
+                    "name": urun.ad || "Endüstriyel Parça",
+                    "description": `${urun.kategori || 'Rulman'} - İç Çap: ${urun.ic_cap || '-'}mm, Dış Çap: ${urun.dis_cap || '-'}mm, Genişlik: ${urun.genislik || '-'}mm.`,
+                    "offers": {
+                        "@type": "Offer",
+                        "price": urun.fiyat || "0.00",
+                        "priceCurrency": "EUR",
+                        "availability": Number(urun.stok || 0) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+                    }
+                });
             });
-            urunleriListele(filtrelenmis);
+            schemaScript.textContent = JSON.stringify(anaYapı, null, 2);
         }
-
-        function kategoriFiltrele(cb) {
-            if (cb.checked) secilenKategoriler.add(cb.value);
-            else secilenKategoriler.delete(cb.value);
-            filtreleriUygula();
+        function filtreleriUygula() {            
+            const aramaKelimesi = document.getElementById('searchInput').value.toLowerCase().trim();            
+            const filtrelenmis = tumUrunler.filter(urun => {                
+                const urunAd = urun.ad ? urun.ad.toLowerCase() : '';                
+                const urunKat = urun.kategori ? urun.kategori.toLowerCase() : '';                
+                const adEslesti = urunAd.includes(aramaKelimesi);                
+                const katEslesti = urunKat.includes(aramaKelimesi);                
+                const aramaSonuc = adEslesti || katEslesti;                
+                const kategoriSonuc = secilenKategoriler.size === 0 || secilenKategoriler.has(urun.kategori);                
+                const icCapSonuc = secilenIcCaplar.size === 0 || secilenIcCaplar.has(Number(urun.ic_cap));                
+                return aramaSonuc && kategoriSonuc && icCapSonuc;            
+            });            
+            urunleriListele(filtrelenmis);        
         }
-
-        function icCapFiltrele(cb) {
-            const sayiDegeri = Number(cb.value);
-            if (cb.checked) secilenIcCaplar.add(sayiDegeri);
-            else secilenIcCaplar.delete(sayiDegeri);
-            filtreleriUygula();
+        function kategoriFiltrele(cb) {            
+            if (cb.checked) secilenKategoriler.add(cb.value);            
+            else secilenKategoriler.delete(cb.value);            
+            filtreleriUygula();        
         }
-
-        document.getElementById('searchInput').addEventListener('input', filtreleriUygula);
-        window.addEventListener('DOMContentLoaded', sistemiBaslat);
+        function icCapFiltrele(cb) {            
+            const sayiDegeri = Number(cb.value);            
+            if (cb.checked) secilenIcCaplar.add(sayiDegeri);            
+            else secilenIcCaplar.delete(sayiDegeri);            
+            filtreleriUygula();        
+        }
+        document.getElementById('searchInput').addEventListener('input', filtreleriUygula);        
+        window.addEventListener('DOMContentLoaded', sistemiBaslat);    
     </script>
-
-    <a href="https://wa.me/905327600509?text=Merhaba,%20Yavuz%20Rulman%20katalo%C4%9Funuzdan%20ula%C5%9F%C4%B1yorum.%20%C3%9Ur%C3%BCnler%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim?" 
-       class="whatsapp-btn" 
-       target="_blank" 
-       rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.855.001-2.633-1.025-5.107-2.89-6.973C16.52 1.81 14.05 .78 11.416.78c-5.44 0-9.865 4.42-9.867 9.856-.001 1.674.443 3.303 1.288 4.715L1.76 21.547l6.381-1.674zM17.65 14.73c-.315-.158-1.86-.916-2.146-1.02-.287-.104-.496-.158-.704.158-.209.317-.81 1.02-.992 1.23-.181.21-.363.236-.678.079-.314-.158-1.33-.49-2.532-1.562-.936-.83-1.568-1.856-1.751-2.172-.182-.315-.019-.486.138-.643.141-.14.314-.368.471-.553.157-.184.21-.316.315-.527.105-.21.052-.394-.026-.552-.079-.158-.704-1.7-.964-2.324-.254-.61-.512-.527-.704-.527-.182 0-.39-.006-.598-.006-.208 0-.547.079-.833.395-.286.316-1.094 1.07-1.094 2.607 0 1.537 1.12 3.027 1.276 3.237.156.21 2.2 3.359 5.328 4.706.744.32 1.325.512 1.777.656.748.238 1.43.204 1.969.124.6-.09 1.86-.76 2.12-1.457.26-.696.26-1.293.182-1.42-.078-.126-.286-.209-.6-.367z"/>
-        </svg>
-        WhatsApp Destek
+    <a href="https://wa.me/905327600509?text=Merhaba,%20Yavuz%20Rulman%20katalo%C4%9Funuzdan%20ula%C5%9F%C4%B1yorum.%20%C3%9Ur%C3%BCnler%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim?"        class="whatsapp-btn"        target="_blank"        rel="noopener noreferrer">        
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">            
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.855.001-2.633-1.025-5.107-2.89-6.973C16.52 1.81 14.05 .78 11.416.78c-5.44 0-9.865 4.42-9.867 9.856-.001 1.674.443 3.303 1.288 4.715L1.76 21.547l6.381-1.674zM17.65 14.73c-.315-.158-1.86-.916-2.146-1.02-.287-.104-.496-.158-.704.158-.209.317-.81 1.02-.992 1.23-.181.21-.363.236-.678.079-.314-.158-1.33-.49-2.532-1.562-.936-.83-1.568-1.856-1.751-2.172-.182-.315-.019-.486.138-.643.141-.14.314-.368.471-.553.157-.184.21-.316.315-.527.105-.21.052-.394-.026-.552-.079-.158-.704-1.7-.964-2.324-.254-.61-.512-.527-.704-.527-.182 0-.39-.006-.598-.006-.208 0-.547.079-.833.395-.286.316-1.094 1.07-1.094 2.607 0 1.537 1.12 3.027 1.276 3.237.156.21 2.2 3.359 5.328 4.706.744.32 1.325.512 1.777.656.748.238 1.43.204 1.969.124.6-.09 1.86-.76 2.12-1.457.26-.696.26-1.293.182-1.42-.078-.126-.286-.209-.6-.367z"/>        
+        </svg>        
+        WhatsApp Destek    
     </a>
-</body>
-</html>
+</body></html>
