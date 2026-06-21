@@ -24,80 +24,103 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #0b0f17;
+            color: #adbac7;
             line-height: 1.6;
         }
+        
+        /* Gelişmiş Header Gradiantı */
         header {
-            background: linear-gradient(135deg, #001f4d 0%, #0044cc 100%);
+            background: radial-gradient(circle at top right, #00225c 0%, #050b14 100%);
             color: #ffffff;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 3px solid #0066ff;
-            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2);
+            border-bottom: 1px solid #1f293d;
+            position: relative;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: #0066ff;
+            box-shadow: 0 0 15px #0066ff;
         }
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            margin-bottom: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #8ab4f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         header p {
-            font-size: 1.1rem;
-            color: #8ab4f8;
+            font-size: 1.2rem;
+            color: #768390;
+            max-width: 600px;
+            margin: 0 auto;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
+        
         .intro-text {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 50px auto;
-            font-size: 1.1rem;
+            margin: 0 auto 60px auto;
         }
         .intro-text h2 {
             color: #ffffff;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .intro-text p {
+            font-size: 1.1rem;
+            color: #768390;
         }
         
-        /* Ürün Kartları Yapısı ve Görsel Animasyonları */
+        /* Modern Ürün Kartları Grid Sistemi */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
         }
         .product-card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 20px;
+            background-color: #151b26;
+            border: 1px solid #222e40;
+            border-radius: 16px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.4s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-5px);
             border-color: #0066ff;
-            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
         }
         .product-img-wrapper {
             width: 100%;
-            height: 160px;
-            border-radius: 8px;
+            height: 180px;
+            border-radius: 12px;
             overflow: hidden;
-            background-color: #0d1117;
-            margin-bottom: 15px;
-            border: 1px solid #21262d;
+            background-color: #0b0f17;
+            margin-bottom: 20px;
+            border: 1px solid #222e40;
         }
         .product-img-wrapper img {
             width: 100%;
@@ -106,51 +129,63 @@
             transition: transform 0.5s ease;
         }
         .product-card:hover .product-img-wrapper img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         .product-title-area {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #21262d;
-            padding-bottom: 8px;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #222e40;
+            padding-bottom: 12px;
         }
         .product-icon {
-            font-size: 1.8rem;
-            color: #0066ff;
+            font-size: 1.6rem;
+            background: rgba(0, 102, 255, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .product-card h3 {
             color: #ffffff;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
+            font-weight: 600;
         }
         .product-card ul {
             list-style: none;
+            flex-grow: 1;
         }
         .product-card ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 24px;
             font-size: 0.95rem;
+            color: #adbac7;
         }
         .product-card ul li::before {
-            content: "✓";
+            content: "→";
             position: absolute;
             left: 0;
-            color: #58a6ff;
+            color: #0066ff;
             font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .product-card:hover ul li::before {
+            transform: translateX(3px);
         }
 
-        /* İletişim Yapısı */
+        /* İletişim Yapısı Yenileme */
         .info-section {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
+            background-color: #151b26;
+            border: 1px solid #222e40;
+            border-radius: 16px;
             padding: 40px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
         .contact-info {
             flex: 1;
@@ -159,56 +194,86 @@
         .contact-info h3 {
             color: #ffffff;
             font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
             position: relative;
         }
         .contact-info h3::after {
             content: '';
             position: absolute;
-            left: 0; bottom: -5px; width: 50px; height: 3px;
+            left: 0; 
+            bottom: -8px; 
+            width: 40px; 
+            height: 3px;
             background-color: #0066ff;
+            border-radius: 2px;
         }
         .contact-item {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
+            margin-bottom: 24px;
+            font-size: 1rem;
         }
         .contact-item strong {
-            color: #58a6ff;
+            color: #ffffff;
             display: block;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contact-item a {
+            color: #8ab4f8;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .contact-item a:hover {
+            color: #0066ff;
         }
         .map-container {
             flex: 1;
             min-width: 300px;
-            height: 300px;
-            border-radius: 8px;
+            height: 320px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 2px solid #30363d;
+            border: 1px solid #222e40;
         }
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
+            filter: grayscale(0.2) contrast(1.1);
         }
-        footer {
+        
+        /* Modern Parlayan Çağrı Butonu (CTA) */
+        .btn-container {
             text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-            border-top: 1px solid #30363d;
-            font-size: 0.9rem;
-            color: #8b949e;
+            margin-top: 50px;
         }
         .back-btn {
             display: inline-block;
-            margin-top: 20px;
-            color: #58a6ff;
+            background: #0066ff;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s;
+            padding: 14px 36px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s ease;
         }
         .back-btn:hover {
-            color: #539bf5;
-            text-decoration: underline;
+            background: #0052cc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 1px solid #1f293d;
+            font-size: 0.9rem;
+            color: #768390;
         }
     </style>
 </head>
@@ -221,11 +286,12 @@
 
     <div class="container">
         <div class="intro-text">
-            <h2>Yüksek Performanslı Endüstriyel Ürün Çeşitleri</h2>
-            <p>Yavuz Rulman geniş ürün yelpazesi ile makine, imalat and otomasyon sektörünün teknik parça ihtiyaçlarını kesintisiz karşılar. Dünyanın önde gelen markalarını performans odaklı çözümlerle sunuyoruz.</p>
+            <h2>Yüksek Performanslı Endüstriyel Ürün Çesistleri</h2>
+            <p>Yavuz Rulman geniş ürün yelpazesi ile makine, imalat ve otomasyon sektörünün teknik parça ihtiyaçlarını kesintisiz karşılar. Dünyanın önde gelen markalarını performans odaklı çözümlerle sunuyoruz.</p>
         </div>
 
         <div class="products-grid">
+            <!-- Kart 1 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/bilyali-rulmanlar.jpg" alt="Bilyalı Rulmanlar - Yavuz Rulman">
@@ -242,6 +308,7 @@
                 </ul>
             </div>
 
+            <!-- Kart 2 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/makarali-rulmanlar.jpg" alt="Makaralı Rulmanlar - Yavuz Rulman">
@@ -258,6 +325,7 @@
                 </ul>
             </div>
 
+            <!-- Kart 3 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/lineer-rulmanlar.jpg" alt="Lineer Rulman Çeşitleri - Yavuz Rulman">
@@ -274,6 +342,7 @@
                 </ul>
             </div>
 
+            <!-- Kart 4 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/disli-kayislar.jpg" alt="Dişli Kayışlar ve Endüstriyel Güç Aktarımı">
@@ -290,6 +359,7 @@
                 </ul>
             </div>
 
+            <!-- Kart 5 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/pnomatik-rekorlar.jpg" alt="Pnömatik Rekorlar ve Bağlantı Elemanları">
@@ -306,6 +376,7 @@
                 </ul>
             </div>
 
+            <!-- Kart 6 -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="./images/otomotiv-rulmanlari.jpg" alt="Otomotiv Rulmanları ve Tekerlek Porya Kitleri">
@@ -328,15 +399,15 @@
                 <h3>İletişim Bilgilerimiz</h3>
                 <div class="contact-item" style="margin-top: 25px;">
                     <strong>📞 Telefon</strong>
-                    <a href="tel:05327600509" style="color: inherit; text-decoration: none;" title="Yavuz Rulman Telefonu Arayın">0532 760 05 09</a>
+                    <a href="tel:05327600509" title="Yavuz Rulman Telefonu Arayın">0532 760 05 09</a>
                 </div>
                 <div class="contact-item">
                     <strong>✉️ E-Posta</strong>
-                    <a href="mailto:yavuztaspinar@gmail.com" style="color: #58a6ff; text-decoration: none;" title="Yavuz Rulman E-posta Gönderin">yavuztaspinar@gmail.com</a>
+                    <a href="mailto:yavuztaspinar@gmail.com" title="Yavuz Rulman E-posta Gönderin">yavuztaspinar@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <strong>🕒 Çalışma Saatleri</strong>
-                    Pazartesi - Cumartesi: 08:30 - 19:00
+                    <span style="font-size: 1.1rem; color: #adbac7; display: block; margin-top: 5px;">Pazartesi - Cumartesi: 08:30 - 19:00</span>
                 </div>
             </div>
 
@@ -345,8 +416,8 @@
             </div>
         </div>
 
-        <div style="text-align: center;">
-            <a href="./index3.html" class="back-btn" title="Yavuz Rulman Güncel Stok Listesi">←STOKLARA GİT</a>
+        <div class="btn-container">
+            <a href="./index3.html" class="back-btn" title="Yavuz Rulman Güncel Stok Listesi">GÜNCEL STOKLARA GİT →</a>
         </div>
     </div>
 
@@ -354,7 +425,7 @@
         <p>© 2026 Yavuz Rulman. Tüm Hakları Saklıdır. | Güçlü Endüstriyel Altyapı</p>
     </footer>
 
-    <!-- Ürün Grupları İçin Google Botlarına Özel Yapılandırılmış Veri Şeması (Schema Markup) -->
+    <!-- Ürün Grupları İçin Google Botlarına Özel Yapılandırılmış Veri Şeması -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -362,36 +433,12 @@
       "name": "Yavuz Rulman Ürün Kategorileri",
       "description": "Yavuz Rulman mağazasında yer alan endüstriyel teknik yedek parça ve rulman çeşitleri.",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Bilyalı Rulmanlar"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Makaralı Rulmanlar"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Lineer Rulmanlar"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Dişli Kayışlar"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "Pnömatik Rekorlar"
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "name": "Otomotiv Rulmanları"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Bilyalı Rulmanlar" },
+        { "@type": "ListItem", "position": 2, "name": "Makaralı Rulmanlar" },
+        { "@type": "ListItem", "position": 3, "name": "Lineer Rulmanlar" },
+        { "@type": "ListItem", "position": 4, "name": "Dişli Kayışlar" },
+        { "@type": "ListItem", "position": 5, "name": "Pnömatik Rekorlar" },
+        { "@type": "ListItem", "position": 6, "name": "Otomotiv Rulmanları" }
       ]
     }
     </script>
