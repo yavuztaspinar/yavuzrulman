@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://yavuztaspinar.github.io/yavuzrulman/" />
     
     <meta property="og:title" content="Yavuz Rulman | Endüstriyel Rulman ve Yedek Parça Çözümleri">
-    <meta property="og:description" content="Yüksek kaliteli endüstriyel rulman çeşitleri, kasnaklar, endüstriyel yağlar ve teknik çözümler için sanal mağazamızı inceleyin.">
+    <meta property="og:description" content="Yüksek kaliteli endüstriyel rulman çeşitleri, kasnaklar, endüstriyel yağlar and teknik çözümler için sanal mağazamızı inceleyin.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/">
     <meta property="og:site_name" content="Yavuz Rulman">
@@ -150,7 +150,6 @@
             pointer-events: none;
         }
 
-        /* --- SEO GELİŞTİRİLMİŞ TABAN ALANI --- */
         .seo-footer-container {
             position: absolute;
             bottom: 15px;
@@ -162,7 +161,7 @@
         .seo-keywords-list {
             margin-bottom: 8px;
             font-size: 0.78rem;
-            color: #555555; /* SEO GÜVENLİĞİ: Google gizli metin cezası vermemesi için görünür ton seçildi */
+            color: #555555;
             letter-spacing: 0.5px;
             line-height: 1.4;
             max-width: 1200px;
@@ -190,7 +189,7 @@
                 width: 1rem;
             }
             .seo-keywords-list {
-                display: none; /* Mobilde taşmaları önler */
+                display: none;
             }
         }
     </style>
@@ -267,7 +266,7 @@
         dirLight.position.set(5, 5, 5);
         scene.add(dirLight);
 
-        camera.position.z = window.innerWidth < 768 ? 18 : 15; // Mobil optimizasyonu
+        camera.position.z = window.innerWidth < 768 ? 18 : 15;
 
         const metalMaterial = new THREE.MeshStandardMaterial({
             color: 0xcccccc,
@@ -324,7 +323,6 @@
                 blueLight.intensity = 10;
                 gsap.to(blueLight, { intensity: 2, duration: 0.5 });
 
-                // PERFORMANS OPTİMİZASYONU: Patlayan ana halkaları uzaklaştır ve sahneden kaldır
                 gsap.to(bearingLeft.outer.position, { x: -15, y: 15, z: -10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingLeft.outer) });
                 gsap.to(bearingLeft.inner.position, { x: -10, y: -12, z: 10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingLeft.inner) });
                 gsap.to(bearingRight.outer.position, { x: 15, y: -15, z: -10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingRight.outer) });
@@ -351,12 +349,11 @@
                     x: 0, y: 0, z: 0, 
                     duration: 2, 
                     ease: "power2.out",
-                    onComplete: () => scene.remove(ball) // Sahne belleğini temiz tutar
+                    onComplete: () => scene.remove(ball)
                 });
             });
         }
 
-        // TİTREME OPTİMİZASYONU: Devasa ekran taşmalarını engellemek için çarpan 1.5'ten 0.9'a çekildi
         tl.fromTo(".letter", 
             { 
                 opacity: 0, scale: 0,
