@@ -215,4 +215,190 @@
 
         function checkReadyStatus() {
             if (videoReady && audioReady) {
-                recordBtn.style.display = 'inline-
+                recordBtn.style.display = 'inline-block';
+            }
+        }
+
+        // Ses Motorunu Hazırlama
+        async function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                mediaStreamDestination = audioCtx.createMediaStreamDestination();
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 256;
+                bufferLength = analyser.frequencyBinCount;
+                dataArray = new Uint8Array(bufferLength);
+            }
+            
+            if (audioCtx.state === 'suspended') {
+                await audioCtx.resume();
+            }
+
+            return new Promise((resolve, reject) => {
+                audioCtx.decodeAudioData(audioRawData.slice(0), function(buffer) {
+                    audioBuffer = buffer;
+                    resolve();
+                }, reject);
+            });
+        }
+
+        // Oynatma ve Çizim Başlangıcı
+        async function startPlaying() {
+            statusText.innerText = "Sistem eşleştiriliyor...";
+            await initAudio();
+
+            sourceNode = audioCtx.createBufferSource();
+            sourceNode.buffer = audioBuffer;
+            sourceNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            analyser.connect(mediaStreamDestination);
+            
+            sourceNode.onended = () => {
+                if(isRecording) { stopRecording(); }
+            };
+
+            sourceNode.start(0);
+            hiddenVideo.currentTime = 0;
+            isPlaying = true;
+
+            try {
+                await hiddenVideo.play();
+            } catch(e) {
+                console.error("Video oynatılamadı:", e);
+            }
+            
+            if(animationFrameId) cancelAnimationFrame(animationFrameId);
+            draw(); 
+        }
+
+        // Canlı Görselleştirici ve Video Çizim Döngüsü
+        function draw() {
+            if (!isPlaying) return;
+
+            animationFrameId = requestAnimationFrame(draw);
+
+            analyser.getByteFrequencyData(dataArray);
+            let bassValue = 0;
+            for(let i=0; i<10; i++) { bassValue += dataArray[i]; }
+            bassValue = bassValue / 10;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            let scale = 1 + (bassValue / 2200); 
+            let newWidth = canvas.width * scale;
+            let newHeight = canvas.height * scale;
+            let xOffset = (canvas.width - newWidth) / 2;
+            let yOffset = (canvas.height - newHeight) / 2;
+
+            if (hiddenVideo.readyState >= 2) {
+                ctx.drawImage(hiddenVideo, xOffset, yOffset, newWidth, newHeight);
+            } else {
+                ctx.fillStyle = "#000";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Metin Efektleri ve Ritim Dansı
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            
+            let danceRotation = Math.sin(Date.now() * 0.008) * (bassValue / 300);
+            ctx.rotate(danceRotation);
+            
+            // Uzun isim ekranı kaplamasın diye font boyutunu biraz optimize ettim (110px)
+            let dynamicFontSize = 110 + (bassValue * 0.6); 
+            ctx.font = `bold ${dynamicFontSize}px 'Segoe UI', Arial, sans-serif`;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            
+            ctx.shadowBlur = 50 + (bassValue * 0.8);
+            ctx.shadowColor = "#ffaa00"; 
+            ctx.fillStyle = "#ffffff"; 
+            
+            // BURASI GÜNCELLENDİ: Ekranda müzikle zıplayacak isim artık senin ismin!
+            ctx.fillText("YAVUZ TAŞPINAR", 0, 0);
+            ctx.restore();
+        }
+
+        // Kayıt İşlemini Başlatma
+        async function startRecording() {
+            recordBtn.disabled = true;
+            recordedChunks = [];
+            
+            await startPlaying();
+
+            const canvasStream = canvas.captureStream(30); 
+            const audioStream = mediaStreamDestination.stream;
+            
+            const combinedStream = new MediaStream([
+                ...canvasStream.getVideoTracks(),
+                ...audioStream.getAudioTracks()
+            ]);
+
+            let options = { mimeType: 'video/webm;codecs=vp9,opus', videoBitsPerSecond: 8000000 };
+            let finalExt = 'webm';
+            
+            if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                options = { mimeType: 'video/webm;codecs=h264,opus', videoBitsPerSecond: 8000000 };
+                if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                    options = { mimeType: '', videoBitsPerSecond: 8000000 }; 
+                    finalExt = 'webm';
+                }
+            }
+
+            mediaRecorder = new MediaRecorder(combinedStream, options);
+
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) recordedChunks.push(e.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                statusText.innerText = "Video kodlanıyor ve paketleniyor...";
+                
+                const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || 'video/webm' });
+                const url = URL.createObjectURL(blob);
+                
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.href = url;
+                // İnen dosya adı da senin adına göre güncellendi
+                downloadAnchor.download = `yavuz_taspinar_video.${finalExt}`;
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click(); 
+                document.body.removeChild(downloadAnchor);
+                
+                statusText.innerText = "Harika! Yeni videonuz başarıyla indirildi.";
+                recordBtn.innerText = "Yeniden Birleştir";
+                recordBtn.disabled = false;
+            };
+
+            mediaRecorder.start();
+            isRecording = true;
+            recordBtn.disabled = false;
+            recordBtn.style.background = "#ffcc00";
+            recordBtn.style.color = "#000";
+            recordBtn.innerText = "Videoyu Bitir ve İndir";
+            statusText.innerText = "Şu an arka planda birleştirme ve kayıt yapılıyor...";
+        }
+
+        // Kaydı Durdurma
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+            if(animationFrameId) cancelAnimationFrame(animationFrameId); 
+            if(sourceNode) { 
+                try { sourceNode.stop(); } catch(e){} 
+                isPlaying = false; 
+            }
+            hiddenVideo.pause();
+            isRecording = false;
+            recordBtn.disabled = true;
+            recordBtn.style.background = "#ff0055";
+            recordBtn.style.color = "#fff";
+        }
+
+        recordBtn.addEventListener('click', () => {
+            if (!isRecording) { startRecording(); } else { stopRecording(); }
+        });
+    </script>
+</body>
+</html>
