@@ -94,13 +94,13 @@
 </head>
 <body>
 
-    <h2 style="margin-bottom: 15px; text-shadow: 0 0 15px #ffaa00; letter-spacing: 2px;">YAVUZ YAŞPINAR VE MÜZİK BİRLEŞTİRİCİ - 1080P FULL HD</h2>
+    <h2 style="margin-bottom: 15px; text-shadow: 0 0 15px #ffaa00; letter-spacing: 2px;">YAVUZ TAŞPINAR VE MÜZİK BİRLEŞTİRİCİ - 1080P FULL HD</h2>
 
     <div id="canvas-container">
         <canvas id="visualizerCanvas" width="1920" height="1080"></canvas>
     </div>
 
-    <video id="hiddenVideo" loop muted playsinline autoplay style="display:none; width: 100%; height: 100%;"></video>
+    <video id="hiddenVideo" loop muted playsinline style="display:none; width: 100%; height: 100%;"></video>
 
     <div class="controls">
         <div class="file-upload">
@@ -131,10 +131,11 @@
         let mediaRecorder, recordedChunks = [];
         let isRecording = false;
         let bufferLength, dataArray;
-        let renderInterval; // requestAnimationFrame yerine bunu kullanacağız
+        let renderInterval; 
 
         let videoReady = false;
         let audioReady = false;
+        let audioRawData = null; // Dosya verisini saklamak için
 
         videoInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -145,7 +146,6 @@
             
             hiddenVideo.src = fileURL;
             hiddenVideo.muted = true;
-            hiddenVideo.playsInline = true;
             hiddenVideo.load();
             
             hiddenVideo.oncanplaythrough = function() {
@@ -161,23 +161,14 @@
             const file = e.target.files[0];
             if (!file) return;
 
-            statusText.innerText = "Müzik çözümleniyor, lütfen bekleyin...";
+            statusText.innerText = "Müzik okunuyor, lütfen bekleyin...";
             
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            mediaStreamDestination = audioCtx.createMediaStreamDestination();
-            analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 256;
-            bufferLength = analyser.frequencyBinCount;
-            dataArray = new Uint8Array(bufferLength);
-
             const reader = new FileReader();
             reader.onload = function(event) {
-                audioCtx.decodeAudioData(event.target.result, function(buffer) {
-                    audioBuffer = buffer;
-                    audioReady = true;
-                    statusText.innerText = "Müzik hazır! 'Kaydı Başlat ve Birleştir' butonuna basabilirsin.";
-                    checkReadyStatus();
-                });
+                audioRawData = event.target.result; // Veriyi sakla, AudioContext'i buton tıklamasında kuracağız
+                audioReady = true;
+                statusText.innerText = "Müzik hazır! 'Kaydı Başlat ve Birleştir' butonuna basabilirsin.";
+                checkReadyStatus();
             };
             reader.readAsArrayBuffer(file);
         });
@@ -188,7 +179,33 @@
             }
         }
 
-        function startPlaying() {
+        async function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                mediaStreamDestination = audioCtx.createMediaStreamDestination();
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 256;
+                bufferLength = analyser.frequencyBinCount;
+                dataArray = new Uint8Array(bufferLength);
+            }
+            
+            if (audioCtx.state === 'suspended') {
+                await audioCtx.resume();
+            }
+
+            return new Promise((resolve, reject) => {
+                // Her kayıtta müziği yeniden decode ediyoruz ki hata vermesin
+                audioCtx.decodeAudioData(audioRawData.slice(0), function(buffer) {
+                    audioBuffer = buffer;
+                    resolve();
+                }, reject);
+            });
+        }
+
+        async function startPlaying() {
+            statusText.innerText = "Ses motoru başlatılıyor...";
+            await initAudio();
+
             sourceNode = audioCtx.createBufferSource();
             sourceNode.buffer = audioBuffer;
             sourceNode.connect(analyser);
@@ -197,11 +214,14 @@
             sourceNode.start(0);
 
             hiddenVideo.currentTime = 0;
-            hiddenVideo.play().catch(e => console.log("Hata:", e));
-
             isPlaying = true;
+
+            try {
+                await hiddenVideo.play();
+            } catch(e) {
+                console.log("Video oynatma hatası:", e);
+            }
             
-            // DÜZELTME: Saniyede tam 30 kere (1000ms / 30fps = ~33.3ms) çizim yapılmasını zorunlu kılıyoruz.
             if(renderInterval) clearInterval(renderInterval);
             renderInterval = setInterval(draw, 1000 / 30);
         }
@@ -216,7 +236,6 @@
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Videonun arka planda bas ritmine göre esnemesi
             let scale = 1 + (bassValue / 2500); 
             let newWidth = canvas.width * scale;
             let newHeight = canvas.height * scale;
@@ -227,7 +246,6 @@
                 ctx.drawImage(hiddenVideo, xOffset, yOffset, newWidth, newHeight);
             }
 
-            // --- DJ BARIŞ MERKEZDE DANS EDİYOR ---
             ctx.save();
             ctx.translate(canvas.width / 2, canvas.height / 2);
             
@@ -247,11 +265,12 @@
             ctx.restore();
         }
 
-        function startRecording() {
+        async function startRecording() {
+            recordBtn.disabled = true; // Çift tıklamayı engelle
             recordedChunks = [];
-            startPlaying();
+            
+            await startPlaying();
 
-            // Saniyede tam 30 kare yakala
             const canvasStream = canvas.captureStream(30);
             const audioStream = mediaStreamDestination.stream;
             
@@ -260,17 +279,13 @@
                 ...audioStream.getAudioTracks()
             ]);
 
-            let options = { mimeType: 'video/mp4;codecs=avc1,mp4a.40.2', videoBitsPerSecond: 8000000 };
-            let finalExt = 'mp4';
+            let options = { mimeType: 'video/webm;codecs=vp9,opus', videoBitsPerSecond: 8000000 };
+            let finalExt = 'webm';
             
             if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-                // Tarayıcı mp4 desteklemiyorsa webm formatında h264 paketle
-                options = { mimeType: 'video/webm;codecs=h264', videoBitsPerSecond: 8000000 };
-                finalExt = 'webm'; 
-                
+                options = { mimeType: 'video/webm;codecs=h264,opus', videoBitsPerSecond: 8000000 };
                 if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-                    options = { mimeType: 'video/webm;codecs=vp9', videoBitsPerSecond: 8000000 };
-                    finalExt = 'webm'; 
+                    options = { mimeType: '', videoBitsPerSecond: 8000000 }; 
                 }
             }
 
@@ -283,7 +298,7 @@
             mediaRecorder.onstop = () => {
                 statusText.innerText = "Video paketleniyor...";
                 
-                const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType });
+                const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || 'video/webm' });
                 const url = URL.createObjectURL(blob);
                 
                 const downloadAnchor = document.createElement('a');
@@ -293,13 +308,14 @@
                 downloadAnchor.click(); 
                 document.body.removeChild(downloadAnchor);
                 
-                statusText.innerText = "İşlem Başarılı! Full HD video iniyor.";
+                statusText.innerText = "İşlem Başarılı! Video iniyor.";
                 recordBtn.innerText = "Yeniden Birleştir";
                 recordBtn.disabled = false;
             };
 
             mediaRecorder.start();
             isRecording = true;
+            recordBtn.disabled = false;
             recordBtn.style.background = "#ffcc00";
             recordBtn.style.color = "#000";
             recordBtn.innerText = "Kaydı Durdur ve Videoyu Al";
@@ -307,9 +323,11 @@
         }
 
         function stopRecording() {
-            mediaRecorder.stop();
-            if(renderInterval) clearInterval(renderInterval); // Döngüyü temizle
-            if(sourceNode) { sourceNode.stop(); isPlaying = false; }
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+            if(renderInterval) clearInterval(renderInterval); 
+            if(sourceNode) { try { sourceNode.stop(); } catch(e){} isPlaying = false; }
             hiddenVideo.pause();
             isRecording = false;
             recordBtn.disabled = true;
