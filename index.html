@@ -58,7 +58,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #050505;
+            background-color: #ffffff; /* Arka plan beyaz yapıldı */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         #canvas-container {
@@ -88,7 +88,7 @@
             justify-content: center;
             margin: 0;
             padding: 0;
-            color: #ffffff;
+            color: #1a365d; /* Yazı rengi lacivert yapıldı */
             font-size: 4rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -97,12 +97,12 @@
         }
 
         .letter {
-            color: #ffffff;
+            color: #1a365d; /* Harf renkleri lacivert yapıldı */
             font-size: 4rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 5px;
-            text-shadow: 0 0 20px rgba(0, 150, 255, 0.8), 0 0 40px rgba(0, 150, 255, 0.4);
+            text-shadow: 0 0 15px rgba(0, 102, 255, 0.2); /* Gölge efekti hafifletildi */
             opacity: 0;
             display: inline-block;
             transform: scale(0) translate3d(0, 0, 0);
@@ -125,27 +125,28 @@
             padding: 15px 40px;
             font-size: 1.2rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #0066ff; /* Buton yazı rengi mavi yapıldı */
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             background: transparent;
             border: 2px solid #0066ff;
             border-radius: 30px;
-            box-shadow: 0 0 15px rgba(0, 102, 254, 0.4);
+            box-shadow: 0 0 15px rgba(0, 102, 254, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
         }
         .enter-btn:hover {
             background: #0066ff;
-            box-shadow: 0 0 30px rgba(0, 102, 254, 0.8);
+            color: #ffffff; /* Hover durumunda yazı beyaz olacak */
+            box-shadow: 0 0 30px rgba(0, 102, 254, 0.4);
             transform: scale(1.05);
         }
 
         .glow-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(0,102,204,0.15) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(0,102,204,0.05) 0%, rgba(255,255,255,0) 70%); /* Beyaz zemine göre soft ışık */
             z-index: 1;
             pointer-events: none;
         }
@@ -161,7 +162,7 @@
         .seo-keywords-list {
             margin-bottom: 8px;
             font-size: 0.78rem;
-            color: #555555;
+            color: #777777; /* Alt metin okunabilirliği ayarlandı */
             letter-spacing: 0.5px;
             line-height: 1.4;
             max-width: 1200px;
@@ -173,7 +174,7 @@
             display: inline-block;
         }
         .seo-footer-text {
-            color: #666666;
+            color: #444444; /* Telif yazısı rengi koyulaştırıldı */
             font-size: 0.85rem;
             letter-spacing: 1px;
             font-weight: 400;
@@ -268,10 +269,11 @@
 
         camera.position.z = window.innerWidth < 768 ? 18 : 15;
 
+        // Metal malzeme beyaz zemin üzerinde daha net görünsün diye rengi biraz koyulaştırıldı (0xaaaaaa)
         const metalMaterial = new THREE.MeshStandardMaterial({
-            color: 0xcccccc,
-            metalness: 0.9,
-            roughness: 0.1
+            color: 0xaaaaaa,
+            metalness: 0.8,
+            roughness: 0.2
         });
 
         function createBearing(direction) {
