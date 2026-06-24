@@ -100,7 +100,7 @@
         <canvas id="visualizerCanvas" width="1920" height="1080"></canvas>
     </div>
 
-    <video id="hiddenVideo" loop muted playsinline style="display:none; width: 100%; height: 100%;"></video>
+    <video id="hiddenVideo" loop muted playsinline style="display:none; width: 1920px; height: 1080px;"></video>
 
     <div class="controls">
         <div class="file-upload">
@@ -131,11 +131,11 @@
         let mediaRecorder, recordedChunks = [];
         let isRecording = false;
         let bufferLength, dataArray;
-        let renderInterval; 
+        let animationFrameId; // setInterval yerine requestAnimationFrame takibi için
 
         let videoReady = false;
         let audioReady = false;
-        let audioRawData = null; // Dosya verisini saklamak için
+        let audioRawData = null;
 
         videoInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -165,7 +165,7 @@
             
             const reader = new FileReader();
             reader.onload = function(event) {
-                audioRawData = event.target.result; // Veriyi sakla, AudioContext'i buton tıklamasında kuracağız
+                audioRawData = event.target.result;
                 audioReady = true;
                 statusText.innerText = "Müzik hazır! 'Kaydı Başlat ve Birleştir' butonuna basabilirsin.";
                 checkReadyStatus();
@@ -194,7 +194,6 @@
             }
 
             return new Promise((resolve, reject) => {
-                // Her kayıtta müziği yeniden decode ediyoruz ki hata vermesin
                 audioCtx.decodeAudioData(audioRawData.slice(0), function(buffer) {
                     audioBuffer = buffer;
                     resolve();
@@ -211,6 +210,12 @@
             sourceNode.connect(analyser);
             analyser.connect(audioCtx.destination);
             analyser.connect(mediaStreamDestination);
+            
+            // Müzik bittiğinde kaydı otomatik durdurmak için olay yöneticisi
+            sourceNode.onended = () => {
+                if(isRecording) { stopRecording(); }
+            };
+
             sourceNode.start(0);
 
             hiddenVideo.currentTime = 0;
@@ -222,12 +227,15 @@
                 console.log("Video oynatma hatası:", e);
             }
             
-            if(renderInterval) clearInterval(renderInterval);
-            renderInterval = setInterval(draw, 1000 / 30);
+            if(animationFrameId) cancelAnimationFrame(animationFrameId);
+            draw(); // Döngüyü başlat
         }
 
         function draw() {
             if (!isPlaying) return;
+
+            // Tarayıcı ekran yenileme hızına (60fps) senkronize çizim yapıyoruz
+            animationFrameId = requestAnimationFrame(draw);
 
             analyser.getByteFrequencyData(dataArray);
             let bassValue = 0;
@@ -242,8 +250,13 @@
             let xOffset = (canvas.width - newWidth) / 2;
             let yOffset = (canvas.height - newHeight) / 2;
 
-            if (hiddenVideo.readyState >= 2) {
+            // Güvenli çizim kontrolü (Hata vermesini önler)
+            if (hiddenVideo.readyState >= 2 && hiddenVideo.videoWidth > 0) {
                 ctx.drawImage(hiddenVideo, xOffset, yOffset, newWidth, newHeight);
+            } else {
+                // Video karesi henüz işlenmediyse arkaya siyah fon atar, çökmez
+                ctx.fillStyle = "#000";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
             }
 
             ctx.save();
@@ -266,7 +279,7 @@
         }
 
         async function startRecording() {
-            recordBtn.disabled = true; // Çift tıklamayı engelle
+            recordBtn.disabled = true;
             recordedChunks = [];
             
             await startPlaying();
@@ -279,13 +292,19 @@
                 ...audioStream.getAudioTracks()
             ]);
 
+            // Tarayıcı uyumluluğu için esnek video format seçimi
             let options = { mimeType: 'video/webm;codecs=vp9,opus', videoBitsPerSecond: 8000000 };
             let finalExt = 'webm';
             
             if (!MediaRecorder.isTypeSupported(options.mimeType)) {
                 options = { mimeType: 'video/webm;codecs=h264,opus', videoBitsPerSecond: 8000000 };
                 if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-                    options = { mimeType: '', videoBitsPerSecond: 8000000 }; 
+                    options = { mimeType: 'video/mp4;codecs=avc1,mp4a', videoBitsPerSecond: 8000000 };
+                    finalExt = 'mp4';
+                    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                        options = { mimeType: '', videoBitsPerSecond: 8000000 }; 
+                        finalExt = 'webm';
+                    }
                 }
             }
 
@@ -326,11 +345,14 @@
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
                 mediaRecorder.stop();
             }
-            if(renderInterval) clearInterval(renderInterval); 
-            if(sourceNode) { try { sourceNode.stop(); } catch(e){} isPlaying = false; }
+            if(animationFrameId) cancelAnimationFrame(animationFrameId); 
+            if(sourceNode) { 
+                try { sourceNode.stop(); } catch(e){} 
+                isPlaying = false; 
+            }
             hiddenVideo.pause();
             isRecording = false;
-            recordBtn.disabled = true;
+            recordBtn.disabled = false;
             recordBtn.style.background = "#ff0055";
             recordBtn.style.color = "#fff";
         }
