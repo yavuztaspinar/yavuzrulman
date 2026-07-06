@@ -533,7 +533,7 @@
                     <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">14 mm</div></div>
                 </div>
                 <div class="product-footer">
-                   <div class="product-price">0,00 EUR</div>
+                   <div class="product-price">0,00TL</div>
                     <div class="stock-badge stock-in">Stokta Var</div>
                 </div>
             </div>
@@ -546,7 +546,7 @@
                     <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">13 mm</div></div>
                 </div>
                 <div class="product-footer">
-                   <div class="product-price">0,00 EUR</div>
+                   <div class="product-price">0,00 TL</div>
                     <div class="stock-badge stock-in">Stokta Var</div>
                 </div>
             </div>
@@ -644,7 +644,7 @@
                             <div class="spec-item"><div class="spec-label">Genişlik</div><div class="spec-value">${urun.genislik || '-'} mm</div></div>                        
                         </div>                        
                         <div class="product-footer">                           
-                           <div class="product-price">${formatliFiyat} EUR</div>                            
+                           <div class="product-price">${formatliFiyat} TL</div>                            
                             <div class="stock-badge ${stokMiktari > 0 ? 'stock-in' : 'stock-out'}">                                
                                 ${stokMiktari > 0 ? `Stok: ${stokMiktari}` : 'Tükendi'}                            
                             </div>                        
@@ -675,7 +675,7 @@
                     "offers": {
                         "@type": "Offer",
                         "price": urun.fiyat || "0.00",
-                        "priceCurrency": "EUR",
+                        "priceCurrency": "TL",
                         "availability": Number(urun.stok || 0) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
                     }
                 });
