@@ -1,13 +1,13 @@
 [
   {
-    "ad": "6205 zz ",
-    "kategori": "fag",
+    "ad": "6205 zz",
+    "kategori": "FAG",
     "ic_cap": "25",
     "dis_cap": "52",
-    "genislik": "",
+    "genislik": "-",
     "fiyat": 120,
     "stok": 2000
-  },
+  }
   {
     "ad": "6309 M4",
     "kategori": "SKF",
