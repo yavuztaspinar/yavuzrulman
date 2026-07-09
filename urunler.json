@@ -1,5 +1,4 @@
-[
-  {
+[{
     "ad": "6205 zz",
     "kategori": "FAG",
     "ic_cap": "25",
@@ -7,7 +6,7 @@
     "genislik": "-",
     "fiyat": 120,
     "stok": 2000
-   },
+  },
   {
     "ad": "6309 M4",
     "kategori": "SKF",
@@ -25,7 +24,7 @@
     "genislik": "",
     "fiyat": 250,
     "stok": 2000
-  },
+  }
   {
     "ad": "DL 4416",
     "kategori": "NADELLA",
