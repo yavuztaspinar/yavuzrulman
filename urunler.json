@@ -1,57 +1,147 @@
 [
   {
-    "ad": "6205 zz",
+    "ad": "6205 ZZ",
     "kategori": "FAG",
     "ic_cap": "25",
     "dis_cap": "52",
-    "genislik": "-",
+    "genislik": "15",
     "fiyat": 120,
     "stok": 2000
   },
   {
-    "ad": "6204 ZZ",
+    "ad": "6206 ZZ",
     "kategori": "FAG",
-    "ic_cap": "",
-    "dis_cap": "",
-    "genislik": "",
-    "fiyat": 110,
-    "stok": 2000
-  },
-  {
-    "ad": "6206 zz",
-    "kategori": "FAG",
-    "ic_cap": "",
-    "dis_cap": "",
-    "genislik": "",
-    "fiyat": 250,
+    "ic_cap": "30",
+    "dis_cap": "62",
+    "genislik": "16",
+    "fiyat": 150,
     "stok": 2000
   },
   {
     "ad": "6207 ZZ",
     "kategori": "FAG",
-    "ic_cap": "",
-    "dis_cap": "",
-    "genislik": "",
+    "ic_cap": "35",
+    "dis_cap": "72",
+    "genislik": "17",
     "fiyat": 170,
     "stok": 2300
   },
   {
     "ad": "6208 2RS",
     "kategori": "FAG",
-    "ic_cap": "",
-    "dis_cap": "",
-    "genislik": "",
-    "fiyat":275,
+    "ic_cap": "40",
+    "dis_cap": "80",
+    "genislik": "18",
+    "fiyat": 275,
     "stok": 2100
   },
   {
-    "ad": "6209 ZZ ",
-    "kategori": "FAGA",
-    "ic_cap": "",
-    "dis_cap": "",
-    "genislik": "",
+    "ad": "6209 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "45",
+    "dis_cap": "85",
+    "genislik": "19",
     "fiyat": 462,
     "stok": 1000
+  },
+  {
+    "ad": "6210 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "50",
+    "dis_cap": "90",
+    "genislik": "20",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6211 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "55",
+    "dis_cap": "100",
+    "genislik": "21",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6212 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "60",
+    "dis_cap": "110",
+    "genislik": "22",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6213 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "65",
+    "dis_cap": "120",
+    "genislik": "23",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6214 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "70",
+    "dis_cap": "125",
+    "genislik": "24",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6215 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "75",
+    "dis_cap": "130",
+    "genislik": "25",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6216 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "80",
+    "dis_cap": "140",
+    "genislik": "26",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6217 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "85",
+    "dis_cap": "150",
+    "genislik": "28",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6218 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "90",
+    "dis_cap": "160",
+    "genislik": "30",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6219 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "95",
+    "dis_cap": "170",
+    "genislik": "32",
+    "fiyat": 0,
+    "stok": 0
+  },
+  {
+    "ad": "6220 ZZ",
+    "kategori": "FAG",
+    "ic_cap": "100",
+    "dis_cap": "180",
+    "genislik": "34",
+    "fiyat": 0,
+    "stok": 0
   },
   {
     "ad": "0-24",
