@@ -1,4 +1,391 @@
 [
+ {
+    "ad": "6005 NR",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 188.53,
+    "stok": 30
+  },
+  {
+    "ad": "6006",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 193.85,
+    "stok": 16
+  },
+  {
+    "ad": "6006 C3",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 193.85,
+    "stok": 16
+  },
+  {
+    "ad": "6006 Z",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 212.51,
+    "stok": 16
+  },
+  {
+    "ad": "6006 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 212.51,
+    "stok": 16
+  },
+  {
+    "ad": "6006 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 234.58,
+    "stok": 34
+  },
+  {
+    "ad": "6006 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 234.58,
+    "stok": 34
+  },
+  {
+    "ad": "6006 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 272.27,
+    "stok": 16
+  },
+  {
+    "ad": "6006 2RDD",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 318.34,
+    "stok": 16
+  },
+  {
+    "ad": "6006 RS",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 253.88,
+    "stok": 16
+  },
+  {
+    "ad": "6006 2RS",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 289.68,
+    "stok": 34
+  },
+  {
+    "ad": "6006 2RS V",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 433.11,
+    "stok": 16
+  },
+  {
+    "ad": "6006 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 333.21,
+    "stok": 16
+  },
+  {
+    "ad": "6006 N",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 233.67,
+    "stok": 16
+  },
+  {
+    "ad": "6006 NR",
+    "kategori": "FAG",
+    "ic_cap": 30,
+    "dis_cap": 55,
+    "genislik": 13,
+    "fiyat": 256.10,
+    "stok": 16
+  },
+  {
+    "ad": "6007",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 257.16,
+    "stok": 16
+  },
+  {
+    "ad": "6007 C3",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 257.16,
+    "stok": 16
+  },
+  {
+    "ad": "6007 Z",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 281.48,
+    "stok": 16
+  },
+  {
+    "ad": "6007 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 281.48,
+    "stok": 16
+  },
+  {
+    "ad": "6007 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 310.50,
+    "stok": 34
+  },
+  {
+    "ad": "6007 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 310.50,
+    "stok": 34
+  },
+  {
+    "ad": "6007 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 357.19,
+    "stok": 16
+  },
+  {
+    "ad": "6007 RS",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 320.78,
+    "stok": 16
+  },
+  {
+    "ad": "6007 2RS",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 344.55,
+    "stok": 34
+  },
+  {
+    "ad": "6007 2RS V",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 517.14,
+    "stok": 16
+  },
+  {
+    "ad": "6007 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 398.75,
+    "stok": 16
+  },
+  {
+    "ad": "6007 N",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 281.48,
+    "stok": 16
+  },
+  {
+    "ad": "6007 NR",
+    "kategori": "FAG",
+    "ic_cap": 35,
+    "dis_cap": 62,
+    "genislik": 14,
+    "fiyat": 303.31,
+    "stok": 16
+  },
+  {
+    "ad": "6008",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 310.97,
+    "stok": 16
+  },
+  {
+    "ad": "6008 C3",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 310.97,
+    "stok": 16
+  },
+  {
+    "ad": "6008 Z",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 342.06,
+    "stok": 16
+  },
+  {
+    "ad": "6008 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 342.06,
+    "stok": 16
+  },
+  {
+    "ad": "6008 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 375.74,
+    "stok": 36
+  },
+  {
+    "ad": "6008 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 375.74,
+    "stok": 36
+  },
+  {
+    "ad": "6008 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 432.40,
+    "stok": 16
+  },
+  {
+    "ad": "6008 RS",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 393.01,
+    "stok": 16
+  },
+  {
+    "ad": "6008 2RS",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 413.47,
+    "stok": 36
+  },
+  {
+    "ad": "6008 2RS V",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 619.73,
+    "stok": 16
+  },
+  {
+    "ad": "6008 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 475.33,
+    "stok": 16
+  },
+  {
+    "ad": "6008 N",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 339.02,
+    "stok": 16
+  },
+  {
+    "ad": "6008 NR",
+    "kategori": "FAG",
+    "ic_cap": 40,
+    "dis_cap": 68,
+    "genislik": 15,
+    "fiyat": 369.20,
+    "stok": 16
+  },
+  {
+    "ad": "6009",
+    "kategori": "FAG",
+    "ic_cap": 45,
+    "dis_cap": 75,
+    "genislik": 16,
+    "fiyat": 369.63,
+    "stok": 12
+  },
+  {
+    "ad": "6009 C3",
+    "kategori": "FAG",
+    "ic_cap": 45,
+    "dis_cap": 75,
+    "genislik": 16,
+    "fiyat": 369.63,
+    "stok": 12
+  },
   {
     "ad": "6003",
     "kategori": "FAG",
