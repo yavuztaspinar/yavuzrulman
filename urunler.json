@@ -388,7 +388,7 @@
   },
   {
     "ad": "6003",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -397,7 +397,7 @@
   },
   {
     "ad": "6003 C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -406,7 +406,7 @@
   },
   {
     "ad": "6003 Z",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -415,7 +415,7 @@
   },
   {
     "ad": "6003 Z C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -424,7 +424,7 @@
   },
   {
     "ad": "6003 ZZ",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -433,7 +433,7 @@
   },
   {
     "ad": "6003 ZZ C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -442,7 +442,7 @@
   },
   {
     "ad": "6003 ZZ NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -451,7 +451,7 @@
   },
   {
     "ad": "6003 2RDD",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -460,7 +460,7 @@
   },
   {
     "ad": "6003 RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -469,7 +469,7 @@
   },
   {
     "ad": "6003 2RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -478,7 +478,7 @@
   },
   {
     "ad": "6003 2RS NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -487,7 +487,7 @@
   },
   {
     "ad": "6003 N",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -496,7 +496,7 @@
   },
   {
     "ad": "6003 NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 17,
     "dis_cap": 35,
     "genislik": 10,
@@ -505,7 +505,7 @@
   },
   {
     "ad": "6004",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -514,7 +514,7 @@
   },
   {
     "ad": "6004 C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -523,7 +523,7 @@
   },
   {
     "ad": "6004 Z",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -532,7 +532,7 @@
   },
   {
     "ad": "6004 Z C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -541,7 +541,7 @@
   },
   {
     "ad": "6004 ZZ",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -550,7 +550,7 @@
   },
   {
     "ad": "6004 ZZ C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -559,7 +559,7 @@
   },
   {
     "ad": "6004 ZZ NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -568,7 +568,7 @@
   },
   {
     "ad": "6004 RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -577,7 +577,7 @@
   },
   {
     "ad": "6004 2RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -586,7 +586,7 @@
   },
   {
     "ad": "6004 2RS V",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -595,7 +595,7 @@
   },
   {
     "ad": "6004 2RS NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -604,7 +604,7 @@
   },
   {
     "ad": "6004 N",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -613,7 +613,7 @@
   },
   {
     "ad": "6004 NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 20,
     "dis_cap": 42,
     "genislik": 12,
@@ -622,7 +622,7 @@
   },
   {
     "ad": "6005",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -631,7 +631,7 @@
   },
   {
     "ad": "6005 C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -640,7 +640,7 @@
   },
   {
     "ad": "6005 Z",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -649,7 +649,7 @@
   },
   {
     "ad": "6005 Z C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -658,7 +658,7 @@
   },
   {
     "ad": "6005 ZZ",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -667,7 +667,7 @@
   },
   {
     "ad": "6005 ZZ C3",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -676,7 +676,7 @@
   },
   {
     "ad": "6005 ZZ NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -685,7 +685,7 @@
   },
   {
     "ad": "6005 2RDD",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -694,7 +694,7 @@
   },
   {
     "ad": "6005 RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -703,7 +703,7 @@
   },
   {
     "ad": "6005 2RS",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -712,7 +712,7 @@
   },
   {
     "ad": "6005 2RS V",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -721,7 +721,7 @@
   },
   {
     "ad": "6005 2RS NR",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
@@ -730,7 +730,7 @@
   },
   {
     "ad": "6005 N",
-    "kategori": "FAG",
+    "kategori": "ORS",
     "ic_cap": 25,
     "dis_cap": 47,
     "genislik": 12,
