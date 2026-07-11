@@ -1,5 +1,355 @@
 [
   {
+    "ad": "6003",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 121.58,
+    "stok": 28
+  },
+  {
+    "ad": "6003 C3",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 121.58,
+    "stok": 28
+  },
+  {
+    "ad": "6003 Z",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 126.97,
+    "stok": 28
+  },
+  {
+    "ad": "6003 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 126.97,
+    "stok": 28
+  },
+  {
+    "ad": "6003 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 140.11,
+    "stok": 56
+  },
+  {
+    "ad": "6003 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 140.11,
+    "stok": 56
+  },
+  {
+    "ad": "6003 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 160.25,
+    "stok": 28
+  },
+  {
+    "ad": "6003 2RDD",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 190.48,
+    "stok": 28
+  },
+  {
+    "ad": "6003 RS",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 157.60,
+    "stok": 28
+  },
+  {
+    "ad": "6003 2RS",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 173.44,
+    "stok": 56
+  },
+  {
+    "ad": "6003 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 200.25,
+    "stok": 28
+  },
+  {
+    "ad": "6003 N",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 134.13,
+    "stok": 28
+  },
+  {
+    "ad": "6003 NR",
+    "kategori": "FAG",
+    "ic_cap": 17,
+    "dis_cap": 35,
+    "genislik": 10,
+    "fiyat": 147.35,
+    "stok": 28
+  },
+  {
+    "ad": "6004",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 130.07,
+    "stok": 30
+  },
+  {
+    "ad": "6004 C3",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 130.07,
+    "stok": 30
+  },
+  {
+    "ad": "6004 Z",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 142.04,
+    "stok": 30
+  },
+  {
+    "ad": "6004 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 142.04,
+    "stok": 30
+  },
+  {
+    "ad": "6004 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 156.26,
+    "stok": 96
+  },
+  {
+    "ad": "6004 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 156.26,
+    "stok": 96
+  },
+  {
+    "ad": "6004 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 178.79,
+    "stok": 30
+  },
+  {
+    "ad": "6004 RS",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 160.81,
+    "stok": 30
+  },
+  {
+    "ad": "6004 2RS",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 174.51,
+    "stok": 96
+  },
+  {
+    "ad": "6004 2RS V",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 253.88,
+    "stok": 30
+  },
+  {
+    "ad": "6004 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 200.25,
+    "stok": 30
+  },
+  {
+    "ad": "6004 N",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 143.24,
+    "stok": 30
+  },
+  {
+    "ad": "6004 NR",
+    "kategori": "FAG",
+    "ic_cap": 20,
+    "dis_cap": 42,
+    "genislik": 12,
+    "fiyat": 157.39,
+    "stok": 30
+  },
+  {
+    "ad": "6005",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 154.29,
+    "stok": 30
+  },
+  {
+    "ad": "6005 C3",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 154.29,
+    "stok": 30
+  },
+  {
+    "ad": "6005 Z",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 170.47,
+    "stok": 30
+  },
+  {
+    "ad": "6005 Z C3",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 170.47,
+    "stok": 30
+  },
+  {
+    "ad": "6005 ZZ",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 187.39,
+    "stok": 80
+  },
+  {
+    "ad": "6005 ZZ C3",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 187.39,
+    "stok": 80
+  },
+  {
+    "ad": "6005 ZZ NR",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 214.08,
+    "stok": 30
+  },
+  {
+    "ad": "6005 2RDD",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 247.00,
+    "stok": 30
+  },
+  {
+    "ad": "6005 RS",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 204.48,
+    "stok": 30
+  },
+  {
+    "ad": "6005 2RS",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 224.95,
+    "stok": 80
+  },
+  {
+    "ad": "6005 2RS V",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 337.72,
+    "stok": 30
+  },
+  {
+    "ad": "6005 2RS NR",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 258.50,
+    "stok": 30
+  },
+  {
+    "ad": "6005 N",
+    "kategori": "FAG",
+    "ic_cap": 25,
+    "dis_cap": 47,
+    "genislik": 12,
+    "fiyat": 170.05,
+    "stok": 30
+  {
     "ad": "627 ZZ",
     "kategori": "ORS",
     "ic_cap": "7",
