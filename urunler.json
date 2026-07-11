@@ -1,5 +1,375 @@
 [
   {
+    "ad": "627 ZZ",
+    "kategori": "ORS",
+    "ic_cap": "7",
+    "dis_cap": "22",
+    "genislik": "7",
+    "fiyat": 93.66,
+    "stok": 100
+  },
+  {
+    "ad": "629 ZZ",
+    "kategori": "ORS",
+    "ic_cap": "9",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 97.60,
+    "stok": 100
+  },
+  {
+    "ad": "6000",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 85.12,
+    "stok": 36
+  },
+  {
+    "ad": "6000 C3",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 85.12,
+    "stok": 36
+  },
+  {
+    "ad": "6000 Z",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 95.35,
+    "stok": 36
+  },
+  {
+    "ad": "6000 Z C3",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 95.35,
+    "stok": 36
+  },
+  {
+    "ad": "6000 ZZ",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 104.30,
+    "stok": 104
+  },
+  {
+    "ad": "6000 ZZ C3",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 104.30,
+    "stok": 104
+  },
+  {
+    "ad": "6000 ZZ NR",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 126.03,
+    "stok": 36
+  },
+  {
+    "ad": "6000 2RDD",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 140.53,
+    "stok": 36
+  },
+  {
+    "ad": "6000 RS",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 116.12,
+    "stok": 36
+  },
+  {
+    "ad": "6000 2RS",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 127.25,
+    "stok": 104
+  },
+  {
+    "ad": "6000 2RS NR",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 146.54,
+    "stok": 36
+  },
+  {
+    "ad": "6000 N",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 116.33,
+    "stok": 36
+  },
+  {
+    "ad": "6000 NR",
+    "kategori": "ORS",
+    "ic_cap": "10",
+    "dis_cap": "26",
+    "genislik": "8",
+    "fiyat": 119.63,
+    "stok": 36
+  },
+  {
+    "ad": "6001",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 93.89,
+    "stok": 36
+  },
+  {
+    "ad": "6001 C3",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 93.89,
+    "stok": 36
+  },
+  {
+    "ad": "6001 Z",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 106.50,
+    "stok": 36
+  },
+  {
+    "ad": "6001 Z C3",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 106.50,
+    "stok": 36
+  },
+  {
+    "ad": "6001 ZZ",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 113.66,
+    "stok": 104
+  },
+  {
+    "ad": "6001 ZZ C3",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 113.66,
+    "stok": 104
+  },
+  {
+    "ad": "6001 ZZ NR",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 130.78,
+    "stok": 36
+  },
+  {
+    "ad": "6001 RS",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 132.27,
+    "stok": 36
+  },
+  {
+    "ad": "6001 RS Z",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 137.83,
+    "stok": 36
+  },
+  {
+    "ad": "6001 2RS",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 145.86,
+    "stok": 104
+  },
+  {
+    "ad": "6001 2RS NR",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 167.51,
+    "stok": 36
+  },
+  {
+    "ad": "6001 N",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 115.15,
+    "stok": 36
+  },
+  {
+    "ad": "6001 NR",
+    "kategori": "ORS",
+    "ic_cap": "12",
+    "dis_cap": "28",
+    "genislik": "8",
+    "fiyat": 124.52,
+    "stok": 36
+  },
+  {
+    "ad": "6002",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 116.46,
+    "stok": 36
+  },
+  {
+    "ad": "6002 C3",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 116.46,
+    "stok": 36
+  },
+  {
+    "ad": "6002 Z",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 119.01,
+    "stok": 36
+  },
+  {
+    "ad": "6002 Z C3",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 119.01,
+    "stok": 36
+  },
+  {
+    "ad": "6002 ZZ",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 129.87,
+    "stok": 104
+  },
+  {
+    "ad": "6002 ZZ C3",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 129.87,
+    "stok": 104
+  },
+  {
+    "ad": "6002 ZZ NR",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 150.76,
+    "stok": 36
+  },
+  {
+    "ad": "6002 RS",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 140.93,
+    "stok": 36
+  },
+  {
+    "ad": "6002 2RS",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 154.72,
+    "stok": 104
+  },
+  {
+    "ad": "6002 2RS V",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 231.25,
+    "stok": 36
+  },
+  {
+    "ad": "6002 2RS NR",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 178.31,
+    "stok": 36
+  },
+  {
+    "ad": "6002 N",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 122.05,
+    "stok": 36
+  },
+  {
+    "ad": "6002 NR",
+    "kategori": "ORS",
+    "ic_cap": "15",
+    "dis_cap": "32",
+    "genislik": "9",
+    "fiyat": 140.11,
+    "stok": 36
+  }
+  
+  {
     "ad": "6205 ZZ",
     "kategori": "FAG",
     "ic_cap": "25",
