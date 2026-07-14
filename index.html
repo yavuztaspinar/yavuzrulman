@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Yavuz Rulman | Endüstriyel Rulman, Kasnak ve Endüstriyel Yağ Çözümleri</title>
+    <meta name="description" content="Yavuz Rulman resmi web sitesine hoş geldiniz. Rulman çeşitleri, v kasnağı, endüstriyel yağlar, ısı transfer yağı, bor yağı, kızak yağı, hidrolik yağlar, tane misket ve yağ keçesi çözümleri için mağazamızı inceleyin.">
+    <meta name="keywords" content="yavuz rulman, rulman çeşitleri, endüstriyel rulman, bilya, lineer rulman, rulman mağazası, skf rulman, fag rulman, lineer ray, bilyalı rulman, rulman fiyatları, istanbul rulman firmaları, kasnak, v kasnağı, endüstriyel yağ, ısı transfer yağı, bor yağı, kızak yağı, hidrolik yağı, tane misket, yağ keçesi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yavuztaspinar.github.io/yavuzrulman/" />
+    
+    <meta property="og:title" content="Yavuz Rulman | Endüstriyel Rulman ve Yedek Parça Çözümleri">
+    <meta property="og:description" content="Yüksek kaliteli endüstriyel rulman çeşitleri, kasnaklar, endüstriyel yağlar and teknik çözümler için sanal mağazamızı inceleyin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/">
+    <meta property="og:site_name" content="Yavuz Rulman">
+    <meta property="og:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yavuztaspinar.github.io/yavuzrulman/">
+    <meta name="twitter:title" content="Yavuz Rulman | Endüstriyel Rulman ve Güç Aktarım Çözümleri">
+    <meta name="twitter:description" content="Yüksek kaliteli endüstriyel rulman çeşitleri ve teknik çözümler için sanal mağazamızı inceleyin.">
+    <meta name="twitter:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Yavuz Rulman",
+      "image": "https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg",
+      "@id": "https://yavuztaspinar.github.io/yavuzrulman/",
+      "url": "https://yavuztaspinar.github.io/yavuzrulman/",
+      "telephone": "+902120000000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Demirciler Sitesi Rulman Mağazası",
+        "addressLocality": "İstanbul",
+        "addressRegion": "Marmara",
+        "postalCode": "34000",
+        "addressCountry": "TR"
+      },
+      "description": "Yüksek kaliteli endüstriyel rulman çeşitleri, kasnak, v kasnağı, bor yağı, kızak ve hidrolik yağları, tane misket, yağ keçesi ve yedek parça çözümleri."
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff; /* Arka plan beyaz yapıldı */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        #text-container {
+            position: absolute;
+            top: 38%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 80%;
+            pointer-events: none;
+        }
+        
+        .seo-heading {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            color: #1a365d; /* Yazı rengi lacivert yapıldı */
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        .letter {
+            color: #1a365d; /* Harf renkleri lacivert yapıldı */
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px rgba(0, 102, 255, 0.2); /* Gölge efekti hafifletildi */
+            opacity: 0;
+            display: inline-block;
+            transform: scale(0) translate3d(0, 0, 0);
+        }
+        .space {
+            width: 2rem;
+        }
+        
+        #button-container {
+            position: absolute;
+            top: 62%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            opacity: 0; 
+            visibility: hidden;
+        }
+        .enter-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0066ff; /* Buton yazı rengi mavi yapıldı */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: transparent;
+            border: 2px solid #0066ff;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(0, 102, 254, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .enter-btn:hover {
+            background: #0066ff;
+            color: #ffffff; /* Hover durumunda yazı beyaz olacak */
+            box-shadow: 0 0 30px rgba(0, 102, 254, 0.4);
+            transform: scale(1.05);
+        }
+
+        .glow-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,102,204,0.05) 0%, rgba(255,255,255,0) 70%); /* Beyaz zemine göre soft ışık */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .seo-footer-container {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+        }
+        .seo-keywords-list {
+            margin-bottom: 8px;
+            font-size: 0.78rem;
+            color: #777777; /* Alt metin okunabilirliği ayarlandı */
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .seo-keywords-list span {
+            margin: 0 6px;
+            display: inline-block;
+        }
+        .seo-footer-text {
+            color: #444444; /* Telif yazısı rengi koyulaştırıldı */
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .letter, .seo-heading {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            .space {
+                width: 1rem;
+            }
+            .seo-keywords-list {
+                display: none;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div class="glow-overlay"></div>
+    <div id="canvas-container"></div>
+    
+    <div id="text-container">
+        <h1 class="seo-heading" id="dynamic-heading">YAVUZ RULMANA HOŞ GELDİNİZ</h1>
+    </div>
+<div style="text-align: center; margin: 20px 0; z-index: 2; position: relative;">
+    <img src="bilyali-rulmanlar.jpg" alt="6206.H.2RSR.C3 FAG Rulman Kampanyası - Yavuz Rulman" style="max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</div>
+
+    <div id="button-container">
+        <a href="index2.html" class="enter-btn" title="Yavuz Rulman Sanal Mağazasını İnceleyin">Sanal Mağazayı İncele</a>
+    </div>
+
+    <div class="seo-footer-container">
+        <div class="seo-keywords-list">
+            <span><strong>Ürün Gruplarımız:</strong></span>
+            <span>SKF & FAG Rulman Çeşitleri</span> | 
+            <span>Bilyalı Rulmanlar</span> | 
+            <span>Lineer Ray ve Araba</span> | 
+            <span>Kasnak & V Kasnağı</span> | 
+            <span>Endüstriyel Yağlar</span> | 
+            <span>Isı Transfer Yağı</span> | 
+            <span>Bor Yağı</span> | 
+            <span>Kızak Yağı</span> | 
+            <span>Hidrolik Yağı</span> | 
+            <span>Tane Misket</span> | 
+            <span>Yağ Keçesi</span>
+        </div>
+        <div class="seo-footer-text">
+            Yavuz Rulman © 2026 - Endüstriyel Rulmanlar, Güç Aktarım Ekipmanları ve Endüstriyel Yağ Tedarik Noktası.
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('canvas-container');
+        const textContainer = document.getElementById('dynamic-heading');
+        const welcomePhrase = "YAVUZ RULMANA HOŞ GELDİNİZ";
+
+        textContainer.innerHTML = '';
+
+        welcomePhrase.split('').forEach(char => {
+            if(char === ' ') {
+                const space = document.createElement('span');
+                space.className = 'space';
+                textContainer.appendChild(space);
+            } else {
+                const span = document.createElement('span');
+                span.className = 'letter';
+                span.innerText = char;
+                textContainer.appendChild(span);
+            }
+        });
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const blueLight = new THREE.PointLight(0x0066ff, 2, 50);
+        blueLight.position.set(0, 0, 10);
+        scene.add(blueLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 5, 5);
+        scene.add(dirLight);
+
+        camera.position.z = window.innerWidth < 768 ? 18 : 15;
+
+        // Metal malzeme beyaz zemin üzerinde daha net görünsün diye rengi biraz koyulaştırıldı (0xaaaaaa)
+        const metalMaterial = new THREE.MeshStandardMaterial({
+            color: 0xaaaaaa,
+            metalness: 0.8,
+            roughness: 0.2
+        });
+
+        function createBearing(direction) {
+            const bearingGroup = new THREE.Group();
+
+            const outerRingGeo = new THREE.CylinderGeometry(4, 4, 1, 32, 1, true);
+            const outerRing = new THREE.Mesh(outerRingGeo, metalMaterial);
+            outerRing.rotation.x = Math.PI / 2;
+            bearingGroup.add(outerRing);
+
+            const innerRingGeo = new THREE.CylinderGeometry(2, 2, 1, 32, 1, true);
+            const innerRing = new THREE.Mesh(innerRingGeo, metalMaterial);
+            innerRing.rotation.x = Math.PI / 2;
+            bearingGroup.add(innerRing);
+
+            const ballGeo = new THREE.SphereGeometry(0.4, 16, 16);
+            const balls = [];
+            const ballCount = 10;
+
+            for (let i = 0; i < ballCount; i++) {
+                const angle = (i / ballCount) * Math.PI * 2;
+                const ball = new THREE.Mesh(ballGeo, metalMaterial);
+                ball.position.x = Math.cos(angle) * 3;
+                ball.position.y = Math.sin(angle) * 3;
+                bearingGroup.add(ball);
+                balls.push(ball);
+            }
+
+            bearingGroup.position.x = direction * 25;
+            bearingGroup.position.y = (Math.random() - 0.5) * 4;
+            scene.add(bearingGroup);
+
+            return { group: bearingGroup, balls: balls, outer: outerRing, inner: innerRing };
+        }
+
+        const bearingLeft = createBearing(-1);
+        const bearingRight = createBearing(1);
+
+        const tl = gsap.timeline();
+
+        tl.to(bearingLeft.group.position, { x: -0.5, y: 0, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingLeft.group.rotation, { z: Math.PI * 6, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingRight.group.position, { x: 0.5, y: 0, duration: 1.5, ease: "power2.in" }, 0);
+        tl.to(bearingRight.group.rotation, { z: -Math.PI * 6, duration: 1.5, ease: "power2.in" }, 0);
+
+        tl.to({}, {
+            duration: 0.1,
+            onComplete: () => {
+                blueLight.intensity = 10;
+                gsap.to(blueLight, { intensity: 2, duration: 0.5 });
+
+                gsap.to(bearingLeft.outer.position, { x: -15, y: 15, z: -10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingLeft.outer) });
+                gsap.to(bearingLeft.inner.position, { x: -10, y: -12, z: 10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingLeft.inner) });
+                gsap.to(bearingRight.outer.position, { x: 15, y: -15, z: -10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingRight.outer) });
+                gsap.to(bearingRight.inner.position, { x: 10, y: 12, z: 10, duration: 1.5, ease: "power3.out", onComplete: () => scene.remove(bearingRight.inner) });
+
+                explodeBalls(bearingLeft.balls, -1);
+                explodeBalls(bearingRight.balls, 1);
+            }
+        }, 1.5);
+
+        function explodeBalls(ballsArray, dir) {
+            ballsArray.forEach((ball) => {
+                const globalPos = new THREE.Vector3();
+                ball.getWorldPosition(globalPos);
+                scene.attach(ball);
+                gsap.to(ball.position, {
+                    x: globalPos.x + (Math.random() - 0.3) * 15 * dir,
+                    y: globalPos.y + (Math.random() - 0.5) * 15,
+                    z: globalPos.z + (Math.random() - 0.2) * 15,
+                    duration: 2,
+                    ease: "power2.out"
+                });
+                gsap.to(ball.scale, { 
+                    x: 0, y: 0, z: 0, 
+                    duration: 2, 
+                    ease: "power2.out",
+                    onComplete: () => scene.remove(ball)
+                });
+            });
+        }
+
+        tl.fromTo(".letter", 
+            { 
+                opacity: 0, scale: 0,
+                x: () => (Math.random() - 0.5) * window.innerWidth * 0.9,
+                y: () => (Math.random() - 0.5) * window.innerHeight * 0.9,
+                z: () => (Math.random() - 0.5) * 500,
+                rotation: () => (Math.random() - 0.5) * 720
+            },
+            {
+                opacity: 1, scale: 1, x: 0, y: 0, z: 0, rotation: 0,
+                duration: 2, stagger: 0.04, ease: "back.out(1.2)"
+            }, 
+            1.6
+        );
+
+        tl.to("#button-container", {
+            autoAlpha: 1, 
+            duration: 1,
+            ease: "power1.inOut"
+        }, 3.0);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if(bearingLeft.group.position.x < -0.6) {
+                bearingLeft.group.rotation.x += 0.05;
+                bearingRight.group.rotation.x -= 0.05;
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.position.z = window.innerWidth < 768 ? 18 : 15;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
