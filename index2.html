@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Yavuz Rulman | Sanal Mağaza ve Endüstriyel Çözümler</title>
+    <meta name="description" content="Yavuz Rulman sanal mağazası. Kaliteli bilyalı, makaralı, lineer rulman çeşitleri, dişli kayışlar ve pnömatik rekorlar. Güvenilir tedarikçiniz.">
+    <meta name="keywords" content="rulman çeşitleri, bilyalı rulman, makaralı rulman, lineer rulman, dişli kayışlar, pnömatik rekorlar, otomotiv rulmanları">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yavuztaspinar.github.io/yavuzrulman/index2.html" />
+
+    <meta property="og:title" content="Yavuz Rulman | Sanal Mağaza ve Ürün Çeşitleri">
+    <meta property="og:description" content="Kaliteli bilyalı, makaralı, lineer rulman çeşitleri, dişli kayışlar ve teknik parça çözümleri sanal mağazamızda.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://yavuztaspinar.github.io/yavuzrulman/index2.html">
+    <meta property="og:site_name" content="Yavuz Rulman">
+    <meta property="og:image" content="https://yavuztaspinar.github.io/yavuzrulman/og-image.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #ffffff; /* Arka plan tamamen beyaz yapıldı */
+            color: #333333; /* Genel metin rengi koyulaştırıldı */
+            line-height: 1.6;
+        }
+        
+        /* Gelişmiş Header Açık Tema Uyarlaması */
+        header {
+            background: radial-gradient(circle at top right, #f4f7fc 0%, #eef2f9 100%); /* Açık gri/mavi gradyan */
+            color: #1a365d;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: #0066ff;
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #1a365d, #0066ff); /* Yazı gradyanı koyu tonlara çekildi */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #4a5568; /* Alt başlık rengi netleştirildi */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+        .intro-text h2 {
+            color: #1a365d; /* Başlık rengi koyu lacivert yapıldı */
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .intro-text p {
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+        
+        /* Modern Ürün Kartları Beyaz Zemin Uyarlaması */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .product-card {
+            background-color: #f8fafc; /* Kart arka planı soft açık gri yapıldı */
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Gölgeler yumuşatıldı */
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #0066ff;
+            background-color: #ffffff; /* Hover olunca kart beyazlaşacak */
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+        }
+        .product-img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .product-title-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .product-icon {
+            font-size: 1.6rem;
+            background: rgba(0, 102, 255, 0.08); /* İkon arka planı yumuşatıldı */
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-card h3 {
+            color: #1a365d; /* Kart başlıkları lacivert */
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+        .product-card ul {
+            list-style: none;
+            flex-grow: 1;
+        }
+        .product-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 24px;
+            font-size: 0.95rem;
+            color: #4a5568; /* Liste yazıları koyulaştırıldı */
+        }
+        .product-card ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0066ff;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .product-card:hover ul li::before {
+            transform: translateX(3px);
+        }
+
+        /* İletişim Yapısı Yenileme */
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .contact-info h3 {
+            color: #1a365d;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0; 
+            bottom: -8px; 
+            width: 40px; 
+            height: 3px;
+            background-color: #0066ff;
+            border-radius: 2px;
+        }
+        .contact-item {
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+        .contact-item strong {
+            color: #1a365d;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contact-item a {
+            color: #0066ff; /* Link renkleri mavi yapıldı */
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            font-weight: 600;
+        }
+        .contact-item a:hover {
+            color: #0044bb;
+        }
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: none; /* Harita karartma efekti kaldırıldı, doğal haline getirildi */
+        }
+        
+        /* Modern Çağrı Butonu (CTA) */
+        .btn-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .back-btn {
+            display: inline-block;
+            background: #0066ff;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: #0052cc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yavuz Rulman Sanal Mağazası</h1>
+        <p>Endüstriyel Güç Aktarım ve Teknik Rulman Çözümlerinde Güvenilir Ortağınız</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2>Yüksek Performanslı Endüstriyel Ürün Çeşitleri</h2>
+            <p>Yavuz Rulman geniş ürün yelpazesi ile makine, imalat ve otomasyon sektörünün teknik parça ihtiyaçlarını kesintisiz karşılar. Dünyanın önde gelen markalarını performans odaklı çözümlerle sunuyoruz.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/bilyali-rulmanlar.jpg" alt="Bilyalı Rulmanlar - Yavuz Rulman">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">⚙️</div>
+                    <h3>Bilyalı Rulmanlar</h3>
+                </div>
+                <ul>
+                    <li>Tek Sıralı Sabit Bilyalı Rulmanlar</li>
+                    <li>Çift Sıralı Eğik Bilyalı Rulmanlar</li>
+                    <li>Eksenel Sabit Bilyalı Modeller</li>
+                    <li>Yüksek Devirli ve Isıya Dayanıklı Seçenekler</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/makarali-rulmanlar.jpg" alt="Makaralı Rulmanlar - Yavuz Rulman">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">🌀</div>
+                    <h3>Makaralı Rulmanlar</h3>
+                </div>
+                <ul>
+                    <li>Silindirik Makaralı Rulmanlar</li>
+                    <li>Oynak Makaralı Ağır Hizmet Tipi</li>
+                    <li>Konik Makaralı Rulman Çeşitleri</li>
+                    <li>Yüksek Radyal ve Eksenel Yük Kapasitesi</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/lineer-rulmanlar.jpg" alt="Lineer Rulman Çeşitleri - Yavuz Rulman">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">📏</div>
+                    <h3>Lineer Rulmanlar</h3>
+                </div>
+                <ul>
+                    <li>Lineer Araba ve Profil Ray Sistemleri</li>
+                    <li>Alt Destekli Miller ve İndüksiyonlu Miller</li>
+                    <li>Hassas Vidalı Mil ve Somun Grupları</li>
+                    <li>CNC ve Otomasyon Uyumlu Kızaklar</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/disli-kayislar.jpg" alt="Dişli Kayışlar ve Endüstriyel Güç Aktarımı">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">⚡</div>
+                    <h3>Dişli Kayışlar</h3>
+                </div>
+                <ul>
+                    <li>Zaman Ayarlı Triger (Timing) Kayışları</li>
+                    <li>Klasik ve Dar Kesit V Kayışları</li>
+                    <li>Çift Taraflı Dişli Senkron Kayışlar</li>
+                    <li>Yüksek Mukavemetli Güç Aktarım Çözümleri</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/pnomatik-rekorlar.jpg" alt="Pnömatik Rekorlar ve Bağlantı Elemanları">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">🔌</div>
+                    <h3>Pnömatik Rekorlar</h3>
+                </div>
+                <ul>
+                    <li>Otomatik Geçmeli Plastik ve Metal Rekorlar</li>
+                    <li>L, T, Y ve Kruva Tipi Bağlantı Elemanları</li>
+                    <li>Dişli Regülatörler ve Hız Ayarlı Rekorlar</li>
+                    <li>Poliüretan ve Poliamid Hava Hortumları</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="./images/otomotiv-rulmanlari.jpg" alt="Otomotiv Rulmanları ve Tekerlek Porya Kitleri">
+                </div>
+                <div class="product-title-area">
+                    <div class="product-icon">🚗</div>
+                    <h3>Otomotiv Rulmanları</h3>
+                </div>
+                <ul>
+                    <li>Tekerlek Rulmanları ve Porya Kitleri</li>
+                    <li>Debriyaj Bilyaları ve Şanzıman Rulmanları</li>
+                    <li>Eksantrik Gergi Rulmanları ve Kasnaklar</li>
+                    <li>Hafif ve Ağır Ticari Araç Çözümleri</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="contact-info">
+                <h3>İletişim Bilgilerimiz</h3>
+                <div class="contact-item" style="margin-top: 25px;">
+                    <strong>📞 Telefon</strong>
+                    <a href="tel:05327600509" title="Yavuz Rulman Telefonu Arayın">0532 760 05 09</a>
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ E-Posta</strong>
+                    <a href="mailto:yavuztaspinar@gmail.com" title="Yavuz Rulman E-posta Gönderin">yavuztaspinar@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>🕒 Çalışma Saatleri</strong>
+                    <span style="font-size: 1.1rem; color: #4a5568; display: block; margin-top: 5px;">Pazartesi - Cumartesi: 08:30 - 19:00</span>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=Karak%C3%B6y%20Rulman&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Yavuz Rulman Google Harita Konumu" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="btn-container" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+    <a href="./index3.html" class="back-btn" title="Yavuz Rulman Güncel Stok Listesi">GÜNCEL STOKLARA GİT →</a>
+    <a href="./ORS.html" class="back-btn" style="background: #e53e3e;" title="ORS Rulman Katalogu">ORS RULMANLARINA GİT →</a>
+</div>
+
+    <footer>
+        <p>© 2026 Yavuz Rulman. Tüm Hakları Saklıdır. | Güçlü Endüstriyel Altyapı</p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Yavuz Rulman Ürün Kategorileri",
+      "description": "Yavuz Rulman mağazasında yer alan endüstriyel teknik yedek parça ve rulman çeşitleri.",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Bilyalı Rulmanlar" },
+        { "@type": "ListItem", "position": 2, "name": "Makaralı Rulmanlar" },
+        { "@type": "ListItem", "position": 3, "name": "Lineer Rulmanlar" },
+        { "@type": "ListItem", "position": 4, "name": "Dişli Kayışlar" },
+        { "@type": "ListItem", "position": 5, "name": "Pnömatik Rekorlar" },
+        { "@type": "ListItem", "position": 6, "name": "Otomotiv Rulmanları" }
+      ]
+    }
+    </script>
+</body>
+</html>

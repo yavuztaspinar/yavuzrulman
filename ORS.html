@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rulman Ürün ve Fiyat Arama</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #bdc3c7;
+            border-radius: 25px;
+            outline: none;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        #searchInput:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 14px 20px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        tr {
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        td.price {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .no-result {
+            display: none;
+            text-align: center;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Rulman Fiyat Listesi ve Arama</h2>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="aramaYap()" placeholder="Rulman kodu arayın... (Örn: 6000)">
+    </div>
+
+    <table id="urunTablosu">
+        <thead>
+            <tr>
+                <th>Rulman Kodu / Ürün Adı</th>
+                <th>Fiyat</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr><td>ad </td><td class="price">fiyat  TL</td></tr>
+<tr><td>627 ZZ</td><td class="price">93,66 TL</td></tr>
+<tr><td>629 ZZ</td><td class="price">97,6 TL</td></tr>
+<tr><td>6000</td><td class="price">85,12 TL</td></tr>
+<tr><td>6000 C3</td><td class="price">85,12 TL</td></tr>
+<tr><td>6000 Z</td><td class="price">95,35 TL</td></tr>
+<tr><td>6000 Z C3</td><td class="price">95,35 TL</td></tr>
+<tr><td>6000 ZZ</td><td class="price">104,3 TL</td></tr>
+<tr><td>6000 ZZ C3</td><td class="price">104,3 TL</td></tr>
+<tr><td>6000 ZZ NR</td><td class="price">126,03 TL</td></tr>
+<tr><td>6000 2RDD</td><td class="price">140,53 TL</td></tr>
+<tr><td>6000 RS </td><td class="price">116,12 TL</td></tr>
+<tr><td>6000 2RS</td><td class="price">127,25 TL</td></tr>
+<tr><td>6000 2RS NR</td><td class="price">146,54 TL</td></tr>
+<tr><td>6000 N</td><td class="price">116,33 TL</td></tr>
+<tr><td>6000 NR</td><td class="price">119,63 TL</td></tr>
+<tr><td>6001</td><td class="price">93,89 TL</td></tr>
+<tr><td>6001 C3</td><td class="price">93,89 TL</td></tr>
+<tr><td>6001 Z</td><td class="price">106,5 TL</td></tr>
+<tr><td>6001 Z C3</td><td class="price">106,5 TL</td></tr>
+<tr><td>6001 ZZ</td><td class="price">113,66 TL</td></tr>
+<tr><td>6001 ZZ C3</td><td class="price">113,66 TL</td></tr>
+<tr><td>6001 ZZ NR</td><td class="price">130,78 TL</td></tr>
+<tr><td>6001 RS </td><td class="price">132,27 TL</td></tr>
+<tr><td>6001 RS Z</td><td class="price">137,83 TL</td></tr>
+<tr><td>6001 2RS</td><td class="price">145,86 TL</td></tr>
+<tr><td>6001 2RS NR</td><td class="price">167,51 TL</td></tr>
+<tr><td>6001 N</td><td class="price">115,15 TL</td></tr>
+<tr><td>6001 NR</td><td class="price">124,52 TL</td></tr>
+<tr><td>6002</td><td class="price">116,46 TL</td></tr>
+<tr><td>6002 C3</td><td class="price">116,46 TL</td></tr>
+<tr><td>6002 Z</td><td class="price">119,01 TL</td></tr>
+<tr><td>6002 Z C3</td><td class="price">119,01 TL</td></tr>
+<tr><td>6002 ZZ</td><td class="price">129,87 TL</td></tr>
+<tr><td>6002 ZZ C3</td><td class="price">129,87 TL</td></tr>
+<tr><td>6002 ZZ NR</td><td class="price">150,76 TL</td></tr>
+<tr><td>6002 RS </td><td class="price">140,93 TL</td></tr>
+<tr><td>6002 2RS</td><td class="price">154,72 TL</td></tr>
+<tr><td>6002 2RS V</td><td class="price">231,25 TL</td></tr>
+<tr><td>6002 2RS NR</td><td class="price">178,31 TL</td></tr>
+<tr><td>6002 N</td><td class="price">122,05 TL</td></tr>
+<tr><td>6002 NR</td><td class="price">140,11 TL</td></tr>
+<tr><td>6003</td><td class="price">121,58 TL</td></tr>
+<tr><td>6003 C3</td><td class="price">121,58 TL</td></tr>
+<tr><td>6003 Z</td><td class="price">126,97 TL</td></tr>
+<tr><td>6003 Z C3</td><td class="price">126,97 TL</td></tr>
+<tr><td>6003 ZZ</td><td class="price">140,11 TL</td></tr>
+<tr><td>6003 ZZ C3</td><td class="price">140,11 TL</td></tr>
+<tr><td>6003 ZZ NR</td><td class="price">160,25 TL</td></tr>
+<tr><td>6003 2RDD</td><td class="price">190,48 TL</td></tr>
+<tr><td>6003 RS</td><td class="price">157,6 TL</td></tr>
+<tr><td>6003 2RS</td><td class="price">173,44 TL</td></tr>
+<tr><td>6003 2RS NR</td><td class="price">200,25 TL</td></tr>
+<tr><td>6003 N</td><td class="price">134,13 TL</td></tr>
+<tr><td>6003 NR</td><td class="price">147,35 TL</td></tr>
+<tr><td>6004</td><td class="price">130,07 TL</td></tr>
+<tr><td>6004 C3</td><td class="price">130,07 TL</td></tr>
+<tr><td>6004 Z</td><td class="price">142,04 TL</td></tr>
+<tr><td>6004 Z C3</td><td class="price">142,04 TL</td></tr>
+<tr><td>6004 ZZ</td><td class="price">156,26 TL</td></tr>
+<tr><td>6004 ZZ C3</td><td class="price">156,26 TL</td></tr>
+<tr><td>6004 ZZ NR</td><td class="price">178,79 TL</td></tr>
+<tr><td>6004 RS</td><td class="price">160,81 TL</td></tr>
+<tr><td>6004 2RS</td><td class="price">174,51 TL</td></tr>
+<tr><td>6004 2RS V</td><td class="price">253,88 TL</td></tr>
+<tr><td>6004 2RS NR</td><td class="price">200,25 TL</td></tr>
+<tr><td>6004 N</td><td class="price">143,24 TL</td></tr>
+<tr><td>6004 NR</td><td class="price">157,39 TL</td></tr>
+<tr><td>6005</td><td class="price">154,29 TL</td></tr>
+<tr><td>6005 C3</td><td class="price">154,29 TL</td></tr>
+<tr><td>6005 Z</td><td class="price">170,47 TL</td></tr>
+<tr><td>6005 Z C3</td><td class="price">170,47 TL</td></tr>
+<tr><td>6005 ZZ</td><td class="price">187,39 TL</td></tr>
+<tr><td>6005 ZZ C3</td><td class="price">187,39 TL</td></tr>
+<tr><td>6005 ZZ NR</td><td class="price">214,08 TL</td></tr>
+<tr><td>6005 2RDD</td><td class="price">247 TL</td></tr>
+<tr><td>6005 RS</td><td class="price">204,48 TL</td></tr>
+<tr><td>6005 2RS</td><td class="price">224,95 TL</td></tr>
+<tr><td>6005 2RS V</td><td class="price">337,72 TL</td></tr>
+<tr><td>6005 2RS NR</td><td class="price">258,5 TL</td></tr>
+<tr><td>6005 N</td><td class="price">170,05 TL</td></tr>
+<tr><td>6005 NR</td><td class="price">188,53 TL</td></tr>
+<tr><td>6006</td><td class="price">193,85 TL</td></tr>
+<tr><td>6006 C3</td><td class="price">193,85 TL</td></tr>
+<tr><td>6006 Z</td><td class="price">212,51 TL</td></tr>
+<tr><td>6006 Z C3</td><td class="price">212,51 TL</td></tr>
+<tr><td>6006 ZZ</td><td class="price">234,58 TL</td></tr>
+<tr><td>6006 ZZ C3</td><td class="price">234,58 TL</td></tr>
+<tr><td>6006 ZZ NR</td><td class="price">272,27 TL</td></tr>
+<tr><td>6006 2RDD</td><td class="price">318,34 TL</td></tr>
+<tr><td>6006 RS</td><td class="price">253,88 TL</td></tr>
+<tr><td>6006 2RS</td><td class="price">289,68 TL</td></tr>
+<tr><td>6006 2RS V</td><td class="price">433,11 TL</td></tr>
+<tr><td>6006 2RS NR</td><td class="price">333,21 TL</td></tr>
+<tr><td>6006 N</td><td class="price">233,67 TL</td></tr>
+<tr><td>6006 NR</td><td class="price">256,1 TL</td></tr>
+<tr><td>6007</td><td class="price">257,16 TL</td></tr>
+<tr><td>6007 C3</td><td class="price">257,16 TL</td></tr>
+<tr><td>6007 Z</td><td class="price">281,48 TL</td></tr>
+<tr><td>6007 Z C3</td><td class="price">281,48 TL</td></tr>
+<tr><td>6007 ZZ</td><td class="price">310,5 TL</td></tr>
+<tr><td>6007 ZZ C3</td><td class="price">310,5 TL</td></tr>
+<tr><td>6007 ZZ NR</td><td class="price">357,19 TL</td></tr>
+<tr><td>6007 RS</td><td class="price">320,78 TL</td></tr>
+<tr><td>6007 2RS</td><td class="price">344,55 TL</td></tr>
+<tr><td>6007 2RS V</td><td class="price">517,14 TL</td></tr>
+<tr><td>6007 2RS NR</td><td class="price">398,75 TL</td></tr>
+<tr><td>6007 N</td><td class="price">281,48 TL</td></tr>
+<tr><td>6007 NR</td><td class="price">303,31 TL</td></tr>
+<tr><td>6008</td><td class="price">310,97 TL</td></tr>
+<tr><td>6008 C3</td><td class="price">310,97 TL</td></tr>
+<tr><td>6008 Z</td><td class="price">342,06 TL</td></tr>
+<tr><td>6008 Z C3</td><td class="price">342,06 TL</td></tr>
+<tr><td>6008 ZZ</td><td class="price">375,74 TL</td></tr>
+<tr><td>6008 ZZ C3</td><td class="price">375,74 TL</td></tr>
+<tr><td>6008 ZZ NR</td><td class="price">432,4 TL</td></tr>
+<tr><td>6008 RS</td><td class="price">393,01 TL</td></tr>
+<tr><td>6008 2RS</td><td class="price">413,47 TL</td></tr>
+<tr><td>6008 2RS V</td><td class="price">619,73 TL</td></tr>
+<tr><td>6008 2RS NR</td><td class="price">475,33 TL</td></tr>
+<tr><td>6008 N</td><td class="price">339,02 TL</td></tr>
+<tr><td>6008 NR</td><td class="price">369,2 TL</td></tr>
+<tr><td>6009</td><td class="price">369,63 TL</td></tr>
+<tr><td>6009 C3</td><td class="price">369,63 TL</td></tr>
+<tr><td>6009 Z</td><td class="price">406,38 TL</td></tr>
+<tr><td>6009 Z C3</td><td class="price">406,38 TL</td></tr>
+<tr><td>6009 ZZ</td><td class="price">443,39 TL</td></tr>
+<tr><td>6009 ZZ C3</td><td class="price">443,39 TL</td></tr>
+<tr><td>6009 ZZ NR</td><td class="price">509,57 TL</td></tr>
+<tr><td>6009 RS</td><td class="price">483,09 TL</td></tr>
+<tr><td>6009 2RS</td><td class="price">531,28 TL</td></tr>
+<tr><td>6009 2RS NR</td><td class="price">573,34 TL</td></tr>
+<tr><td>6009 N</td><td class="price">425,97 TL</td></tr>
+<tr><td>6009 NR</td><td class="price">463,13 TL</td></tr>
+<tr><td>6009 SET</td><td class="price">647,13 TL</td></tr>
+<tr><td>6010</td><td class="price">468,21 TL</td></tr>
+<tr><td>6010 C3</td><td class="price">468,21 TL</td></tr>
+<tr><td>6010 Z</td><td class="price">512,43 TL</td></tr>
+<tr><td>6010 Z C3</td><td class="price">512,43 TL</td></tr>
+<tr><td>6010 ZZ</td><td class="price">564,9 TL</td></tr>
+<tr><td>6010 ZZ C3</td><td class="price">564,9 TL</td></tr>
+<tr><td>6010 ZZ NR</td><td class="price">649,06 TL</td></tr>
+<tr><td>6010 RS</td><td class="price">574,09 TL</td></tr>
+<tr><td>6010 2RS</td><td class="price">619,89 TL</td></tr>
+<tr><td>6010 2RS NR</td><td class="price">712,71 TL</td></tr>
+<tr><td>6010 K 2RS </td><td class="price">648,06 TL</td></tr>
+<tr><td>6010 N</td><td class="price">514,76 TL</td></tr>
+<tr><td>6010 NR</td><td class="price">566,24 TL</td></tr>
+<tr><td>6011</td><td class="price">560,22 TL</td></tr>
+<tr><td>6011 C3</td><td class="price">560,22 TL</td></tr>
+<tr><td>6011 Z</td><td class="price">595,73 TL</td></tr>
+<tr><td>6011 Z C3</td><td class="price">595,73 TL</td></tr>
+<tr><td>6011 ZZ</td><td class="price">655,02 TL</td></tr>
+<tr><td>6011 ZZ C3</td><td class="price">655,02 TL</td></tr>
+<tr><td>6011 ZZ NR</td><td class="price">753,08 TL</td></tr>
+<tr><td>6011 RS</td><td class="price">742,47 TL</td></tr>
+<tr><td>6011 2RS</td><td class="price">831,52 TL</td></tr>
+<tr><td>6011 2RS NR</td><td class="price">956,25 TL</td></tr>
+<tr><td>6011 N</td><td class="price">663,56 TL</td></tr>
+<tr><td>6011 NR</td><td class="price">697,22 TL</td></tr>
+<tr><td>6012</td><td class="price">644,79 TL</td></tr>
+<tr><td>6012 C3</td><td class="price">644,79 TL</td></tr>
+<tr><td>6012 Z</td><td class="price">705,02 TL</td></tr>
+<tr><td>6012 Z C3</td><td class="price">705,02 TL</td></tr>
+<tr><td>6012 ZZ</td><td class="price">775,81 TL</td></tr>
+<tr><td>6012 ZZ C3</td><td class="price">775,81 TL</td></tr>
+<tr><td>6012 ZZ NR</td><td class="price">892,1 TL</td></tr>
+<tr><td>6012 RS</td><td class="price">806,45 TL</td></tr>
+<tr><td>6012 2RS</td><td class="price">850,59 TL</td></tr>
+<tr><td>6012 2RS NR</td><td class="price">977,3 TL</td></tr>
+<tr><td>6012 N</td><td class="price">710,42 TL</td></tr>
+<tr><td>6012 NR</td><td class="price">767,64 TL</td></tr>
+<tr><td>6013</td><td class="price">722,7 TL</td></tr>
+<tr><td>6013 C3</td><td class="price">722,7 TL</td></tr>
+<tr><td>6013 Z</td><td class="price">771,04 TL</td></tr>
+<tr><td>6013 Z C3</td><td class="price">771,04 TL</td></tr>
+<tr><td>6013 ZZ</td><td class="price">833,35 TL</td></tr>
+<tr><td>6013 ZZ C3</td><td class="price">833,35 TL</td></tr>
+<tr><td>6013 ZZ NR</td><td class="price">958,05 TL</td></tr>
+<tr><td>6013 RS</td><td class="price">875,6 TL</td></tr>
+<tr><td>6013 2RS</td><td class="price">961,51 TL</td></tr>
+<tr><td>6013 2RS NR</td><td class="price">1106,07 TL</td></tr>
+<tr><td>6013 N</td><td class="price">780,48 TL</td></tr>
+<tr><td>6013 NR</td><td class="price">843,03 TL</td></tr>
+<tr><td>6014</td><td class="price">1153,21 TL</td></tr>
+<tr><td>6014 C3</td><td class="price">1153,21 TL</td></tr>
+<tr><td>6014 Z</td><td class="price">1244,8 TL</td></tr>
+<tr><td>6014 Z C3</td><td class="price">1244,8 TL</td></tr>
+<tr><td>6014 ZZ</td><td class="price">1369,21 TL</td></tr>
+<tr><td>6014 ZZ C3</td><td class="price">1369,21 TL</td></tr>
+<tr><td>6014 ZZ NR</td><td class="price">1573,96 TL</td></tr>
+<tr><td>6014 RS</td><td class="price">1404,06 TL</td></tr>
+<tr><td>6014 2RS</td><td class="price">1543,68 TL</td></tr>
+<tr><td>6014 2RS NR</td><td class="price">1773,05 TL</td></tr>
+<tr><td>6014 N</td><td class="price">1271,12 TL</td></tr>
+<tr><td>6014 NR</td><td class="price">1382,17 TL</td></tr>
+<tr><td>6015</td><td class="price">1325 TL</td></tr>
+<tr><td>6015 C3</td><td class="price">1325 TL</td></tr>
+<tr><td>6015 K</td><td class="price">1393,26 TL</td></tr>
+<tr><td>6015 Z</td><td class="price">1445,5 TL</td></tr>
+<tr><td>6015 Z C3</td><td class="price">1445,5 TL</td></tr>
+<tr><td>6015 ZZ</td><td class="price">1601,89 TL</td></tr>
+<tr><td>6015 ZZ C3</td><td class="price">1601,89 TL</td></tr>
+<tr><td>6015 ZZ NR</td><td class="price">1845,17 TL</td></tr>
+<tr><td>6015 2RS</td><td class="price">1778,9 TL</td></tr>
+<tr><td>6015 2RS NR</td><td class="price">2043,85 TL</td></tr>
+<tr><td>6015 N</td><td class="price">1458,09 TL</td></tr>
+<tr><td>6015 NR</td><td class="price">1594,74 TL</td></tr>
+<tr><td>6016</td><td class="price">1468,14 TL</td></tr>
+<tr><td>6016 C3</td><td class="price">1468,14 TL</td></tr>
+<tr><td>6016 Z</td><td class="price">1614,63 TL</td></tr>
+<tr><td>6016 Z C3</td><td class="price">1614,63 TL</td></tr>
+<tr><td>6016 ZZ</td><td class="price">1988,46 TL</td></tr>
+<tr><td>6016 ZZ C3</td><td class="price">1988,46 TL</td></tr>
+<tr><td>6016 ZZ NR</td><td class="price">2286,49 TL</td></tr>
+<tr><td>6016 RS</td><td class="price">2423,98 TL</td></tr>
+<tr><td>6016 2RS</td><td class="price">2541,53 TL</td></tr>
+<tr><td>6016 2RS NR</td><td class="price">2922,94 TL</td></tr>
+<tr><td>6016 N</td><td class="price">1700,53 TL</td></tr>
+<tr><td>6016 NR</td><td class="price">1842,35 TL</td></tr>
+<tr><td>6017</td><td class="price">1804,9 TL</td></tr>
+<tr><td>6017 C3</td><td class="price">1804,9 TL</td></tr>
+<tr><td>6017 Z</td><td class="price">1954,64 TL</td></tr>
+<tr><td>6017 Z C3</td><td class="price">1954,64 TL</td></tr>
+<tr><td>6017 ZZ</td><td class="price">2367,83 TL</td></tr>
+<tr><td>6017 ZZ C3</td><td class="price">2367,83 TL</td></tr>
+<tr><td>6017 ZZ NR</td><td class="price">2720,81 TL</td></tr>
+<tr><td>6017 RS</td><td class="price">2484,18 TL</td></tr>
+<tr><td>6017 2RS</td><td class="price">2722,87 TL</td></tr>
+<tr><td>6017 2RS NR</td><td class="price">3130,63 TL</td></tr>
+<tr><td>6017 N</td><td class="price">2170,69 TL</td></tr>
+<tr><td>6017 NR</td><td class="price">2405,74 TL</td></tr>
+<tr><td>6018</td><td class="price">2413,84 TL</td></tr>
+<tr><td>6018 C3</td><td class="price">2413,84 TL</td></tr>
+<tr><td>6018 Z</td><td class="price">2705,71 TL</td></tr>
+<tr><td>6018 Z C3</td><td class="price">2705,71 TL</td></tr>
+<tr><td>6018 ZZ</td><td class="price">2950,48 TL</td></tr>
+<tr><td>6018 ZZ C3</td><td class="price">2950,48 TL</td></tr>
+<tr><td>6018 ZZ NR</td><td class="price">3386,81 TL</td></tr>
+<tr><td>6018 RS</td><td class="price">2996,7 TL</td></tr>
+<tr><td>6018 2RS</td><td class="price">3295,81 TL</td></tr>
+<tr><td>6018 2RS NR</td><td class="price">3790,36 TL</td></tr>
+<tr><td>6018 N </td><td class="price">2633,27 TL</td></tr>
+<tr><td>6018 NR</td><td class="price">2876,22 TL</td></tr>
+<tr><td>6019</td><td class="price">2606,38 TL</td></tr>
+<tr><td>6019 C3</td><td class="price">2606,38 TL</td></tr>
+<tr><td>6019 Z</td><td class="price">2851,3 TL</td></tr>
+<tr><td>6019 Z C3</td><td class="price">2851,3 TL</td></tr>
+<tr><td>6019 ZZ</td><td class="price">3151,19 TL</td></tr>
+<tr><td>6019 ZZ C3</td><td class="price">3151,19 TL</td></tr>
+<tr><td>6019 ZZ NR</td><td class="price">3625,43 TL</td></tr>
+<tr><td>6019 RS</td><td class="price">3625,43 TL</td></tr>
+<tr><td>6019 2RS</td><td class="price">3792,38 TL</td></tr>
+<tr><td>6019 2RS NR</td><td class="price">4361,09 TL</td></tr>
+<tr><td>6019 N</td><td class="price">2998,81 TL</td></tr>
+<tr><td>6019 NR</td><td class="price">3241,09 TL</td></tr>
+<tr><td>6020</td><td class="price">2867,11 TL</td></tr>
+<tr><td>6020 C3</td><td class="price">2867,11 TL</td></tr>
+<tr><td>6020 Z</td><td class="price">3129,6 TL</td></tr>
+<tr><td>6020 Z C3</td><td class="price">3129,6 TL</td></tr>
+<tr><td>6020 ZZ</td><td class="price">3440,16 TL</td></tr>
+<tr><td>6020 ZZ C3</td><td class="price">3440,16 TL</td></tr>
+<tr><td>6020 ZZ NR</td><td class="price">3955,7 TL</td></tr>
+<tr><td>6020 RS</td><td class="price">3728,31 TL</td></tr>
+<tr><td>6020 2RS</td><td class="price">4108,87 TL</td></tr>
+<tr><td>6020 2RS NR</td><td class="price">4725,26 TL</td></tr>
+<tr><td>6020 N</td><td class="price">3009,57 TL</td></tr>
+<tr><td>6020 NR</td><td class="price">3291,38 TL</td></tr>
+<tr><td>6021</td><td class="price">3512,47 TL</td></tr>
+<tr><td>6021 C3</td><td class="price">3512,47 TL</td></tr>
+<tr><td>6021 Z</td><td class="price">3863,31 TL</td></tr>
+<tr><td>6021 Z C3</td><td class="price">3863,31 TL</td></tr>
+<tr><td>6021 ZZ</td><td class="price">5513,11 TL</td></tr>
+<tr><td>6021 ZZ C3</td><td class="price">5513,11 TL</td></tr>
+<tr><td>6021 ZZ NR</td><td class="price">6340,16 TL</td></tr>
+<tr><td>6021 RS</td><td class="price">5659,3 TL</td></tr>
+<tr><td>6021 2RS</td><td class="price">6120,83 TL</td></tr>
+<tr><td>6021 2RS NR</td><td class="price">7038,12 TL</td></tr>
+<tr><td>6021 N</td><td class="price">3688,21 TL</td></tr>
+<tr><td>6021 NR</td><td class="price">4015,09 TL</td></tr>
+<tr><td>6022</td><td class="price">4212,45 TL</td></tr>
+<tr><td>6022 C3</td><td class="price">4212,45 TL</td></tr>
+<tr><td>6022 Z</td><td class="price">4772,21 TL</td></tr>
+<tr><td>6022 Z C3</td><td class="price">4772,21 TL</td></tr>
+<tr><td>6022 ZZ</td><td class="price">5328,25 TL</td></tr>
+<tr><td>6022 ZZ C3</td><td class="price">5328,25 TL</td></tr>
+<tr><td>6022 ZZ NR</td><td class="price">6126,89 TL</td></tr>
+<tr><td>6022 RS</td><td class="price">5601,52 TL</td></tr>
+<tr><td>6022 2RS</td><td class="price">6052,89 TL</td></tr>
+<tr><td>6022 2RS NR</td><td class="price">6958,51 TL</td></tr>
+<tr><td>6022 N</td><td class="price">4422,9 TL</td></tr>
+<tr><td>6022 NR</td><td class="price">4737,97 TL</td></tr>
+<tr><td>6024</td><td class="price">5220,64 TL</td></tr>
+<tr><td>6024 C3</td><td class="price">5220,64 TL</td></tr>
+<tr><td>6024 Z</td><td class="price">5741,95 TL</td></tr>
+<tr><td>6024 Z C3</td><td class="price">5741,95 TL</td></tr>
+<tr><td>6024 ZZ</td><td class="price">6601,14 TL</td></tr>
+<tr><td>6024 ZZ C3</td><td class="price">6601,14 TL</td></tr>
+<tr><td>6024 ZZ NR</td><td class="price">7587,38 TL</td></tr>
+<tr><td>6024 RS</td><td class="price">6867,05 TL</td></tr>
+<tr><td>6024 2RS</td><td class="price">7186,37 TL</td></tr>
+<tr><td>6024 N</td><td class="price">5481,76 TL</td></tr>
+<tr><td>6024 NR</td><td class="price">6003,8 TL</td></tr>
+<tr><td>6026</td><td class="price">7422,34 TL</td></tr>
+<tr><td>6026 C3</td><td class="price">7422,34 TL</td></tr>
+<tr><td>6026 Z</td><td class="price">8354,46 TL</td></tr>
+<tr><td>6026 Z C3</td><td class="price">8354,46 TL</td></tr>
+<tr><td>6026 ZZ</td><td class="price">8906,81 TL</td></tr>
+<tr><td>6026 ZZ C3</td><td class="price">8906,81 TL</td></tr>
+<tr><td>6026 RS</td><td class="price">9583,96 TL</td></tr>
+<tr><td>6026 2RS</td><td class="price">10687,45 TL</td></tr>
+<tr><td>6028</td><td class="price">7798,03 TL</td></tr>
+<tr><td>6028 C3</td><td class="price">7798,03 TL</td></tr>
+<tr><td>6028 Z</td><td class="price">8962,34 TL</td></tr>
+<tr><td>6028 Z C3</td><td class="price">8962,34 TL</td></tr>
+<tr><td>6028 ZZ</td><td class="price">10604,6 TL</td></tr>
+<tr><td>6028 ZZ C3</td><td class="price">10604,6 TL</td></tr>
+<tr><td>6028 RS</td><td class="price">10957,9 TL</td></tr>
+<tr><td>6028 2RS</td><td class="price">11391,9 TL</td></tr>
+<tr><td>6030</td><td class="price">8575,33 TL</td></tr>
+<tr><td>6030 ZZ</td><td class="price">10287,45 TL</td></tr>
+<tr><td>6030 2RS</td><td class="price">12528,63 TL</td></tr>
+<tr><td>6200</td><td class="price">86,33 TL</td></tr>
+<tr><td>6200 C3</td><td class="price">86,33 TL</td></tr>
+<tr><td>6200 Z</td><td class="price">94,96 TL</td></tr>
+<tr><td>6200 Z C3</td><td class="price">94,96 TL</td></tr>
+<tr><td>6200 ZZ</td><td class="price">104,71 TL</td></tr>
+<tr><td>6200 ZZ C3</td><td class="price">104,71 TL</td></tr>
+<tr><td>6200 ZZ NR</td><td class="price">120,51 TL</td></tr>
+<tr><td>6200 RS</td><td class="price">105,86 TL</td></tr>
+<tr><td>6200 2RS</td><td class="price">120,06 TL</td></tr>
+<tr><td>6200 2RS NR</td><td class="price">137,83 TL</td></tr>
+<tr><td>6200 N</td><td class="price">85,12 TL</td></tr>
+<tr><td>6200 NR</td><td class="price">93,64 TL</td></tr>
+<tr><td>6200 ZNR</td><td class="price">102,91 TL</td></tr>
+<tr><td>6201</td><td class="price">95,58 TL</td></tr>
+<tr><td>6201 C3</td><td class="price">95,58 TL</td></tr>
+<tr><td>6201 Z</td><td class="price">107,39 TL</td></tr>
+<tr><td>6201 Z C3</td><td class="price">107,39 TL</td></tr>
+<tr><td>6201 ZZ</td><td class="price">116,96 TL</td></tr>
+<tr><td>6201 ZZ C3</td><td class="price">116,96 TL</td></tr>
+<tr><td>6201 ZZ NR</td><td class="price">150,76 TL</td></tr>
+<tr><td>6201 2RDD</td><td class="price">156,34 TL</td></tr>
+<tr><td>6201 RS</td><td class="price">130,59 TL</td></tr>
+<tr><td>6201 RS Z</td><td class="price">140,52 TL</td></tr>
+<tr><td>6201 2RS</td><td class="price">142,72 TL</td></tr>
+<tr><td>6201 2RS NR</td><td class="price">163,44 TL</td></tr>
+<tr><td>6201 N</td><td class="price">107,39 TL</td></tr>
+<tr><td>6201 NR</td><td class="price">119,59 TL</td></tr>
+<tr><td>6201 ZNR</td><td class="price">137,74 TL</td></tr>
+<tr><td>6202</td><td class="price">97,89 TL</td></tr>
+<tr><td>6202 C3</td><td class="price">97,89 TL</td></tr>
+<tr><td>6202 Z</td><td class="price">101,83 TL</td></tr>
+<tr><td>6202 Z C3</td><td class="price">101,83 TL</td></tr>
+<tr><td>6202 ZZ</td><td class="price">130,78 TL</td></tr>
+<tr><td>6202 ZZ C3</td><td class="price">130,78 TL</td></tr>
+<tr><td>6202 ZZ NR</td><td class="price">133,62 TL</td></tr>
+<tr><td>6202 RS</td><td class="price">131,37 TL</td></tr>
+<tr><td>6202 RS Z</td><td class="price">140,53 TL</td></tr>
+<tr><td>6202 2RS</td><td class="price">145,48 TL</td></tr>
+<tr><td>6202 2RS V</td><td class="price">225,15 TL</td></tr>
+<tr><td>6202 2RS NR</td><td class="price">166,48 TL</td></tr>
+<tr><td>6202 N</td><td class="price">107,68 TL</td></tr>
+<tr><td>6202 NR</td><td class="price">118,71 TL</td></tr>
+<tr><td>6202 ZNR</td><td class="price">129,91 TL</td></tr>
+<tr><td>6203</td><td class="price">112,97 TL</td></tr>
+<tr><td>6203 C3</td><td class="price">112,97 TL</td></tr>
+<tr><td>6203 Z</td><td class="price">124,29 TL</td></tr>
+<tr><td>6203 Z C3</td><td class="price">124,29 TL</td></tr>
+<tr><td>6203 ZZ</td><td class="price">136,12 TL</td></tr>
+<tr><td>6203 ZZ C3</td><td class="price">136,12 TL</td></tr>
+<tr><td>6203 ZZ NR</td><td class="price">156,34 TL</td></tr>
+<tr><td>6203 2RDD</td><td class="price">175,03 TL</td></tr>
+<tr><td>6203 RS</td><td class="price">145,36 TL</td></tr>
+<tr><td>6203 2RS</td><td class="price">159,38 TL</td></tr>
+<tr><td>6203 2RS V</td><td class="price">245,38 TL</td></tr>
+<tr><td>6203 2RS NR</td><td class="price">182,77 TL</td></tr>
+<tr><td>6203 N</td><td class="price">124,72 TL</td></tr>
+<tr><td>6203 NR</td><td class="price">136,12 TL</td></tr>
+<tr><td>6203 ZNR</td><td class="price">147,14 TL</td></tr>
+<tr><td>6204</td><td class="price">137,59 TL</td></tr>
+<tr><td>6204 C3</td><td class="price">137,59 TL</td></tr>
+<tr><td>6204 Z</td><td class="price">151,19 TL</td></tr>
+<tr><td>6204 Z C3</td><td class="price">151,19 TL</td></tr>
+<tr><td>6204 ZZ</td><td class="price">166,07 TL</td></tr>
+<tr><td>6204 ZZ C3</td><td class="price">166,07 TL</td></tr>
+<tr><td>6204 ZZ NR</td><td class="price">203,21 TL</td></tr>
+<tr><td>6204 RS</td><td class="price">175,45 TL</td></tr>
+<tr><td>6204 2RS</td><td class="price">193,41 TL</td></tr>
+<tr><td>6204 2RS V</td><td class="price">288,3 TL</td></tr>
+<tr><td>6204 2RS NR</td><td class="price">221,46 TL</td></tr>
+<tr><td>6204 N</td><td class="price">151,19 TL</td></tr>
+<tr><td>6204 NR</td><td class="price">166,07 TL</td></tr>
+<tr><td>6204 ZNR</td><td class="price">193,85 TL</td></tr>
+<tr><td>6205</td><td class="price">163,18 TL</td></tr>
+<tr><td>6205 C3</td><td class="price">163,18 TL</td></tr>
+<tr><td>6205 K</td><td class="price">171,2 TL</td></tr>
+<tr><td>6205 Z</td><td class="price">178,78 TL</td></tr>
+<tr><td>6205 Z C3</td><td class="price">178,78 TL</td></tr>
+<tr><td>6205 ZZ</td><td class="price">196,75 TL</td></tr>
+<tr><td>6205 ZZ C3</td><td class="price">196,75 TL</td></tr>
+<tr><td>6205 ZZ NR</td><td class="price">236,28 TL</td></tr>
+<tr><td>6205 RS</td><td class="price">200,74 TL</td></tr>
+<tr><td>6205 2RS</td><td class="price">218,28 TL</td></tr>
+<tr><td>6205 2RS V</td><td class="price">326,76 TL</td></tr>
+<tr><td>6205 2RS NR</td><td class="price">250,62 TL</td></tr>
+<tr><td>6205 K 2RS</td><td class="price">228,58 TL</td></tr>
+<tr><td>6205 N</td><td class="price">196,75 TL</td></tr>
+<tr><td>6205 NR</td><td class="price">205,89 TL</td></tr>
+<tr><td>6205 ZNR</td><td class="price">225,71 TL</td></tr>
+<tr><td>6206</td><td class="price">224,31 TL</td></tr>
+<tr><td>6206 C3</td><td class="price">224,31 TL</td></tr>
+<tr><td>6206 K</td><td class="price">235,84 TL</td></tr>
+<tr><td>6206 Z</td><td class="price">246,5 TL</td></tr>
+<tr><td>6206 Z C3</td><td class="price">246,5 TL</td></tr>
+<tr><td>6206 ZZ</td><td class="price">271,18 TL</td></tr>
+<tr><td>6206 ZZ C3</td><td class="price">271,18 TL</td></tr>
+<tr><td>6206 ZZ NR</td><td class="price">316,38 TL</td></tr>
+<tr><td>6206 RS</td><td class="price">273,41 TL</td></tr>
+<tr><td>6206 2RS</td><td class="price">300,7 TL</td></tr>
+<tr><td>6206 2RS V</td><td class="price">451,4 TL</td></tr>
+<tr><td>6206 2RS NR</td><td class="price">344,55 TL</td></tr>
+<tr><td>6206 K 2RS</td><td class="price">319,64 TL</td></tr>
+<tr><td>6206 N</td><td class="price">247 TL</td></tr>
+<tr><td>6206 NR</td><td class="price">271,18 TL</td></tr>
+<tr><td>6206 ZNR</td><td class="price">298,27 TL</td></tr>
+<tr><td>6207</td><td class="price">293,95 TL</td></tr>
+<tr><td>6207 C3</td><td class="price">293,95 TL</td></tr>
+<tr><td>6207 Z</td><td class="price">323,36 TL</td></tr>
+<tr><td>6207 Z C3</td><td class="price">323,36 TL</td></tr>
+<tr><td>6207 ZZ</td><td class="price">354,96 TL</td></tr>
+<tr><td>6207 ZZ C3</td><td class="price">354,96 TL</td></tr>
+<tr><td>6207 ZZ NR</td><td class="price">426,35 TL</td></tr>
+<tr><td>6207 RS</td><td class="price">417,77 TL</td></tr>
+<tr><td>6207 2RS</td><td class="price">458,88 TL</td></tr>
+<tr><td>6207 2RS V</td><td class="price">688,32 TL</td></tr>
+<tr><td>6207 2RS NR</td><td class="price">527,78 TL</td></tr>
+<tr><td>6207 N</td><td class="price">347,32 TL</td></tr>
+<tr><td>6207 NR</td><td class="price">365,37 TL</td></tr>
+<tr><td>6207 ZNR</td><td class="price">422,11 TL</td></tr>
+<tr><td>6208</td><td class="price">361,68 TL</td></tr>
+<tr><td>6208 C3</td><td class="price">361,68 TL</td></tr>
+<tr><td>6208 K</td><td class="price">379,92 TL</td></tr>
+<tr><td>6208 Z</td><td class="price">394,82 TL</td></tr>
+<tr><td>6208 Z C3</td><td class="price">394,82 TL</td></tr>
+<tr><td>6208 ZZ</td><td class="price">433,11 TL</td></tr>
+<tr><td>6208 ZZ C3</td><td class="price">433,11 TL</td></tr>
+<tr><td>6208 ZZ NR</td><td class="price">548,66 TL</td></tr>
+<tr><td>6208 RS</td><td class="price">470,43 TL</td></tr>
+<tr><td>6208 2RS</td><td class="price">518,35 TL</td></tr>
+<tr><td>6208 2RS V</td><td class="price">776,65 TL</td></tr>
+<tr><td>6208 2RS NR</td><td class="price">595,54 TL</td></tr>
+<tr><td>6208 K 2RS</td><td class="price">551,28 TL</td></tr>
+<tr><td>6208 N</td><td class="price">397,31 TL</td></tr>
+<tr><td>6208 NR</td><td class="price">435,38 TL</td></tr>
+<tr><td>6208 ZNR</td><td class="price">516,43 TL</td></tr>
+<tr><td>6209</td><td class="price">451,5 TL</td></tr>
+<tr><td>6209 C3</td><td class="price">451,5 TL</td></tr>
+<tr><td>6209 K</td><td class="price">485,01 TL</td></tr>
+<tr><td>6209 Z</td><td class="price">493,75 TL</td></tr>
+<tr><td>6209 Z C3</td><td class="price">493,75 TL</td></tr>
+<tr><td>6209 ZZ</td><td class="price">544,6 TL</td></tr>
+<tr><td>6209 ZZ C3</td><td class="price">544,6 TL</td></tr>
+<tr><td>6209 ZZ NR</td><td class="price">663 TL</td></tr>
+<tr><td>6209 RS</td><td class="price">577,23 TL</td></tr>
+<tr><td>6209 2RS</td><td class="price">634,28 TL</td></tr>
+<tr><td>6209 2RS NR</td><td class="price">728,94 TL</td></tr>
+<tr><td>6209 K 2RS</td><td class="price">667,79 TL</td></tr>
+<tr><td>6209 N</td><td class="price">520 TL</td></tr>
+<tr><td>6209 NR</td><td class="price">570,89 TL</td></tr>
+<tr><td>6209 ZNR</td><td class="price">628,46 TL</td></tr>
+<tr><td>6210</td><td class="price">521,01 TL</td></tr>
+<tr><td>6210 C3</td><td class="price">521,01 TL</td></tr>
+<tr><td>6210 K</td><td class="price">546,84 TL</td></tr>
+<tr><td>6210 Z</td><td class="price">573,34 TL</td></tr>
+<tr><td>6210 Z C3</td><td class="price">573,34 TL</td></tr>
+<tr><td>6210 ZZ</td><td class="price">630,03 TL</td></tr>
+<tr><td>6210 ZZ C3</td><td class="price">630,03 TL</td></tr>
+<tr><td>6210 ZZ NR</td><td class="price">723,75 TL</td></tr>
+<tr><td>6210 RS</td><td class="price">639,13 TL</td></tr>
+<tr><td>6210 2RS</td><td class="price">683,34 TL</td></tr>
+<tr><td>6210 2RS NR</td><td class="price">785,32 TL</td></tr>
+<tr><td>6210 K 2RS</td><td class="price">717,79 TL</td></tr>
+<tr><td>6210 N</td><td class="price">573,34 TL</td></tr>
+<tr><td>6210 NR</td><td class="price">629,06 TL</td></tr>
+<tr><td>6210 ZNR</td><td class="price">692,69 TL</td></tr>
+<tr><td>6211</td><td class="price">646,39 TL</td></tr>
+<tr><td>6211 C3</td><td class="price">646,39 TL</td></tr>
+<tr><td>6211 Z</td><td class="price">713,29 TL</td></tr>
+<tr><td>6211 Z C3</td><td class="price">713,29 TL</td></tr>
+<tr><td>6211 ZZ</td><td class="price">779,55 TL</td></tr>
+<tr><td>6211 ZZ C3</td><td class="price">779,55 TL</td></tr>
+<tr><td>6211 ZZ NR</td><td class="price">896,5 TL</td></tr>
+<tr><td>6211 RS</td><td class="price">799,12 TL</td></tr>
+<tr><td>6211 2RS</td><td class="price">855,33 TL</td></tr>
+<tr><td>6211 2RS V</td><td class="price">1281,15 TL</td></tr>
+<tr><td>6211 2RS NR</td><td class="price">983,13 TL</td></tr>
+<tr><td>6211 K 2RS</td><td class="price">742,47 TL</td></tr>
+<tr><td>6211 N</td><td class="price">732,85 TL</td></tr>
+<tr><td>6211 NR</td><td class="price">784,46 TL</td></tr>
+<tr><td>6211 ZNR</td><td class="price">863,2 TL</td></tr>
+<tr><td>6212</td><td class="price">861,77 TL</td></tr>
+<tr><td>6212 C3</td><td class="price">861,77 TL</td></tr>
+<tr><td>6212 Z</td><td class="price">946,92 TL</td></tr>
+<tr><td>6212 Z C3</td><td class="price">946,92 TL</td></tr>
+<tr><td>6212 ZZ</td><td class="price">1041,41 TL</td></tr>
+<tr><td>6212 ZZ C3</td><td class="price">1041,41 TL</td></tr>
+<tr><td>6212 ZZ NR</td><td class="price">1286,55 TL</td></tr>
+<tr><td>6212  RS</td><td class="price">1142,7 TL</td></tr>
+<tr><td>6212 2RS</td><td class="price">1256,31 TL</td></tr>
+<tr><td>6212 2RS NR</td><td class="price">1444,76 TL</td></tr>
+<tr><td>6212 N</td><td class="price">1036,26 TL</td></tr>
+<tr><td>6212 NR</td><td class="price">1134,6 TL</td></tr>
+<tr><td>6212 ZNR</td><td class="price">1250,07 TL</td></tr>
+<tr><td>6213</td><td class="price">1116,15 TL</td></tr>
+<tr><td>6213 C3</td><td class="price">1116,15 TL</td></tr>
+<tr><td>6213 K</td><td class="price">1171,64 TL</td></tr>
+<tr><td>6213 Z</td><td class="price">1226,75 TL</td></tr>
+<tr><td>6213 Z C3</td><td class="price">1226,75 TL</td></tr>
+<tr><td>6213 ZZ</td><td class="price">1349,95 TL</td></tr>
+<tr><td>6213 ZZ C3</td><td class="price">1349,95 TL</td></tr>
+<tr><td>6213 ZZ NR</td><td class="price">1551,44 TL</td></tr>
+<tr><td>6213 RS</td><td class="price">1436,53 TL</td></tr>
+<tr><td>6213 2RS</td><td class="price">1807,62 TL</td></tr>
+<tr><td>6213 2RS NR</td><td class="price">2078,73 TL</td></tr>
+<tr><td>6213 K 2RS</td><td class="price">1898,22 TL</td></tr>
+<tr><td>6213 N</td><td class="price">1226,26 TL</td></tr>
+<tr><td>6213 ZNR</td><td class="price">1506,4 TL</td></tr>
+<tr><td>6214</td><td class="price">1530,78 TL</td></tr>
+<tr><td>6214 C3</td><td class="price">1530,78 TL</td></tr>
+<tr><td>6214 Z</td><td class="price">1682,33 TL</td></tr>
+<tr><td>6214 Z C3</td><td class="price">1682,33 TL</td></tr>
+<tr><td>6214 ZZ</td><td class="price">1850,83 TL</td></tr>
+<tr><td>6214 ZZ C3</td><td class="price">1850,83 TL</td></tr>
+<tr><td>6214 ZZ NR</td><td class="price">2127,8 TL</td></tr>
+<tr><td>6214 RS</td><td class="price">2155,92 TL</td></tr>
+<tr><td>6214 2RS</td><td class="price">2447,3 TL</td></tr>
+<tr><td>6214 2RS NR</td><td class="price">2813,94 TL</td></tr>
+<tr><td>6214 N</td><td class="price">1688,21 TL</td></tr>
+<tr><td>6214 NR</td><td class="price">1851,25 TL</td></tr>
+<tr><td>6214 ZNR</td><td class="price">1956,41 TL</td></tr>
+<tr><td>6215</td><td class="price">1813,72 TL</td></tr>
+<tr><td>6215 C3</td><td class="price">1813,72 TL</td></tr>
+<tr><td>6215 K</td><td class="price">1907,15 TL</td></tr>
+<tr><td>6215 Z</td><td class="price">1974,94 TL</td></tr>
+<tr><td>6215 Z C3</td><td class="price">1974,94 TL</td></tr>
+<tr><td>6215 ZZ</td><td class="price">2171,35 TL</td></tr>
+<tr><td>6215 ZZ C3</td><td class="price">2171,35 TL</td></tr>
+<tr><td>6215 ZZ NR</td><td class="price">2495,84 TL</td></tr>
+<tr><td>6215 RS</td><td class="price">2265,99 TL</td></tr>
+<tr><td>6215 2RS</td><td class="price">2711,31 TL</td></tr>
+<tr><td>6215 2RS NR</td><td class="price">3118,31 TL</td></tr>
+<tr><td>6215 K 2RS</td><td class="price">2846,9 TL</td></tr>
+<tr><td>6215 N</td><td class="price">1994,95 TL</td></tr>
+<tr><td>6215 NR</td><td class="price">2010,64 TL</td></tr>
+<tr><td>6215 ZNR</td><td class="price">2145,81 TL</td></tr>
+<tr><td>6216</td><td class="price">2116,05 TL</td></tr>
+<tr><td>6216 C3</td><td class="price">2116,05 TL</td></tr>
+<tr><td>6216 K</td><td class="price">2219,9 TL</td></tr>
+<tr><td>6216 Z</td><td class="price">2324,9 TL</td></tr>
+<tr><td>6216 Z C3</td><td class="price">2324,9 TL</td></tr>
+<tr><td>6216 ZZ</td><td class="price">2916,5 TL</td></tr>
+<tr><td>6216 ZZ C3</td><td class="price">2916,5 TL</td></tr>
+<tr><td>6216 ZZ NR</td><td class="price">3353,88 TL</td></tr>
+<tr><td>6216 RS</td><td class="price">3022,46 TL</td></tr>
+<tr><td>6216 2RS</td><td class="price">3386,81 TL</td></tr>
+<tr><td>6216 2RS NR</td><td class="price">3894,88 TL</td></tr>
+<tr><td>6216 N</td><td class="price">2540,33 TL</td></tr>
+<tr><td>6216 NR</td><td class="price">2792,82 TL</td></tr>
+<tr><td>6216 ZNR</td><td class="price">3050,48 TL</td></tr>
+<tr><td>6217</td><td class="price">2580,34 TL</td></tr>
+<tr><td>6217 C3</td><td class="price">2580,34 TL</td></tr>
+<tr><td>6217 Z</td><td class="price">2834,69 TL</td></tr>
+<tr><td>6217 Z C3</td><td class="price">2834,69 TL</td></tr>
+<tr><td>6217 ZZ</td><td class="price">3117,77 TL</td></tr>
+<tr><td>6217 ZZ C3</td><td class="price">3117,77 TL</td></tr>
+<tr><td>6217 ZZ NR</td><td class="price">3585,69 TL</td></tr>
+<tr><td>6217 RS</td><td class="price">3566,11 TL</td></tr>
+<tr><td>6217 2RS</td><td class="price">3703,63 TL</td></tr>
+<tr><td>6217 2RS NR</td><td class="price">4258,82 TL</td></tr>
+<tr><td>6217 N</td><td class="price">2709,34 TL</td></tr>
+<tr><td>6217 NR</td><td class="price">3091,77 TL</td></tr>
+<tr><td>6218</td><td class="price">3186,52 TL</td></tr>
+<tr><td>6218 C3</td><td class="price">3186,52 TL</td></tr>
+<tr><td>6218 K</td><td class="price">3345,62 TL</td></tr>
+<tr><td>6218 Z</td><td class="price">3944,34 TL</td></tr>
+<tr><td>6218 Z C3</td><td class="price">3944,34 TL</td></tr>
+<tr><td>6218 ZZ</td><td class="price">4050,81 TL</td></tr>
+<tr><td>6218 ZZ C3</td><td class="price">4050,81 TL</td></tr>
+<tr><td>6218 ZZ NR</td><td class="price">4657,97 TL</td></tr>
+<tr><td>6218 RS</td><td class="price">4171,01 TL</td></tr>
+<tr><td>6218 2RS</td><td class="price">4837,23 TL</td></tr>
+<tr><td>6218 2RS NR</td><td class="price">5562,86 TL</td></tr>
+<tr><td>6219</td><td class="price">3825,23 TL</td></tr>
+<tr><td>6219 C3</td><td class="price">3825,23 TL</td></tr>
+<tr><td>6219 Z</td><td class="price">4168,63 TL</td></tr>
+<tr><td>6219 Z C3</td><td class="price">4168,63 TL</td></tr>
+<tr><td>6219 ZZ</td><td class="price">4585,11 TL</td></tr>
+<tr><td>6219 ZZ C3</td><td class="price">4585,11 TL</td></tr>
+<tr><td>6219 ZZ NR</td><td class="price">5272,85 TL</td></tr>
+<tr><td>6219 RS</td><td class="price">4832,77 TL</td></tr>
+<tr><td>6219 2RS</td><td class="price">5286,31 TL</td></tr>
+<tr><td>6219 2RS NR</td><td class="price">6079,8 TL</td></tr>
+<tr><td>6219 N </td><td class="price">4016,01 TL</td></tr>
+<tr><td>6219 NR</td><td class="price">4266,54 TL</td></tr>
+<tr><td>6220</td><td class="price">4396,57 TL</td></tr>
+<tr><td>6220 C3</td><td class="price">4396,57 TL</td></tr>
+<tr><td>6220 Z</td><td class="price">4836 TL</td></tr>
+<tr><td>6220 Z C3</td><td class="price">4836 TL</td></tr>
+<tr><td>6220 ZZ</td><td class="price">5318,03 TL</td></tr>
+<tr><td>6220 ZZ C3</td><td class="price">5318,03 TL</td></tr>
+<tr><td>6220 RS</td><td class="price">5560,33 TL</td></tr>
+<tr><td>6220 2RS</td><td class="price">6332,76 TL</td></tr>
+<tr><td>6220 N</td><td class="price">4616,53 TL</td></tr>
+<tr><td>6220 NR</td><td class="price">5027,59 TL</td></tr>
+<tr><td>6221</td><td class="price">5425,56 TL</td></tr>
+<tr><td>6221 C3</td><td class="price">5425,56 TL</td></tr>
+<tr><td>6221 Z</td><td class="price">5967,8 TL</td></tr>
+<tr><td>6221 Z C3</td><td class="price">5967,8 TL</td></tr>
+<tr><td>6221 ZZ</td><td class="price">6564,31 TL</td></tr>
+<tr><td>6221 ZZ C3</td><td class="price">6564,31 TL</td></tr>
+<tr><td>6221 2RS</td><td class="price">7522,55 TL</td></tr>
+<tr><td>6222</td><td class="price">6587,4 TL</td></tr>
+<tr><td>6222 C3</td><td class="price">6587,4 TL</td></tr>
+<tr><td>6222 Z</td><td class="price">7490,64 TL</td></tr>
+<tr><td>6222 Z C3</td><td class="price">7490,64 TL</td></tr>
+<tr><td>6222 ZZ</td><td class="price">8241,26 TL</td></tr>
+<tr><td>6222 ZZ C3</td><td class="price">8241,26 TL</td></tr>
+<tr><td>6222 RS</td><td class="price">8177 TL</td></tr>
+<tr><td>6222 2RS</td><td class="price">9482,61 TL</td></tr>
+<tr><td>6224</td><td class="price">8453,12 TL</td></tr>
+<tr><td>6224 C3</td><td class="price">8453,12 TL</td></tr>
+<tr><td>6224 Z</td><td class="price">9344,63 TL</td></tr>
+<tr><td>6224 Z C3</td><td class="price">9344,63 TL</td></tr>
+<tr><td>6224 ZZ</td><td class="price">10258,81 TL</td></tr>
+<tr><td>6224 ZZ C3</td><td class="price">10258,81 TL</td></tr>
+<tr><td>6224 2RS</td><td class="price">12260,07 TL</td></tr>
+<tr><td>6224 N</td><td class="price">8824,64 TL</td></tr>
+<tr><td>6224 NR</td><td class="price">9619,94 TL</td></tr>
+<tr><td>6226</td><td class="price">10144,08 TL</td></tr>
+<tr><td>6226 C3</td><td class="price">10144,08 TL</td></tr>
+<tr><td>6226 Z</td><td class="price">11157,38 TL</td></tr>
+<tr><td>6226 Z C3</td><td class="price">11157,38 TL</td></tr>
+<tr><td>6226 ZZ</td><td class="price">12351,07 TL</td></tr>
+<tr><td>6226 ZZ C3</td><td class="price">12351,07 TL</td></tr>
+<tr><td>6226 2RS</td><td class="price">14103,97 TL</td></tr>
+<tr><td>6300</td><td class="price">115,17 TL</td></tr>
+<tr><td>6300 C3</td><td class="price">115,17 TL</td></tr>
+<tr><td>6300 Z</td><td class="price">126,74 TL</td></tr>
+<tr><td>6300 Z C3</td><td class="price">126,74 TL</td></tr>
+<tr><td>6300 ZZ</td><td class="price">167,93 TL</td></tr>
+<tr><td>6300 ZZ C3</td><td class="price">167,93 TL</td></tr>
+<tr><td>6300 2RS</td><td class="price">175,45 TL</td></tr>
+<tr><td>6300 2RS NR</td><td class="price">201,39 TL</td></tr>
+<tr><td>6301</td><td class="price">122,14 TL</td></tr>
+<tr><td>6301 C3</td><td class="price">122,14 TL</td></tr>
+<tr><td>6301 Z</td><td class="price">133,62 TL</td></tr>
+<tr><td>6301 Z C3</td><td class="price">133,62 TL</td></tr>
+<tr><td>6301 ZZ</td><td class="price">170,9 TL</td></tr>
+<tr><td>6301 ZZ C3</td><td class="price">170,9 TL</td></tr>
+<tr><td>6301 ZZ NR</td><td class="price">182,04 TL</td></tr>
+<tr><td>6301 2RS</td><td class="price">187,99 TL</td></tr>
+<tr><td>6301 2RS NR</td><td class="price">192,56 TL</td></tr>
+<tr><td>6301 N</td><td class="price">127,37 TL</td></tr>
+<tr><td>6302</td><td class="price">138,54 TL</td></tr>
+<tr><td>6302 C3</td><td class="price">138,54 TL</td></tr>
+<tr><td>6302 Z</td><td class="price">152,79 TL</td></tr>
+<tr><td>6302 Z C3</td><td class="price">152,79 TL</td></tr>
+<tr><td>6302 ZZ</td><td class="price">174,24 TL</td></tr>
+<tr><td>6302 ZZ C3</td><td class="price">174,24 TL</td></tr>
+<tr><td>6302 ZZ NR</td><td class="price">190,34 TL</td></tr>
+<tr><td>6302 RS</td><td class="price">176,95 TL</td></tr>
+<tr><td>6302 2RS</td><td class="price">195,45 TL</td></tr>
+<tr><td>6302 2RS NR</td><td class="price">224,31 TL</td></tr>
+<tr><td>6302 N</td><td class="price">148,55 TL</td></tr>
+<tr><td>6302 NR</td><td class="price">157,6 TL</td></tr>
+<tr><td>6302 ZNR</td><td class="price">163,51 TL</td></tr>
+<tr><td>6303</td><td class="price">162,07 TL</td></tr>
+<tr><td>6303 C3</td><td class="price">162,07 TL</td></tr>
+<tr><td>6303 Z</td><td class="price">178,49 TL</td></tr>
+<tr><td>6303 Z C3</td><td class="price">178,49 TL</td></tr>
+<tr><td>6303 ZZ</td><td class="price">190,71 TL</td></tr>
+<tr><td>6303 ZZ C3</td><td class="price">190,71 TL</td></tr>
+<tr><td>6303 ZZ NR</td><td class="price">235,16 TL</td></tr>
+<tr><td>6303 2RDD</td><td class="price">265,47 TL</td></tr>
+<tr><td>6303 RS</td><td class="price">201,45 TL</td></tr>
+<tr><td>6303 2RS</td><td class="price">228,76 TL</td></tr>
+<tr><td>6303 2RS V</td><td class="price">332,42 TL</td></tr>
+<tr><td>6303 2RS NR</td><td class="price">262,85 TL</td></tr>
+<tr><td>6303 N</td><td class="price">184,73 TL</td></tr>
+<tr><td>6303 NR</td><td class="price">202,64 TL</td></tr>
+<tr><td>6303 ZNR</td><td class="price">222,7 TL</td></tr>
+<tr><td>6304</td><td class="price">174,73 TL</td></tr>
+<tr><td>6304 C3</td><td class="price">174,73 TL</td></tr>
+<tr><td>6304 Z</td><td class="price">192,5 TL</td></tr>
+<tr><td>6304 Z C3</td><td class="price">192,5 TL</td></tr>
+<tr><td>6304 ZZ</td><td class="price">213,93 TL</td></tr>
+<tr><td>6304 ZZ C3</td><td class="price">213,93 TL</td></tr>
+<tr><td>6304 ZZ NR</td><td class="price">245,38 TL</td></tr>
+<tr><td>6304 RS</td><td class="price">222,83 TL</td></tr>
+<tr><td>6304 2RS</td><td class="price">245,38 TL</td></tr>
+<tr><td>6304 2RS V</td><td class="price">366,34 TL</td></tr>
+<tr><td>6304 2RS NR</td><td class="price">283,27 TL</td></tr>
+<tr><td>6304 N</td><td class="price">192,5 TL</td></tr>
+<tr><td>6304 NR</td><td class="price">211,64 TL</td></tr>
+<tr><td>6304 ZNR</td><td class="price">232,31 TL</td></tr>
+<tr><td>6305</td><td class="price">244,34 TL</td></tr>
+<tr><td>6305 C3</td><td class="price">244,34 TL</td></tr>
+<tr><td>6305 Z</td><td class="price">268,1 TL</td></tr>
+<tr><td>6305 Z C3</td><td class="price">268,1 TL</td></tr>
+<tr><td>6305 ZZ</td><td class="price">294,96 TL</td></tr>
+<tr><td>6305 ZZ C3</td><td class="price">294,96 TL</td></tr>
+<tr><td>6305 ZZ NR</td><td class="price">338,38 TL</td></tr>
+<tr><td>6305 RS</td><td class="price">305,71 TL</td></tr>
+<tr><td>6305 2RS</td><td class="price">318,93 TL</td></tr>
+<tr><td>6305 2RS V</td><td class="price">478,41 TL</td></tr>
+<tr><td>6305 2RS NR</td><td class="price">366,91 TL</td></tr>
+<tr><td>6305 N</td><td class="price">268,25 TL</td></tr>
+<tr><td>6305 NR</td><td class="price">295,07 TL</td></tr>
+<tr><td>6305 ZNR</td><td class="price">324,16 TL</td></tr>
+<tr><td>6306</td><td class="price">336,18 TL</td></tr>
+<tr><td>6306 C3</td><td class="price">336,18 TL</td></tr>
+<tr><td>6306 Z</td><td class="price">369,63 TL</td></tr>
+<tr><td>6306 Z C3</td><td class="price">369,63 TL</td></tr>
+<tr><td>6306 ZZ</td><td class="price">403,23 TL</td></tr>
+<tr><td>6306 ZZ C3</td><td class="price">403,23 TL</td></tr>
+<tr><td>6306 ZZ NR</td><td class="price">522,82 TL</td></tr>
+<tr><td>6306 RS</td><td class="price">415,67 TL</td></tr>
+<tr><td>6306 2RS</td><td class="price">440,28 TL</td></tr>
+<tr><td>6306 2RS V</td><td class="price">659,34 TL</td></tr>
+<tr><td>6306 2RS NR</td><td class="price">505,95 TL</td></tr>
+<tr><td>6306 N</td><td class="price">377,29 TL</td></tr>
+<tr><td>6306 ZNR</td><td class="price">486,97 TL</td></tr>
+<tr><td>6307</td><td class="price">435,87 TL</td></tr>
+<tr><td>6307 C3</td><td class="price">435,87 TL</td></tr>
+<tr><td>6307 Z</td><td class="price">479,9 TL</td></tr>
+<tr><td>6307 Z C3</td><td class="price">479,9 TL</td></tr>
+<tr><td>6307 ZZ</td><td class="price">527,74 TL</td></tr>
+<tr><td>6307 ZZ C3</td><td class="price">527,74 TL</td></tr>
+<tr><td>6307 ZZ NR</td><td class="price">606,39 TL</td></tr>
+<tr><td>6307 RS</td><td class="price">551,01 TL</td></tr>
+<tr><td>6307 2RS</td><td class="price">575,15 TL</td></tr>
+<tr><td>6307 2RS V</td><td class="price">861,77 TL</td></tr>
+<tr><td>6307 2RS N</td><td class="price">635,06 TL</td></tr>
+<tr><td>6307 2RS NR</td><td class="price">661,7 TL</td></tr>
+<tr><td>6307 N</td><td class="price">479,9 TL</td></tr>
+<tr><td>6307 NR</td><td class="price">527,74 TL</td></tr>
+<tr><td>6307 ZNR</td><td class="price">580,5 TL</td></tr>
+<tr><td>6308</td><td class="price">597,52 TL</td></tr>
+<tr><td>6308 C3</td><td class="price">597,52 TL</td></tr>
+<tr><td>6308 Z</td><td class="price">657,28 TL</td></tr>
+<tr><td>6308 Z C3</td><td class="price">657,28 TL</td></tr>
+<tr><td>6308 ZZ</td><td class="price">722,18 TL</td></tr>
+<tr><td>6308 ZZ C3</td><td class="price">722,18 TL</td></tr>
+<tr><td>6308 ZZ NR</td><td class="price">830,38 TL</td></tr>
+<tr><td>6308 RS</td><td class="price">701,77 TL</td></tr>
+<tr><td>6308 2RS</td><td class="price">787,58 TL</td></tr>
+<tr><td>6308 2RS V</td><td class="price">1204,6 TL</td></tr>
+<tr><td>6308 2RS NR</td><td class="price">905,7 TL</td></tr>
+<tr><td>6308 N</td><td class="price">659,34 TL</td></tr>
+<tr><td>6308 NR</td><td class="price">721,16 TL</td></tr>
+<tr><td>6308 ZNR</td><td class="price">794,63 TL</td></tr>
+<tr><td>6309</td><td class="price">742,2 TL</td></tr>
+<tr><td>6309 C3</td><td class="price">742,2 TL</td></tr>
+<tr><td>6309 Z</td><td class="price">812,39 TL</td></tr>
+<tr><td>6309 Z C3</td><td class="price">812,39 TL</td></tr>
+<tr><td>6309 ZZ</td><td class="price">893,33 TL</td></tr>
+<tr><td>6309 ZZ C3</td><td class="price">893,33 TL</td></tr>
+<tr><td>6309 ZZ NR</td><td class="price">1157,53 TL</td></tr>
+<tr><td>6309 RS</td><td class="price">910,27 TL</td></tr>
+<tr><td>6309 2RS</td><td class="price">978,91 TL</td></tr>
+<tr><td>6309 2RS V</td><td class="price">1334,96 TL</td></tr>
+<tr><td>6309 2RS NR</td><td class="price">1125,32 TL</td></tr>
+<tr><td>6309 N</td><td class="price">907,33 TL</td></tr>
+<tr><td>6309 NR</td><td class="price">995,46 TL</td></tr>
+<tr><td>6309 ZNR</td><td class="price">1096,47 TL</td></tr>
+<tr><td>6310</td><td class="price">994,02 TL</td></tr>
+<tr><td>6310 C3</td><td class="price">994,02 TL</td></tr>
+<tr><td>6310 Z</td><td class="price">1088,95 TL</td></tr>
+<tr><td>6310 Z C3</td><td class="price">1088,95 TL</td></tr>
+<tr><td>6310 ZZ</td><td class="price">1227,26 TL</td></tr>
+<tr><td>6310 ZZ C3</td><td class="price">1227,26 TL</td></tr>
+<tr><td>6310 ZZ NR</td><td class="price">1467,06 TL</td></tr>
+<tr><td>6310 RS</td><td class="price">1351,27 TL</td></tr>
+<tr><td>6310 2RS</td><td class="price">1481,9 TL</td></tr>
+<tr><td>6310 2RS NR</td><td class="price">1703,9 TL</td></tr>
+<tr><td>6310 N</td><td class="price">1111 TL</td></tr>
+<tr><td>6310 NR</td><td class="price">1245,63 TL</td></tr>
+<tr><td>6310 ZNR</td><td class="price">1418,73 TL</td></tr>
+<tr><td>6311</td><td class="price">1260,57 TL</td></tr>
+<tr><td>6311 C3</td><td class="price">1260,57 TL</td></tr>
+<tr><td>6311 Z</td><td class="price">1386,72 TL</td></tr>
+<tr><td>6311 Z C3</td><td class="price">1386,72 TL</td></tr>
+<tr><td>6311 ZZ</td><td class="price">1525,08 TL</td></tr>
+<tr><td>6311 ZZ C3</td><td class="price">1525,08 TL</td></tr>
+<tr><td>6311 ZZ NR</td><td class="price">1785 TL</td></tr>
+<tr><td>6311 RS</td><td class="price">1589,05 TL</td></tr>
+<tr><td>6311 2RS</td><td class="price">1874,89 TL</td></tr>
+<tr><td>6311 2RS V</td><td class="price">2806,21 TL</td></tr>
+<tr><td>6311 2RS NR</td><td class="price">2156,03 TL</td></tr>
+<tr><td>6311 N</td><td class="price">1441,24 TL</td></tr>
+<tr><td>6311 NR</td><td class="price">1581,57 TL</td></tr>
+<tr><td>6311 ZNR</td><td class="price">1754,68 TL</td></tr>
+<tr><td>6312</td><td class="price">1878,66 TL</td></tr>
+<tr><td>6312 C3</td><td class="price">1878,66 TL</td></tr>
+<tr><td>6312 Z</td><td class="price">2062,11 TL</td></tr>
+<tr><td>6312 Z C3</td><td class="price">2062,11 TL</td></tr>
+<tr><td>6312 ZZ</td><td class="price">2267,87 TL</td></tr>
+<tr><td>6312 ZZ C3</td><td class="price">2267,87 TL</td></tr>
+<tr><td>6312 ZZ NR</td><td class="price">2763,12 TL</td></tr>
+<tr><td>6312 RS</td><td class="price">2401,26 TL</td></tr>
+<tr><td>6312 2RS</td><td class="price">2641,01 TL</td></tr>
+<tr><td>6312 2RS NR</td><td class="price">3036,3 TL</td></tr>
+<tr><td>6312 N</td><td class="price">2214,98 TL</td></tr>
+<tr><td>6312 NR</td><td class="price">2476,39 TL</td></tr>
+<tr><td>6312 ZNR</td><td class="price">2704,46 TL</td></tr>
+<tr><td>6313</td><td class="price">2266,48 TL</td></tr>
+<tr><td>6313 C3</td><td class="price">2266,48 TL</td></tr>
+<tr><td>6313 Z</td><td class="price">2492,84 TL</td></tr>
+<tr><td>6313 Z C3</td><td class="price">2492,84 TL</td></tr>
+<tr><td>6313 ZZ</td><td class="price">2742,1 TL</td></tr>
+<tr><td>6313 ZZ C3</td><td class="price">2742,1 TL</td></tr>
+<tr><td>6313 ZZ NR</td><td class="price">3215,04 TL</td></tr>
+<tr><td>6313 RS</td><td class="price">2917,97 TL</td></tr>
+<tr><td>6313 2RS</td><td class="price">3209,29 TL</td></tr>
+<tr><td>6313 2RS NR</td><td class="price">3689,33 TL</td></tr>
+<tr><td>6313 N</td><td class="price">2640,18 TL</td></tr>
+<tr><td>6313 NR</td><td class="price">2902,73 TL</td></tr>
+<tr><td>6313 ZNR</td><td class="price">3148,67 TL</td></tr>
+<tr><td>6314</td><td class="price">2983,17 TL</td></tr>
+<tr><td>6314 C3</td><td class="price">2983,17 TL</td></tr>
+<tr><td>6314 Z</td><td class="price">3280,71 TL</td></tr>
+<tr><td>6314 Z C3</td><td class="price">3280,71 TL</td></tr>
+<tr><td>6314 ZZ</td><td class="price">3609,2 TL</td></tr>
+<tr><td>6314 ZZ C3</td><td class="price">3609,2 TL</td></tr>
+<tr><td>6314 ZZ NR</td><td class="price">4620,99 TL</td></tr>
+<tr><td>6314 RS</td><td class="price">3750,33 TL</td></tr>
+<tr><td>6314 2RS</td><td class="price">3983,49 TL</td></tr>
+<tr><td>6314 2RS NR</td><td class="price">4581,2 TL</td></tr>
+<tr><td>6314 N </td><td class="price">3437,24 TL</td></tr>
+<tr><td>6314 NR</td><td class="price">4157,37 TL</td></tr>
+<tr><td>6314 ZNR</td><td class="price">4571,21 TL</td></tr>
+<tr><td>6315</td><td class="price">3546,01 TL</td></tr>
+<tr><td>6315 C3</td><td class="price">3546,01 TL</td></tr>
+<tr><td>6315 Z</td><td class="price">3900 TL</td></tr>
+<tr><td>6315 Z C3</td><td class="price">3900 TL</td></tr>
+<tr><td>6315 ZZ</td><td class="price">4288,77 TL</td></tr>
+<tr><td>6315 ZZ C3</td><td class="price">4288,77 TL</td></tr>
+<tr><td>6315 ZZ NR</td><td class="price">4932,8 TL</td></tr>
+<tr><td>6315 RS</td><td class="price">4545,42 TL</td></tr>
+<tr><td>6315 2RS</td><td class="price">4679,28 TL</td></tr>
+<tr><td>6315 2RS NR</td><td class="price">5382,07 TL</td></tr>
+<tr><td>6315 N</td><td class="price">4253,73 TL</td></tr>
+<tr><td>6315 NR</td><td class="price">4466,79 TL</td></tr>
+<tr><td>6315 ZNR</td><td class="price">4737,97 TL</td></tr>
+<tr><td>6316</td><td class="price">4274,95 TL</td></tr>
+<tr><td>6316 C3</td><td class="price">4274,95 TL</td></tr>
+<tr><td>6316 Z</td><td class="price">4688,35 TL</td></tr>
+<tr><td>6316 Z C3</td><td class="price">4688,35 TL</td></tr>
+<tr><td>6316 ZZ</td><td class="price">5123,83 TL</td></tr>
+<tr><td>6316 ZZ C3</td><td class="price">5123,83 TL</td></tr>
+<tr><td>6316 ZZ NR</td><td class="price">5891,26 TL</td></tr>
+<tr><td>6316 RS</td><td class="price">5315,77 TL</td></tr>
+<tr><td>6316 2RS</td><td class="price">5639,84 TL</td></tr>
+<tr><td>6316 2RS NR</td><td class="price">6481,23 TL</td></tr>
+<tr><td>6316 N </td><td class="price">4593,3 TL</td></tr>
+<tr><td>6316 NR</td><td class="price">5152,88 TL</td></tr>
+<tr><td>6317</td><td class="price">5077,09 TL</td></tr>
+<tr><td>6317 C3</td><td class="price">5077,09 TL</td></tr>
+<tr><td>6317 Z</td><td class="price">5584,03 TL</td></tr>
+<tr><td>6317 Z C3</td><td class="price">5584,03 TL</td></tr>
+<tr><td>6317 ZZ</td><td class="price">6096,8 TL</td></tr>
+<tr><td>6317 ZZ C3</td><td class="price">6096,8 TL</td></tr>
+<tr><td>6317 ZZ NR</td><td class="price">7010,84 TL</td></tr>
+<tr><td>6317 RS</td><td class="price">5769,92 TL</td></tr>
+<tr><td>6317 2RS</td><td class="price">6699,88 TL</td></tr>
+<tr><td>6317 2RS NR</td><td class="price">7703,01 TL</td></tr>
+<tr><td>6317 N </td><td class="price">5407,43 TL</td></tr>
+<tr><td>6317 NR</td><td class="price">6345,5 TL</td></tr>
+<tr><td>6318</td><td class="price">6294,26 TL</td></tr>
+<tr><td>6318 C3</td><td class="price">6294,26 TL</td></tr>
+<tr><td>6318 Z</td><td class="price">6925,75 TL</td></tr>
+<tr><td>6318 Z C3</td><td class="price">6925,75 TL</td></tr>
+<tr><td>6318 ZZ</td><td class="price">7613,25 TL</td></tr>
+<tr><td>6318 ZZ C3</td><td class="price">7613,25 TL</td></tr>
+<tr><td>6318 ZZ NR</td><td class="price">7992,75 TL</td></tr>
+<tr><td>6318 RS</td><td class="price">7761,48 TL</td></tr>
+<tr><td>6318 2RS</td><td class="price">8307,59 TL</td></tr>
+<tr><td>6318 2RS NR</td><td class="price">9552,83 TL</td></tr>
+<tr><td>6318 N </td><td class="price">6618,68 TL</td></tr>
+<tr><td>6318 NR</td><td class="price">7906,35 TL</td></tr>
+<tr><td>6319</td><td class="price">7743,47 TL</td></tr>
+<tr><td>6319 C3</td><td class="price">7743,47 TL</td></tr>
+<tr><td>6319 Z</td><td class="price">8417,52 TL</td></tr>
+<tr><td>6319 Z C3</td><td class="price">8417,52 TL</td></tr>
+<tr><td>6319 ZZ</td><td class="price">9259,42 TL</td></tr>
+<tr><td>6319 ZZ C3</td><td class="price">9259,42 TL</td></tr>
+<tr><td>6319 ZZ NR</td><td class="price">10648,43 TL</td></tr>
+<tr><td>6319 2RS</td><td class="price">10225,86 TL</td></tr>
+<tr><td>6319 2RS NR</td><td class="price">11753,52 TL</td></tr>
+<tr><td>6319 N</td><td class="price">8130,3 TL</td></tr>
+<tr><td>6319 NR</td><td class="price">9678,22 TL</td></tr>
+<tr><td>6320</td><td class="price">9344,44 TL</td></tr>
+<tr><td>6320 C3</td><td class="price">9344,44 TL</td></tr>
+<tr><td>6320 Z</td><td class="price">9977,68 TL</td></tr>
+<tr><td>6320 Z C3</td><td class="price">9977,68 TL</td></tr>
+<tr><td>6320 ZZ</td><td class="price">10975,01 TL</td></tr>
+<tr><td>6320 ZZ C3</td><td class="price">10975,01 TL</td></tr>
+<tr><td>6320 ZZ NR</td><td class="price">12621,79 TL</td></tr>
+<tr><td>6320 2RS</td><td class="price">12077,21 TL</td></tr>
+<tr><td>6320 2RS NR</td><td class="price">13887,21 TL</td></tr>
+<tr><td>6320 N</td><td class="price">10643,57 TL</td></tr>
+<tr><td>6320 NR</td><td class="price">11211,02 TL</td></tr>
+<tr><td>6321</td><td class="price">10164,55 TL</td></tr>
+<tr><td>6322</td><td class="price">13839,48 TL</td></tr>
+<tr><td>6322 C3</td><td class="price">13839,48 TL</td></tr>
+<tr><td>6322 Z</td><td class="price">15395,19 TL</td></tr>
+<tr><td>6322 Z C3</td><td class="price">15395,19 TL</td></tr>
+<tr><td>6322 ZZ</td><td class="price">16769,89 TL</td></tr>
+<tr><td>6322 ZZ C3</td><td class="price">16769,89 TL</td></tr>
+<tr><td>6404</td><td class="price">710,42 TL</td></tr>
+<tr><td>6405</td><td class="price">930,65 TL</td></tr>
+<tr><td>6405 ZZ</td><td class="price">1163,3 TL</td></tr>
+<tr><td>6405 2RS</td><td class="price">1336,5 TL</td></tr>
+<tr><td>6406</td><td class="price">1065,26 TL</td></tr>
+<tr><td>6408</td><td class="price">1953,15 TL</td></tr>
+<tr><td>6409</td><td class="price">2113,34 TL</td></tr>
+<tr><td>6410</td><td class="price">2315,21 TL</td></tr>
+<tr><td>6411</td><td class="price">3007,73 TL</td></tr>
+<tr><td>6806</td><td class="price">624,63 TL</td></tr>
+<tr><td>6807</td><td class="price">693,36 TL</td></tr>
+<tr><td>6808</td><td class="price">723,31 TL</td></tr>
+<tr><td>6811</td><td class="price">1102,99 TL</td></tr>
+<tr><td>6812</td><td class="price">1156,47 TL</td></tr>
+<tr><td>6813</td><td class="price">1455,24 TL</td></tr>
+<tr><td>6904 </td><td class="price">250,39 TL</td></tr>
+<tr><td>6904 ZZ</td><td class="price">312,99 TL</td></tr>
+<tr><td>61905 2RS</td><td class="price">517,93 TL</td></tr>
+<tr><td>6906</td><td class="price">391,21 TL</td></tr>
+<tr><td>61907 2RS(35x55x13)</td><td class="price">764,2 TL</td></tr>
+<tr><td>6908 2RS</td><td class="price">996,43 TL</td></tr>
+<tr><td>6909</td><td class="price">764,12 TL</td></tr>
+<tr><td>7203 B</td><td class="price">397,1 TL</td></tr>
+<tr><td>7204 B</td><td class="price">491,54 TL</td></tr>
+<tr><td>7310 B</td><td class="price">1829,73 TL</td></tr>
+<tr><td>7311 B</td><td class="price">2775,57 TL</td></tr>
+<tr><td>211 ZNR</td><td class="price">1392,99 TL</td></tr>
+<tr><td>213 ZNR</td><td class="price">2151,33 TL</td></tr>
+<tr><td>308 NR</td><td class="price">1057,08 TL</td></tr>
+<tr><td>308 ZNR</td><td class="price">1088,95 TL</td></tr>
+<tr><td>309 NR V</td><td class="price">1719,81 TL</td></tr>
+<tr><td>309 ZNR V</td><td class="price">1735,97 TL</td></tr>
+<tr><td>310 ZNR</td><td class="price">2269,78 TL</td></tr>
+<tr><td>62200 2RS</td><td class="price">217,9 TL</td></tr>
+<tr><td>62201 2RS</td><td class="price">248,74 TL</td></tr>
+<tr><td>62202 2RS</td><td class="price">303,31 TL</td></tr>
+<tr><td>62203 2RS</td><td class="price">335,17 TL</td></tr>
+<tr><td>62204 2RS</td><td class="price">367,61 TL</td></tr>
+<tr><td>62204 ZZ</td><td class="price">312,59 TL</td></tr>
+<tr><td>62205 2RS</td><td class="price">472,63 TL</td></tr>
+<tr><td>62206 2RS</td><td class="price">501,08 TL</td></tr>
+<tr><td>62207 2RS</td><td class="price">625,71 TL</td></tr>
+<tr><td>62208 2RS</td><td class="price">715,59 TL</td></tr>
+<tr><td>62209 2RS</td><td class="price">848,51 TL</td></tr>
+<tr><td>62210 2RS</td><td class="price">1041,41 TL</td></tr>
+<tr><td>62211 2RS</td><td class="price">1245,02 TL</td></tr>
+<tr><td>62213 2RS</td><td class="price">1796,38 TL</td></tr>
+<tr><td>62300 2RS</td><td class="price">257,16 TL</td></tr>
+<tr><td>62301 2RS</td><td class="price">302,31 TL</td></tr>
+<tr><td>62302 2RS</td><td class="price">358,96 TL</td></tr>
+<tr><td>62303 2RS</td><td class="price">412 TL</td></tr>
+<tr><td>62304 2RS</td><td class="price">460,32 TL</td></tr>
+<tr><td>62305 2RS</td><td class="price">496,02 TL</td></tr>
+<tr><td>62306 2RS</td><td class="price">543 TL</td></tr>
+<tr><td>62307 2RS</td><td class="price">685,71 TL</td></tr>
+<tr><td>62308 2RS</td><td class="price">943,85 TL</td></tr>
+<tr><td>62310 2RS</td><td class="price">1591,5 TL</td></tr>
+<tr><td>63000 2RS</td><td class="price">363,13 TL</td></tr>
+<tr><td>63001 2RS</td><td class="price">402,97 TL</td></tr>
+<tr><td>63002 2RS</td><td class="price">402,51 TL</td></tr>
+<tr><td>63003 2RS</td><td class="price">493,46 TL</td></tr>
+<tr><td>63004 2RS</td><td class="price">558,07 TL</td></tr>
+<tr><td>63005 2RS</td><td class="price">619,89 TL</td></tr>
+<tr><td>63006 2RS</td><td class="price">689,08 TL</td></tr>
+<tr><td>63007 2RS</td><td class="price">790,49 TL</td></tr>
+<tr><td>63008 2RS</td><td class="price">1067,85 TL</td></tr>
+<tr><td>2305</td><td class="price">605,46 TL</td></tr>
+<tr><td>3203 2RG</td><td class="price">528,08 TL</td></tr>
+<tr><td>3204</td><td class="price">551,28 TL</td></tr>
+<tr><td>3204 ZZ</td><td class="price">616,35 TL</td></tr>
+<tr><td>3204 2RS</td><td class="price">661,7 TL</td></tr>
+<tr><td>3205</td><td class="price">689,08 TL</td></tr>
+<tr><td>3205 2RS</td><td class="price">908,75 TL</td></tr>
+<tr><td>3206</td><td class="price">913,59 TL</td></tr>
+<tr><td>3206 2RS</td><td class="price">1198,49 TL</td></tr>
+<tr><td>3207</td><td class="price">1098,35 TL</td></tr>
+<tr><td>3207 2RS</td><td class="price">1438,58 TL</td></tr>
+<tr><td>3208</td><td class="price">1303,63 TL</td></tr>
+<tr><td>3208 2RS</td><td class="price">1523,65 TL</td></tr>
+<tr><td>3209</td><td class="price">1570,82 TL</td></tr>
+<tr><td>3210</td><td class="price">1862,05 TL</td></tr>
+<tr><td>3210 2RS</td><td class="price">2246,83 TL</td></tr>
+<tr><td>3211</td><td class="price">2230,1 TL</td></tr>
+<tr><td>3212</td><td class="price">2679,31 TL</td></tr>
+<tr><td>3212 2RS</td><td class="price">3195,14 TL</td></tr>
+<tr><td>3215</td><td class="price">4326,04 TL</td></tr>
+<tr><td>3215 2RS</td><td class="price">5190,11 TL</td></tr>
+<tr><td>3304 2RS</td><td class="price">690,55 TL</td></tr>
+<tr><td>3306 2RS</td><td class="price">1723,8 TL</td></tr>
+<tr><td>6205 PLS ZZ  C3</td><td class="price">48,75 TL</td></tr>
+<tr><td>6208 PLS ZZ  C3</td><td class="price">72,5 TL</td></tr>
+<tr><td>6209 PLS ZZ  C3</td><td class="price">80,25 TL</td></tr>
+<tr><td>6210 PLS  C3 TK</td><td class="price">90 TL</td></tr>
+<tr><td>6210 PLS ZZ  C3 </td><td class="price">98,75 TL</td></tr>
+<tr><td>6212 PLS C3</td><td class="price">137,5 TL</td></tr>
+<tr><td>6212 PLS ZZ  C3</td><td class="price">150 TL</td></tr>
+<tr><td>6213 PLS C3</td><td class="price">162,5 TL</td></tr>
+<tr><td>6213 PLS ZZ  C3 </td><td class="price">178,75 TL</td></tr>
+<tr><td>6214 PLS ZZ  C3</td><td class="price">213,75 TL</td></tr>
+<tr><td>6215 PLS ZZ  C3</td><td class="price">192,5 TL</td></tr>
+<tr><td>6216 PLS RS C3 </td><td class="price">207,5 TL</td></tr>
+<tr><td>6217 PLS ZZ  C3</td><td class="price">255 TL</td></tr>
+<tr><td>6219 PLS ZZ  C3</td><td class="price">312,5 TL</td></tr>
+<tr><td>6306 PLS  C3 </td><td class="price">51,25 TL</td></tr>
+<tr><td>6306 PLS Z  C3 </td><td class="price">52,5 TL</td></tr>
+<tr><td>6306 PLS ZZ C3 </td><td class="price">56,25 TL</td></tr>
+<tr><td>6308 PLS  C3 </td><td class="price">96,25 TL</td></tr>
+<tr><td>6308 PLS Z  C3 </td><td class="price">100 TL</td></tr>
+<tr><td>6308 PLS ZZ  C3</td><td class="price">106,25 TL</td></tr>
+<tr><td>6309 PLS  C3 </td><td class="price">102,5 TL</td></tr>
+<tr><td>6309 PLS Z  C3 </td><td class="price">107,5 TL</td></tr>
+<tr><td>6309 PLS ZZ  C3</td><td class="price">115 TL</td></tr>
+<tr><td>6310 PLS C3</td><td class="price">121,25 TL</td></tr>
+<tr><td>6310 PLS C4</td><td class="price">131,25 TL</td></tr>
+<tr><td>6310 PLS Z  C3 </td><td class="price">125 TL</td></tr>
+<tr><td>6310 PLS ZZ  C3</td><td class="price">130 TL</td></tr>
+<tr><td>6311 PLS ZZ  C3</td><td class="price">142,5 TL</td></tr>
+<tr><td>6312 PLS  C3</td><td class="price">156,25 TL</td></tr>
+<tr><td>6312 PLS ZZ  C3</td><td class="price">171,25 TL</td></tr>
+<tr><td>6313 PLS  C3 </td><td class="price">170 TL</td></tr>
+<tr><td>6313 PLS Z  C3 </td><td class="price">175 TL</td></tr>
+<tr><td>6313 PLS ZZ  C3</td><td class="price">185 TL</td></tr>
+<tr><td>6314 PLS  C3 </td><td class="price">187,5 TL</td></tr>
+<tr><td>6314 PLS ZZ  C3</td><td class="price">215 TL</td></tr>
+<tr><td>6315 PLS  C3 </td><td class="price">210 TL</td></tr>
+<tr><td>6315 PLS ZZ  C3</td><td class="price">237,5 TL</td></tr>
+<tr><td>6316 PLS C3</td><td class="price">222,5 TL</td></tr>
+<tr><td>6316 PLS C4</td><td class="price">243,75 TL</td></tr>
+<tr><td>6316 PLS ZZ  C3</td><td class="price">256,25 TL</td></tr>
+<tr><td>6317 PLS C3</td><td class="price">251,25 TL</td></tr>
+<tr><td>6317 PLS ZZ  C3</td><td class="price">276,25 TL</td></tr>
+<tr><td>6317 PLS C3 </td><td class="price">251,25 TL</td></tr>
+<tr><td>6318 PLS C3</td><td class="price">286,25 TL</td></tr>
+<tr><td>6318 PLS  C4 </td><td class="price">315 TL</td></tr>
+<tr><td>6319 PLS C3</td><td class="price">313,75 TL</td></tr>
+<tr><td>6319 PLS C4</td><td class="price">343,75 TL</td></tr>
+<tr><td>6319 PLS ZZ  C3</td><td class="price">325 TL</td></tr>
+<tr><td>6321 PLS C3</td><td class="price">407,5 TL</td></tr>
+<tr><td>6322 PLS C3</td><td class="price">478,75 TL</td></tr>
+<tr><td>6202 CB TN1</td><td class="price">22 TL</td></tr>
+<tr><td>6202 CB TN1 ZZ</td><td class="price">20,9 TL</td></tr>
+<tr><td>6204 CB TN1</td><td class="price">32,3 TL</td></tr>
+<tr><td>6204 CB TN1 ZZ</td><td class="price">34 TL</td></tr>
+<tr><td>6205 CB TN1</td><td class="price">33,25 TL</td></tr>
+<tr><td>6205 CB TN1 ZZ</td><td class="price">35 TL</td></tr>
+<tr><td>6206 CB</td><td class="price">52,25 TL</td></tr>
+<tr><td>6206 CB TN1</td><td class="price">52,25 TL</td></tr>
+<tr><td>6206 CB TN1 ZZ</td><td class="price">55 TL</td></tr>
+<tr><td>6210 CB TN1 ZZ</td><td class="price">105 TL</td></tr>
+<tr><td>62207 CB TN1 ZZ</td><td class="price">122 TL</td></tr>
+<tr><td>62210 CB TN1 ZZ</td><td class="price">247 TL</td></tr>
+<tr><td>6302 CB</td><td class="price">25,3 TL</td></tr>
+<tr><td>6302 CB TN1 ZZ</td><td class="price">26,6 TL</td></tr>
+<tr><td>6308 CB TN1 ZZ</td><td class="price">180 TL</td></tr>
+<tr><td>6310 CB</td><td class="price">199,5 TL</td></tr>
+<tr><td>6310 CB TN1 ZZ</td><td class="price">210 TL</td></tr>
+<tr><td>6312 CB TN1 ZZ</td><td class="price">330 TL</td></tr>
+
+    <div id="noResult" class="no-result">Aradığınız rulman kodu bulunamadı.</div>
+</div>
+
+<script>
+    function aramaYap() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toLowerCase().trim();
+        var table = document.getElementById("urunTablosu");
+        var tr = table.getElementsByTagName("tr");
+        var hasResult = false;
+
+        for (var i = 1; i < tr.length; i++) {
+            var td = tr[i].getElementsByTagName("td")[0]; // Sadece Ürün Adı kolonunda ara
+            if (td) {
+                var textValue = td.textContent || td.innerText;
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    hasResult = true;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+
+        var noResult = document.getElementById("noResult");
+        if (hasResult || filter === "") {
+            noResult.style.display = "none";
+        } else {
+            noResult.style.display = "block";
+        }
+    }
+</script>
+<script>
+    // 1. Sayfa yüklendiğinde %45 indirimi uygula
+    document.addEventListener("DOMContentLoaded", function() {
+        const iskontoOrani = 0.55; // %45 indirim = %55'ini ödemek demek
+        const fiyatHucreleri = document.querySelectorAll(".price");
+        
+        fiyatHucreleri.forEach(td => {
+            const orijinalFiyat = parseFloat(td.innerText.replace(',', '.'));
+            if (!isNaN(orijinalFiyat)) {
+                const indirimliFiyat = (orijinalFiyat * iskontoOrani).toFixed(2);
+                td.innerText = indirimliFiyat.replace('.', ',') + " TL";
+            }
+        });
+    });
+
+    // 2. Arama Fonksiyonu
+    function aramaYap() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("urunTablosu");
+        tr = table.getElementsByTagName("tr");
+        
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
