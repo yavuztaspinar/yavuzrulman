@@ -1,4 +1,77 @@
 [
+  {
+    "ad": "15 TAC 47",
+    "kategori": "NSK",
+    "ic_cap": 15,
+    "dis_cap": 47,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "20 TAC 47",
+    "kategori": "NSK",
+    "ic_cap": 20,
+    "dis_cap": 47,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "25 TAC 62",
+    "kategori": "NSK",
+    "ic_cap": 25,
+    "dis_cap": 62,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "30 TAC 62",
+    "kategori": "NSK",
+    "ic_cap": 30,
+    "dis_cap": 62,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "35 TAC 72",
+    "kategori": "NSK",
+    "ic_cap": 35,
+    "dis_cap": 72,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "40 TAC 72",
+    "kategori": "NSK",
+    "ic_cap": 40,
+    "dis_cap": 72,
+    "genislik": 15,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "40 TAC 90",
+    "kategori": "NSK",
+    "ic_cap": 40,
+    "dis_cap": 90,
+    "genislik": 20,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  },
+  {
+    "ad": "50 TAC 100",
+    "kategori": "NSK",
+    "ic_cap": 50,
+    "dis_cap": 100,
+    "genislik": 20,
+    "fiyat": "Sorunuz",
+    "stok": 30
+  }
+]
 {
     "ad": "6005 NR",
     "kategori": "ORS",
